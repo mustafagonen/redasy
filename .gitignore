@@ -6,3 +6,4 @@ _preview
 .env.*
 !.env.example
 .DS_Store
+tsconfig.tsbuildinfo
