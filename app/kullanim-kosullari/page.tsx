@@ -24,13 +24,13 @@ const text = {
 export default function TermsPage() {
   const { t, lang } = useI18n();
   return (
-    <div className="bg-[#12161b] px-4 py-14 text-white">
+    <div className="bg-paper px-5 py-16 text-ink">
       <article className="mx-auto max-w-3xl">
-        <p className="text-sm text-white/55">
+        <p className="text-sm text-muted">
           <Link href="/">{t("home")}</Link> / {t("terms")}
         </p>
-        <h1 className="mt-3 text-4xl font-bold">{t("terms")}</h1>
-        <div className="mt-6 space-y-4 text-sm leading-7 text-white/75">
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight">{t("terms")}</h1>
+        <div className="mt-6 space-y-4 text-sm leading-7 text-muted">
           {text[lang].map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}

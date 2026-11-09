@@ -2,7 +2,12 @@ import type { Lang } from "./i18n";
 
 export type L<T> = Record<Lang, T>;
 
-export type Spec = { label: L<string>; value: L<string> };
+export type Spec = {
+  label: L<string>;
+  value: L<string>;
+  tick?: "before" | "after" | "none";
+  tone?: "ink" | "burgundy" | "muted";
+};
 
 export type Product = {
   slug: string;
@@ -31,17 +36,25 @@ export type Category = {
   title: L<string>;
   cardTitle: L<string>;
   cardText: L<string>;
+  lead?: L<string>;
   subtitle?: L<string>;
   columns: 2 | 3 | 4;
   badge?: L<string>;
   tabs: { id: string; label: L<string>; href?: string }[];
   productSlugs: string[];
+  parkedSlugs?: string[];
 };
 
 const tr = (s: string, en: string, ar: string): L<string> => ({ tr: s, en, ar });
 const bullets = (tr: string[], en: string[], ar: string[]): L<string[]> => ({ tr, en, ar });
 
-export const phone = "+90 552 521 82 34";
+export const phones = [
+  { display: "0850 303 02 06", tel: "+908503030206", role: tr("Santral", "Switchboard", "السنترال") },
+  { display: "0531 529 02 06", tel: "+905315290206", whatsapp: true, role: tr("WhatsApp", "WhatsApp", "واتساب") },
+  { display: "0312 870 06 02", tel: "+903128700602", role: tr("Ofis", "Office", "المكتب") },
+];
+export const phone = phones[0].display;
+export const whatsappNumber = "905315290206";
 export const email = "info@redasy.com";
 
 export const products: Product[] = [
@@ -660,21 +673,37 @@ export const categories: Category[] = [
       "High-output solutions for aggregate and mining.",
       "حلول عالية الإنتاج للركام والتعدين.",
     ),
-    columns: 2,
-    badge: tr("Hızlı Teslimat & Kurulum Desteği", "Fast Delivery & Installation Support", "تسليم سريع ودعم التركيب"),
+    lead: tr(
+      "Çeneli, darbeli, tersiyer, çekiçli ve dik milli kırıcı parçaları; elek teli, bant ve helezon yedekleriyle aynı servis ağında durur. Mobil kırma ve yıkama makineleri için teklif Ankara ekibinden alınır.",
+      "Jaw, impact, tertiary, hammer and vertical-shaft crusher parts sit with screen media, belt and screw spares in one service network. Quotes for mobile crushing and washing machines come from the Ankara team.",
+      "تقف قطع الكسارات الفكية والصدمة والثالثية والمطرقة والعمود القائم مع أسلاك الغربال والسيور والحلزون في شبكة خدمة واحدة. تُطلب عروض آلات الكسر والغسل المتنقلة من فريق أنقرة.",
+    ),
+    columns: 3,
+    badge: tr("Hızlı Yedek Parça Tedariği & Servis Desteği", "Fast spare-parts supply & service support", "توريد سريع لقطع الغيار ودعم الخدمة"),
     tabs: [
       {
         id: "makine",
         label: tr("MOBİL KIRMA, ELEME & YIKAMA MAKİNELERİ", "MOBILE CRUSHING, SCREENING & WASHING", "آلات الكسر والغربلة والغسل المتنقلة"),
-        href: "/faaliyet-alanlari/kirma-eleme-yikama",
+        href: "/iletisim",
       },
       {
         id: "yedek",
         label: tr("YEDEK PARÇA ÇÖZÜMLERİ", "SPARE PARTS SOLUTIONS", "حلول قطع الغيار"),
-        href: "/faaliyet-alanlari/kirma-eleme-yikama/yedek-parca",
+        href: "/faaliyet-alanlari/kirma-eleme-yikama",
       },
     ],
-    productSlugs: ["mobil-kirma-eleme", "mobil-eleme-yikama", "mobil-kirma-yuksek", "konveyor-bunker"],
+    productSlugs: [
+      "bant-konveyor-parcalari",
+      "dmk-parcalari",
+      "titresimli-elek-parcalari",
+      "tersiyer-kirici-parcalari",
+      "ceneli-kirici-parcalari",
+      "dik-milli-parcalari",
+      "sekonder-darbeli-parcalari",
+      "cekicli-kirici-parcalari",
+      "helezon-yikayici-parcalari",
+    ],
+    parkedSlugs: ["mobil-kirma-eleme", "mobil-eleme-yikama", "mobil-kirma-yuksek", "konveyor-bunker"],
   },
   {
     slug: "is-makinesi-atasmanlari",
@@ -689,6 +718,11 @@ export const categories: Category[] = [
       "Performans artıran dayanıklı ataşmanlar.",
       "Durable attachments that raise output.",
       "ملحقات متينة ترفع الأداء.",
+    ),
+    lead: tr(
+      "Ağır hizmet kovası, elek kova, ızgaralı elek kova, loader kovası, grapple, makas, quick coupler ve riper 12-70 ton sınıfı iş makineleri için aynı ailede üretilir.",
+      "Heavy-duty, screening, skeleton and loader buckets, grapples, shears, quick couplers and rippers are built in one family for the 12-70 ton class.",
+      "تُنتج الجرافات الثقيلة وغرابيل الجرافة والجرافات الهيكلية وجرافات اللودر والكلابات والمقصات والقارنات السريعة والريبر في عائلة واحدة لفئة 12-70 طنًا.",
     ),
     columns: 4,
     badge: tr("Ağır Hizmet Tipi Sertifikalı Üretim", "Certified Heavy-Duty Manufacturing", "تصنيع معتمد للخدمة الشاقة"),
@@ -716,6 +750,11 @@ export const categories: Category[] = [
       "Special vehicle solutions for municipalities and logistics.",
       "حلول مركبات للبلديات واللوجستيات.",
     ),
+    lead: tr(
+      "Frigo kasa, vidanjör, tanker, silobas, çöp kasası, itfaiye, araç üstü vinç, hooklift ve kurtarıcı ekipmanları filo tonajına göre projelendirilir. Frigo kasa -20°C ile +4°C arasında çalışır.",
+      "Refrigerated bodies, vacuum tankers, tankers, silo trailers, refuse bodies, fire trucks, cranes, hooklifts and recovery equipment are specified to fleet tonnage. Refrigerated bodies run from -20°C to +4°C.",
+      "تُصمَّم الصناديق المبردة وشفطات الصرف والصهاريج والصوامع وصناديق النفايات والإطفاء والرافعات والهوك ليفت ومعدات الإنقاذ وفق حمولة الأسطول. تعمل الصناديق المبردة بين -20° و+4°.",
+    ),
     columns: 3,
     badge: tr("TS EN ISO Standartlarında Onaylı Üretim", "Production approved to TS EN ISO standards", "إنتاج معتمد وفق معايير TS EN ISO"),
     tabs: [
@@ -736,6 +775,11 @@ export const categories: Category[] = [
       "Mobil sağlık, diş kliniği ve özel amaçlı dorse çözümleri.",
       "Mobile health, dental and special-purpose trailer solutions.",
       "حلول الصحة المتنقلة وعيادات الأسنان والمقطورات الخاصة.",
+    ),
+    lead: tr(
+      "Diş kliniği, mamografi, kan bağışı, klinik, mutfak ve afet-koordinasyon üniteleri saha hizmeti için hazırlanır. Kan bağışı aracı dört ila altı donör, laboratuvar ve yedekli enerjiyle teslim edilir.",
+      "Dental, mammography, blood donation, clinic, kitchen and disaster-coordination units are prepared for field service. The blood donation vehicle is delivered with four to six donor stations, a laboratory and redundant power.",
+      "تُجهَّز وحدات الأسنان والماموغرافيا وتبرع الدم والعيادة والمطبخ وتنسيق الكوارث للخدمة الميدانية. تُسلَّم مركبة التبرع بأربع إلى ست محطات متبرعين ومختبر وطاقة احتياطية.",
     ),
     subtitle: tr(
       "Hızlı, Esnek ve Güvenli Mobil Yaşam ve Hizmet Çözümleri",
@@ -765,13 +809,13 @@ export const spareCategory: Category = {
     {
       id: "makine",
       label: tr("MOBİL KIRMA, ELEME & YIKAMA MAKİNELERİ", "MOBILE CRUSHING, SCREENING & WASHING", "آلات الكسر والغربلة والغسل المتنقلة"),
-      href: "/faaliyet-alanlari/kirma-eleme-yikama",
-    },
-    {
-      id: "yedek",
-      label: tr("YEDEK PARÇA ÇÖZÜMLERİ", "SPARE PARTS SOLUTIONS", "حلول قطع الغيار"),
-      href: "/faaliyet-alanlari/kirma-eleme-yikama/yedek-parca",
-    },
+        href: "/iletisim",
+      },
+      {
+        id: "yedek",
+        label: tr("YEDEK PARÇA ÇÖZÜMLERİ", "SPARE PARTS SOLUTIONS", "حلول قطع الغيار"),
+        href: "/faaliyet-alanlari/kirma-eleme-yikama/yedek-parca",
+      },
   ],
   productSlugs: [
     "bant-konveyor-parcalari",
@@ -789,6 +833,10 @@ export const spareCategory: Category = {
 export function getCategory(slug: string) {
   return categories.find((item) => item.slug === slug);
 }
+
+export const areaExtras: { href: string; title: L<string> }[] = [
+  { href: "/iletisim", title: tr("Fason İmalat", "Contract Manufacturing", "التصنيع للغير") },
+];
 
 export const slides = [
   categories[1],
@@ -860,29 +908,108 @@ export const news = [
   },
 ];
 
+export const approach = [
+  {
+    title: tr("Tasarım", "Design", "التصميم"),
+    text: tr(
+      "Dört ürün ailesi yerli mühendislik ve Ar-Ge ile aynı ekipte kurgulanır.",
+      "All four product families are laid out by one in-house engineering and R&D team.",
+      "تُخطط عائلات المنتجات الأربع ضمن فريق هندسة وبحث وتطوير واحد.",
+    ),
+  },
+  {
+    title: tr("İmalat", "Manufacturing", "التصنيع"),
+    text: tr(
+      "Kırma parçaları, ataşmanlar, araç üstü ekipman ve mobil üniteler Ankara’daki fabrikada üretilir.",
+      "Crusher parts, attachments, truck bodies and mobile units are built at the Ankara plant.",
+      "تُصنع قطع الكسر والملحقات وهياكل المركبات والوحدات المتنقلة في مصنع أنقرة.",
+    ),
+  },
+  {
+    title: tr("Kabul", "Acceptance", "القبول"),
+    text: tr(
+      "Fabrika kabulü aynı kampüste yapılır. Her aile kendi TS EN ISO kontrol planıyla belgelenir.",
+      "Factory acceptance stays on the same campus. Each family is documented to its TS EN ISO plan.",
+      "يُجرى قبول المصنع في الحرم نفسه، وتُوثَّق كل عائلة وفق خطة TS EN ISO الخاصة بها.",
+    ),
+  },
+  {
+    title: tr("Saha ve servis", "Site and service", "الموقع والخدمة"),
+    text: tr(
+      "Anahtar teslim devreye alma, yedek parça ve kurulum desteği sevkiyattan sonra da sürer.",
+      "Turnkey commissioning, spare parts and installation support continue after shipment.",
+      "يستمر التشغيل الجاهز وقطع الغيار ودعم التركيب بعد الشحن.",
+    ),
+  },
+];
+
 export const projects = [
   {
     slug: "ocak-kirma-hatti",
     image: "/images/hero/kirma.jpg",
+    href: "/faaliyet-alanlari/kirma-eleme-yikama",
+    sector: tr("Kırma ve eleme", "Crushing and screening", "الكسر والغربلة"),
     title: tr("Ocak İçi Mobil Kırma Hattı", "In-pit mobile crushing line", "خط كسر متنقل داخل المقلع"),
-    text: tr("MC-120 ve yıkama ünitesiyle agrega üretimi.", "Aggregate production with the MC-120 and a washing unit.", "إنتاج الركام بـ MC-120 ووحدة الغسل."),
+    text: tr(
+      "Hat, paletli MC-120 kombine kırıcıyı eleme, yıkama ve taşımayla aynı akışta toplar. Kapasite 150-250 ton/saat, yürüyüş sistemi 42 tonluk ağır hizmet palettir. Besleme 800 mm’ye kadar çıkar; kontrol kablosuz kumanda ve PLC ile yapılır.",
+      "The line joins the tracked MC-120 combined crusher with screening, washing and handling. Output is 150-250 tph on a 42-ton heavy-duty undercarriage. Feed reaches 800 mm, with wireless remote and PLC control.",
+      "يجمع الخط الكسارة المدمجة المجنزرة MC-120 مع الغربلة والغسل والنقل. السعة 150-250 طنًا في الساعة على مجنزر خدمة شاقة بوزن 42 طنًا. تصل التغذية إلى 800 مم، والتحكم لاسلكي مع PLC.",
+    ),
+    points: bullets(
+      ["Çeneli ve darbeli kombine kırıcı, MC-120", "Eleme, yıkama ve susuzlandırma", "Konveyör, bunker ve yedek parça desteği"],
+      ["Combined jaw and impact crusher, MC-120", "Screening, washing and dewatering", "Conveyors, hoppers and spare-parts support"],
+      ["كسارة فكية وصدمة مدمجة، MC-120", "غربلة وغسل ونزح مياه", "سيور ومخابئ ودعم قطع الغيار"],
+    ),
   },
   {
     slug: "hafriyat-filosu",
     image: "/images/hero/atasman.jpg",
+    href: "/faaliyet-alanlari/is-makinesi-atasmanlari",
+    sector: tr("İş makinesi ataşmanları", "Machine attachments", "ملحقات الآليات"),
     title: tr("Hafriyat Filosu Ataşmanları", "Earthmoving fleet attachments", "ملحقات أسطول الحفر"),
-    text: tr("12-70 ton sınıfı kovalar ve hızlı değiştiriciler.", "Buckets and quick couplers for the 12-70 ton class.", "جرافات وقارنات لفئة 12-70 طنًا."),
+    text: tr(
+      "Set, 12-70 ton sınıfındaki makineler için kova, elek kova, grapple, makas, riper ve quick coupler’ı birlikte tanımlar. Özel ölçü talepleri aynı ataşman ailesinin içinde karşılanır.",
+      "The set specifies buckets, screening buckets, grapples, shears, rippers and quick couplers together for the 12-70 ton class. Custom sizes stay inside the same attachment family.",
+      "تحدد المجموعة الجرافات وغرابيل الجرافة والكلابات والمقصات والريبر والقارنات السريعة معًا لفئة 12-70 طنًا. تبقى المقاسات الخاصة داخل عائلة الملحقات نفسها.",
+    ),
+    points: bullets(
+      ["Ağır hizmet, elek ve loader kovaları", "Grapple, makas ve riper", "Quick coupler ile hızlı değişim"],
+      ["Heavy-duty, screening and loader buckets", "Grapples, shears and rippers", "Fast changeover with a quick coupler"],
+      ["جرافات ثقيلة وغربلة ولودر", "كلابات ومقصات وريبر", "تبديل سريع بقارنة"],
+    ),
   },
   {
     slug: "soguk-zincir",
     image: "/images/products/frigo-kasa-hero.jpg",
+    href: "/faaliyet-alanlari/arac-ustu-ekipmanlar",
+    sector: tr("Araç üstü ekipman", "Truck-mounted equipment", "معدات المركبات"),
     title: tr("Soğuk Zincir Filosu", "Cold-chain fleet", "أسطول سلسلة التبريد"),
-    text: tr("İlaç ve gıda lojistiği için frigo kasalar.", "Refrigerated bodies for pharma and food logistics.", "صناديق مبردة للوجستيات الدواء والغذاء."),
+    text: tr(
+      "Frigo kasa, ilaç ve gıda için -20°C ile +4°C arasında iklimlendirilir. Gövde 40-42 kg/m³ poliüretan sandviç paneldir; duvar yalıtımı 50-100 mm’dir. Uygun araç aralığı 3,5 tondan 26 tona kadardır.",
+      "The refrigerated body holds -20°C to +4°C for pharmaceuticals and food. The shell is a 40-42 kg/m³ polyurethane sandwich panel with 50-100 mm of insulation, for vehicles from 3.5 to 26 tons.",
+      "يحافظ الصندوق المبرد على -20° إلى +4° للدواء والغذاء. الهيكل ألواح بولي يوريثان 40-42 كغ/م³ بعزل 50-100 مم، للمركبات من 3.5 إلى 26 طنًا.",
+    ),
+    points: bullets(
+      ["-20°C / +4°C hassas iklimlendirme", "Gıda tüzüğüne uygun FRP iç kaplama", "3,5-26 ton kamyon ve kamyonet"],
+      ["Precise control from -20°C to +4°C", "Food-grade FRP interior", "Trucks and vans from 3.5 to 26 tons"],
+      ["تحكم دقيق من -20° إلى +4°", "تكسية FRP مناسبة للغذاء", "شاحنات وفانات من 3.5 إلى 26 طنًا"],
+    ),
   },
   {
     slug: "mobil-saglik",
     image: "/images/products/mobil-kan-bagisi-hero.jpg",
+    href: "/faaliyet-alanlari/mobil-cozumler",
+    sector: tr("Mobil çözümler", "Mobile solutions", "حلول متنقلة"),
     title: tr("Mobil Sağlık Kampüsü", "Mobile health campus", "حرم الصحة المتنقلة"),
-    text: tr("Kan bağışı, diş ve tarama treylerleri.", "Blood, dental and screening trailers.", "مقطورات تبرع وأسنان ومسح."),
+    text: tr(
+      "Kampüs; kan bağışı, diş kliniği ve tarama treylerlerini aynı saha düzeninde yan yana koyar. RED-BD-500 dört ila altı donör, laboratuvar, HEPA iklimlendirme ve +4°C / -20°C saklama ile teslim edilir.",
+      "The campus places blood donation, dental and screening trailers side by side for one field layout. RED-BD-500 is delivered with four to six donor stations, a laboratory, HEPA climate control and +4°C / -20°C storage.",
+      "يضع الحرم مقطورات التبرع والأسنان والمسح جنبًا إلى جنب في ترتيب ميداني واحد. تُسلَّم RED-BD-500 بأربع إلى ست محطات ومختبر وتكييف HEPA وحفظ عند +4° و-20°.",
+    ),
+    points: bullets(
+      ["Kan bağışı, diş ve tarama treylerleri", "Dört ila altı donörlük ünite ve laboratuvar", "HEPA iklimlendirme ve yedekli enerji"],
+      ["Blood, dental and screening trailers", "Four to six donor stations and a laboratory", "HEPA climate control and redundant power"],
+      ["مقطورات تبرع وأسنان ومسح", "أربع إلى ست محطات ومختبر", "تكييف HEPA وطاقة احتياطية"],
+    ),
   },
 ];

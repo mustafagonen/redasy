@@ -21,15 +21,15 @@ export function CategoryView({ category, parent }: { category: Category; parent?
     .filter((item) => item && (filter === "all" || !item.group || item.group === filter));
 
   return (
-    <div className="bg-[#12161b]">
-      <section className="relative overflow-hidden bg-[#191e24]">
-        <img src={category.hero} alt="" className="absolute inset-y-0 end-0 hidden h-full w-[54%] object-cover md:block" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#191e24] via-[#191e24]/88 to-[#191e24]/20 rtl:bg-gradient-to-l" />
-        <div className="relative mx-auto max-w-7xl px-4 py-14 lg:px-6 lg:py-16">
-          {category.eyebrow ? <p className="text-sm font-semibold text-[#d75a23]">{category.eyebrow[lang]}</p> : null}
-          <h1 className="mt-2 max-w-3xl text-4xl font-bold leading-tight text-white lg:text-5xl">{category.title[lang]}</h1>
-          {category.subtitle ? <p className="mt-3 text-white/70">{category.subtitle[lang]}</p> : null}
-          <p className="mt-4 text-sm text-white/55">
+    <div className="bg-paper text-ink">
+      <section className="relative h-[300px] overflow-hidden bg-deep text-white lg:h-[360px]">
+        <img src={category.hero} alt="" className="absolute inset-0 h-full w-full object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-r from-deep/85 via-deep/55 to-deep/15 rtl:bg-gradient-to-l" />
+        <div className="relative mx-auto flex h-full max-w-[1240px] flex-col justify-end px-5 py-10 lg:px-8">
+          {category.eyebrow ? <p className="text-[11px] font-semibold tracking-[0.22em] text-[#e7c5c6] uppercase">{category.eyebrow[lang]}</p> : null}
+          <h1 className="mt-3 max-w-3xl text-4xl font-semibold leading-[1.1] tracking-[-0.03em] lg:text-5xl">{category.title[lang]}</h1>
+          {category.subtitle ? <p className="mt-4 max-w-xl text-white/70">{category.subtitle[lang]}</p> : null}
+          <p className="mt-6 text-sm text-white/50">
             <Link href="/" className="hover:text-white">
               {t("home")}
             </Link>
@@ -51,16 +51,15 @@ export function CategoryView({ category, parent }: { category: Category; parent?
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-8 lg:px-6">
+      <section className="mx-auto max-w-[1240px] px-5 py-10 lg:px-8">
+        {category.lead ? <p className="mb-8 max-w-3xl text-[16px] leading-8 text-muted">{category.lead[lang]}</p> : null}
         {category.tabs.length > 0 ? (
           <div className={`grid gap-3 ${category.tabs.length > 1 ? "md:grid-cols-2" : ""}`}>
             {category.tabs.map((tab, index) => {
               const on = tab.href ? false : filter === "all" ? index === 0 : filter === tab.id;
               const current = tab.href === category.href;
-              const className = `rounded-full px-4 py-4 text-center text-[13px] font-semibold tracking-[0.12em] sm:text-sm ${
-                current || on
-                  ? "border border-[#d75a23] text-white"
-                  : "bg-[#23282f] text-white/75 hover:text-white"
+              const className = `px-4 py-4 text-center text-[12px] font-semibold tracking-[0.12em] ${
+                current || on ? "bg-burgundy text-white" : "border border-line bg-white text-ink/75 hover:border-slate hover:text-ink"
               }`;
               if (tab.href) {
                 return (
@@ -78,19 +77,17 @@ export function CategoryView({ category, parent }: { category: Category; parent?
           </div>
         ) : null}
 
-        <div className="relative mt-6">
+        <div className="relative mt-8">
           {category.badge ? (
-            <div className="mb-4 flex justify-end lg:absolute lg:end-8 lg:top-[18rem] lg:z-20 lg:mb-0">
-              <div className="flex items-center gap-2 whitespace-nowrap rounded-full border border-white/15 bg-[#1b2024]/95 px-4 py-2.5 text-[13px] font-medium text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-                <span className="grid h-7 w-7 place-items-center rounded-full bg-[#d75a23] text-xs">⚙</span>
+            <div className="mb-5 flex justify-end">
+              <div className="flex items-center gap-3 border border-line bg-white px-4 py-2.5 text-[13px] font-medium text-ink">
+                <span className="h-2 w-2 rounded-full bg-burgundy" />
                 {category.badge[lang]}
               </div>
             </div>
           ) : null}
           <div className={`grid gap-4 ${cols[category.columns]}`}>
-            {items.map((product) =>
-              product ? <ProductCard key={product.slug} product={product} /> : null,
-            )}
+            {items.map((product) => (product ? <ProductCard key={product.slug} product={product} /> : null))}
           </div>
         </div>
         <p className="sr-only">{crumbs.title[lang]}</p>

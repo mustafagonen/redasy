@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Manrope, Noto_Sans_Arabic } from "next/font/google";
+import { Outfit, Noto_Sans_Arabic } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Providers } from "@/components/Providers";
+import { WhatsApp } from "@/components/WhatsApp";
 import "./globals.css";
 
-const manrope = Manrope({
+const outfit = Outfit({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-manrope",
+  variable: "--font-outfit",
 });
 
 const arabic = Noto_Sans_Arabic({
@@ -27,12 +28,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="tr" className={`${manrope.variable} ${arabic.variable}`}>
+    <html lang="tr" className={`${outfit.variable} ${arabic.variable}`}>
       <body>
         <Providers>
           <Header />
           <main>{children}</main>
           <Footer />
+          <WhatsApp />
         </Providers>
       </body>
     </html>

@@ -18,9 +18,9 @@ export function ProductView({ slug }: { slug: string }) {
 
   if (!product) {
     return (
-      <div className="bg-[#12161b] px-4 py-24 text-center text-white">
+      <div className="bg-paper px-4 py-24 text-center text-ink">
         <p>{t("notFound")}</p>
-        <Link href="/" className="mt-4 inline-block text-[#d75a23]">
+        <Link href="/" className="mt-4 inline-block text-burgundy">
           {t("backHome")}
         </Link>
       </div>
@@ -32,20 +32,20 @@ export function ProductView({ slug }: { slug: string }) {
   const photo = photos[active] ?? product.image;
 
   return (
-    <div className="bg-[#12161b] text-white">
-      <div className="mx-auto max-w-7xl px-4 py-10 lg:px-6">
-        <p className="text-sm text-white/55">
-          <Link href="/" className="hover:text-white">
+    <div className="bg-paper text-ink">
+      <div className="mx-auto max-w-[1240px] px-5 py-12 lg:px-8">
+        <p className="text-sm text-muted">
+          <Link href="/" className="hover:text-ink">
             {t("home")}
           </Link>
           {" / "}
-          <Link href="/faaliyet-alanlari" className="hover:text-white">
+          <Link href="/faaliyet-alanlari" className="hover:text-ink">
             {t("areas")}
           </Link>
           {parent ? (
             <>
               {" / "}
-              <Link href={parent.href} className="hover:text-white">
+              <Link href={parent.href} className="hover:text-ink">
                 {parent.title[lang]}
               </Link>
             </>
@@ -53,43 +53,43 @@ export function ProductView({ slug }: { slug: string }) {
           {category ? (
             <>
               {" / "}
-              <Link href={category.href} className="hover:text-white">
+              <Link href={category.href} className="hover:text-ink">
                 {category.title[lang]}
               </Link>
             </>
           ) : null}
         </p>
-        <div className="mt-4 flex flex-wrap items-center gap-3">
-          <h1 className="text-3xl font-bold leading-tight lg:text-4xl">{product.title[lang]}</h1>
+        <div className="mt-5 flex flex-wrap items-center gap-3">
+          <h1 className="text-3xl font-semibold leading-tight tracking-tight lg:text-4xl">{product.title[lang]}</h1>
           {product.series ? (
-            <span className="rounded-full bg-[#d75a23] px-3 py-1 text-xs font-semibold tracking-wide">{product.series[lang]}</span>
+            <span className="bg-burgundy px-3 py-1 text-[11px] font-semibold tracking-[0.12em] text-white uppercase">{product.series[lang]}</span>
           ) : null}
-          {product.code ? <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold">{product.code}</span> : null}
+          {product.code ? <span className="border border-line bg-white px-3 py-1 text-[11px] font-semibold tracking-wide">{product.code}</span> : null}
         </div>
 
-        <div className="mt-8 grid items-start gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="mt-10 grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
-            <div className="relative overflow-hidden rounded-[24px] bg-black/20">
-              <img src={photo} alt={product.title[lang]} className="aspect-[16/10] w-full object-cover" />
+            <div className="relative flex items-center justify-center bg-[#f3f0eb] p-4">
+              <img src={photo} alt={product.title[lang]} className="max-h-[460px] w-full object-contain" />
               {photos.length > 1 ? (
                 <>
                   <button
                     type="button"
-                    className="absolute start-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-black/45 text-xl"
+                    className="absolute start-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center bg-white/90 text-lg text-ink"
                     onClick={() => setActive((value) => (value + photos.length - 1) % photos.length)}
                   >
                     ‹
                   </button>
                   <button
                     type="button"
-                    className="absolute end-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-black/45 text-xl"
+                    className="absolute end-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center bg-white/90 text-lg text-ink"
                     onClick={() => setActive((value) => (value + 1) % photos.length)}
                   >
                     ›
                   </button>
                 </>
               ) : null}
-              <span className="absolute bottom-3 end-3 rounded-lg bg-black/55 px-2 py-1 text-xs">
+              <span className="absolute bottom-3 end-3 bg-deep/80 px-2 py-1 text-xs text-white">
                 0{active + 1}/0{photos.length}
               </span>
             </div>
@@ -99,41 +99,40 @@ export function ProductView({ slug }: { slug: string }) {
                   key={src}
                   type="button"
                   onClick={() => setActive(i)}
-                  className={`overflow-hidden rounded-xl border ${i === active ? "border-[#d75a23]" : "border-white/10"}`}
+                  className={`overflow-hidden border ${i === active ? "border-burgundy" : "border-line"}`}
                 >
-                  <img src={src} alt="" className="aspect-[4/3] w-full object-cover" />
+                  <img src={src} alt="" className="aspect-[4/3] w-full bg-[#f3f0eb] object-contain" />
                 </button>
               ))}
             </div>
           </div>
 
           <div>
-            <h2 className="text-sm font-bold tracking-[0.12em] text-[#d75a23]">{product.eyebrow?.[lang]}</h2>
-            <p className="mt-3 text-sm leading-7 text-white/75">{product.body?.[lang]}</p>
-            <div className="mt-5 grid gap-3 sm:grid-cols-2">
-              {product.specs?.map((spec) => (
-                <div key={spec.label.tr} className="flex gap-2 text-sm leading-5">
-                  <span className="mt-0.5 text-[#d75a23]">✓</span>
-                  <p>
-                    <span className="font-semibold text-white">{spec.label[lang]}: </span>
-                    <span className="text-white/75">{spec.value[lang]}</span>
-                  </p>
-                </div>
-              ))}
+            <h2 className="kicker">{product.eyebrow?.[lang]}</h2>
+            <p className="mt-4 text-[15px] leading-7 text-muted">{product.body?.[lang]}</p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {product.specs?.map((spec) => {
+                const tone = spec.tone === "burgundy" ? "text-burgundy" : spec.tone === "muted" ? "text-muted" : "text-ink";
+                const tick = spec.tick ?? "before";
+                return (
+                  <div key={spec.label.tr} className={`border border-line bg-white px-4 py-3 text-sm leading-5 ${tone}`}>
+                    <p className="flex items-start gap-2 font-semibold">
+                      {tick === "before" ? <span className="text-burgundy">✓</span> : null}
+                      <span>{spec.label[lang]}</span>
+                      {tick === "after" ? <span className="text-burgundy">✓</span> : null}
+                    </p>
+                    <p className="mt-1 ps-5 text-muted">{spec.value[lang]}</p>
+                  </div>
+                );
+              })}
             </div>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              <button
-                type="button"
-                onClick={() => openQuote(product.title[lang])}
-                className="rounded-full bg-[#d75a23] px-5 py-3 text-sm font-semibold hover:bg-[#c24e1c]"
-              >
-                {t("quote")} →
+            <div className="mt-8 flex flex-wrap gap-3">
+              <button type="button" onClick={() => openQuote(product.title[lang])} className="btn btn-fill">
+                {t("quote")}
+                <span aria-hidden>→</span>
               </button>
-              <Link
-                href={`/urun/${product.slug}/katalog`}
-                className="rounded-full border border-white/25 px-5 py-3 text-center text-sm font-semibold hover:border-white"
-              >
-                {t(product.catalogLabel ?? "catalog")} ↓
+              <Link href={`/urun/${product.slug}/katalog`} className="btn btn-line text-ink">
+                {t(product.catalogLabel ?? "catalog")}
               </Link>
             </div>
           </div>

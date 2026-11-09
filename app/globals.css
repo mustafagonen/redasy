@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #191e24;
-  --color-panel: #1b2024;
-  --color-card: #14181d;
-  --color-orange: #d75a23;
-  --color-muted: #aeb6bf;
-  --font-sans: var(--font-manrope), var(--font-arabic), ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #2c3842;
+  --color-slate: #38444e;
+  --color-deep: #243038;
+  --color-burgundy: #740003;
+  --color-paper: #f5f2ed;
+  --color-line: #e6e0d8;
+  --color-muted: #5d6972;
+  --font-sans: var(--font-outfit), var(--font-arabic), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
@@ -14,26 +16,99 @@ html {
 }
 
 body {
-  background: #ffffff;
-  color: #191e24;
-  font-family: var(--font-manrope), var(--font-arabic), ui-sans-serif, system-ui, sans-serif;
+  background: #f5f2ed;
+  color: #2c3842;
+  font-family: var(--font-outfit), var(--font-arabic), ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
 html[dir="rtl"] body {
-  font-family: var(--font-arabic), var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-arabic), var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 }
 
 ::selection {
-  background: #d75a23;
-  color: white;
+  background: #740003;
+  color: #fff;
 }
 
-input,
-textarea {
+:focus-visible {
+  outline: 2px solid #740003;
+  outline-offset: 3px;
+}
+
+.kicker {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #740003;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  min-height: 48px;
+  padding: 0 1.25rem;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-fill {
+  background: #740003;
+  color: #fff;
+}
+
+.btn-fill:hover {
+  background: #520002;
+}
+
+.btn-line {
+  border: 1px solid currentColor;
+  background: transparent;
+}
+
+.btn-line:hover {
+  background: #2c3842;
+  color: #fff;
+  border-color: #2c3842;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid #e6e0d8;
+  background: #fff;
+  padding: 0.9rem 1rem;
+  font-size: 14px;
+  color: #2c3842;
+}
+
+.field::placeholder {
+  color: #8b949b;
+}
+
+.field:focus {
+  border-color: #740003;
   outline: none;
 }
 
-input:focus,
-textarea:focus {
-  border-color: #d75a23;
+.field-dark {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  padding: 0.85rem 1rem;
+  font-size: 14px;
+  color: #fff;
+}
+
+.field-dark::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.field-dark:focus {
+  border-color: #e7c5c6;
+  outline: none;
 }

@@ -2,10 +2,11 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="bg-[#12161b] px-4 py-24 text-center text-white">
-      <h1 className="text-4xl font-bold">404</h1>
-      <p className="mt-3 text-white/70">Aradığınız sayfa bulunamadı.</p>
-      <Link href="/" className="mt-6 inline-block rounded-full bg-[#d75a23] px-5 py-2.5 text-sm font-semibold">
+    <div className="bg-paper px-4 py-28 text-center text-ink">
+      <p className="kicker">REDASY</p>
+      <h1 className="mt-3 text-5xl font-semibold tracking-tight">404</h1>
+      <p className="mt-3 text-muted">Aradığınız sayfa bulunamadı.</p>
+      <Link href="/" className="btn btn-fill mt-8">
         Ana sayfaya dön
       </Link>
     </div>

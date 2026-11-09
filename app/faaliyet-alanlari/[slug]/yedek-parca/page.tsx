@@ -11,9 +11,9 @@ export default function SparePage() {
   const { t } = useI18n();
   if (params.slug !== "kirma-eleme-yikama") {
     return (
-      <div className="bg-[#12161b] px-4 py-24 text-center text-white">
+      <div className="bg-paper px-4 py-24 text-center text-ink">
         <p>{t("notFound")}</p>
-        <Link href="/faaliyet-alanlari" className="mt-4 inline-block text-[#d75a23]">
+        <Link href="/faaliyet-alanlari" className="mt-4 inline-block text-burgundy">
           {t("areas")}
         </Link>
       </div>

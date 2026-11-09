@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { categories } from "@/lib/content";
 import { useI18n } from "@/lib/i18n";
+import { ApproachBand } from "@/components/ApproachBand";
 
 const blocks = {
   tr: {
@@ -46,29 +48,55 @@ export default function AboutPage() {
   const { t, lang } = useI18n();
   const copy = blocks[lang];
   return (
-    <div className="bg-[#12161b] text-white">
-      <section className="bg-[#191e24]">
-        <div className="mx-auto max-w-7xl px-4 py-14 lg:px-6">
-          <p className="text-sm text-white/55">
-            <Link href="/">{t("home")}</Link> / {copy.title}
+    <div className="bg-paper text-ink">
+      <section className="border-b border-line bg-white">
+        <div className="mx-auto max-w-[1240px] px-5 py-16 lg:px-8 lg:py-20">
+          <p className="text-sm text-muted">
+            <Link href="/" className="hover:text-ink">
+              {t("home")}
+            </Link>{" "}
+            / {copy.title}
           </p>
-          <h1 className="mt-3 max-w-3xl text-4xl font-bold lg:text-5xl">{copy.title}</h1>
-          <p className="mt-4 max-w-3xl text-lg leading-8 text-white/75">{copy.lead}</p>
+          <p className="kicker mt-6">REDASY</p>
+          <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-[-0.03em] lg:text-5xl">{copy.title}</h1>
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-muted">{copy.lead}</p>
         </div>
       </section>
-      <section className="mx-auto grid max-w-7xl gap-10 px-4 py-14 lg:grid-cols-2 lg:px-6">
-        <div className="space-y-4 text-sm leading-7 text-white/75">
+      <section className="mx-auto grid max-w-[1240px] items-center gap-12 px-5 py-16 lg:grid-cols-2 lg:px-8">
+        <div className="space-y-5 text-[15px] leading-8 text-muted">
           <p>{copy.p1}</p>
           <p>{copy.p2}</p>
         </div>
-        <img src="/images/hero/atasman.jpg" alt="" className="h-full min-h-64 w-full rounded-[24px] object-cover" />
+        <img src="/images/hero/atasman.jpg" alt="" className="h-full min-h-72 w-full object-cover" />
       </section>
-      <section className="bg-[#1b2024]">
-        <div className="mx-auto grid max-w-7xl gap-4 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:px-6">
-          {copy.values.map(([title, text]) => (
-            <article key={title} className="rounded-2xl border border-white/10 p-5">
-              <h2 className="text-lg font-semibold text-[#d75a23]">{title}</h2>
-              <p className="mt-2 text-sm leading-6 text-white/70">{text}</p>
+      <section className="border-t border-line bg-white px-5 py-16 lg:px-8">
+        <div className="mx-auto max-w-[1240px]">
+          <p className="kicker">{t("line")}</p>
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            {categories.map((item) => (
+              <Link key={item.slug} href={item.href} className="group grid gap-5 border border-line bg-paper p-5 sm:grid-cols-[140px_1fr]">
+                <img src={item.hero} alt="" className="h-28 w-full object-cover sm:h-full" />
+                <div>
+                  <h2 className="text-lg font-semibold tracking-tight">{item.title[lang]}</h2>
+                  <p className="mt-2 text-sm leading-6 text-muted">{item.lead?.[lang] ?? item.cardText[lang]}</p>
+                  <span className="mt-4 inline-flex items-center gap-3 text-[12px] font-semibold tracking-[0.14em] text-burgundy uppercase">
+                    {item.productSlugs.length} {t("unit")}
+                    <span className="h-px w-6 bg-burgundy transition-all group-hover:w-10" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+      <ApproachBand />
+      <section className="border-t border-line bg-white px-5 py-16 lg:px-8">
+        <div className="mx-auto grid max-w-[1240px] gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
+          {copy.values.map(([title, text], index) => (
+            <article key={title} className="bg-white p-6">
+              <p className="text-[11px] font-semibold tracking-[0.18em] text-burgundy">0{index + 1}</p>
+              <h2 className="mt-3 text-lg font-semibold tracking-tight">{title}</h2>
+              <p className="mt-2 text-sm leading-6 text-muted">{text}</p>
             </article>
           ))}
         </div>

@@ -27,22 +27,22 @@ function QuoteDialog() {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[80] grid place-items-center bg-black/60 p-4" onClick={closeQuote}>
+    <div className="fixed inset-0 z-[80] grid place-items-center bg-deep/70 p-4" onClick={closeQuote}>
       <div
-        className="w-full max-w-lg rounded-2xl bg-[#1b2024] p-6 text-white shadow-2xl"
+        className="w-full max-w-lg border border-line bg-white p-6 text-ink shadow-2xl"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="mb-4 flex items-start justify-between gap-4">
+        <div className="mb-5 flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs font-semibold tracking-[0.16em] text-[#d75a23]">{t("quote")}</p>
-            {product ? <p className="mt-1 text-sm text-white/70">{product}</p> : null}
+            <p className="kicker">{t("quote")}</p>
+            {product ? <p className="mt-2 text-sm text-muted">{product}</p> : null}
           </div>
-          <button type="button" onClick={closeQuote} className="text-sm text-white/60 hover:text-white">
+          <button type="button" onClick={closeQuote} className="text-sm text-muted hover:text-ink">
             {t("close")}
           </button>
         </div>
         {sent ? (
-          <p className="rounded-xl bg-white/5 px-4 py-6 text-sm leading-6 text-white/80">{t("sent")}</p>
+          <p className="bg-paper px-4 py-6 text-sm leading-6 text-muted">{t("sent")}</p>
         ) : (
           <form
             className="grid gap-3"
@@ -59,12 +59,12 @@ function QuoteDialog() {
               setSent(true);
             }}
           >
-            <input name="name" placeholder={t("yourName")} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm" />
-            <input name="email" type="email" placeholder={t("email")} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm" />
-            <input name="phone" placeholder={t("phone")} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm" />
-            <textarea name="message" rows={4} placeholder={t("message")} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm" />
-            {error ? <p className="text-sm text-[#ffb089]">{error}</p> : null}
-            <button type="submit" className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#d75a23] px-5 py-3 text-sm font-semibold text-white hover:bg-[#c24e1c]">
+            <input name="name" placeholder={t("yourName")} className="field" />
+            <input name="email" type="email" placeholder={t("email")} className="field" />
+            <input name="phone" placeholder={t("phone")} className="field" />
+            <textarea name="message" rows={4} placeholder={t("message")} className="field" />
+            {error ? <p className="text-sm text-burgundy">{error}</p> : null}
+            <button type="submit" className="btn btn-fill mt-1">
               {t("sendRequest")} <span aria-hidden>→</span>
             </button>
           </form>

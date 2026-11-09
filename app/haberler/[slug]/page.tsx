@@ -11,22 +11,38 @@ export default function NewsDetailPage() {
   const item = news.find((entry) => entry.slug === params.slug);
   if (!item) {
     return (
-      <div className="bg-[#12161b] px-4 py-24 text-center text-white">
+      <div className="bg-paper px-4 py-24 text-center text-ink">
         <p>{t("notFound")}</p>
       </div>
     );
   }
   return (
-    <article className="bg-[#12161b] text-white">
-      <div className="mx-auto max-w-3xl px-4 py-12 lg:px-6">
-        <p className="text-sm text-white/55">
-          <Link href="/haberler">{t("allNews")}</Link>
+    <article className="bg-paper text-ink">
+      <div className="mx-auto max-w-3xl px-5 py-14 lg:px-8">
+        <p className="text-sm text-muted">
+          <Link href="/haberler" className="hover:text-ink">
+            {t("allNews")}
+          </Link>
         </p>
-        <p className="mt-4 text-sm text-[#d75a23]">{item.date}</p>
-        <h1 className="mt-2 text-4xl font-bold leading-tight">{item.title[lang]}</h1>
-        <img src={item.image} alt="" className="mt-6 w-full rounded-[24px] object-cover" />
-        <p className="mt-6 text-base leading-8 text-white/80">{item.body[lang]}</p>
+        <p className="kicker mt-6">{item.date}</p>
+        <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-[-0.03em]">{item.title[lang]}</h1>
+        <img src={item.image} alt="" className="mt-8 w-full object-cover" />
+        <p className="mt-6 text-lg leading-8 text-ink">{item.excerpt[lang]}</p>
+        <p className="mt-6 text-base leading-8 text-muted">{item.body[lang]}</p>
       </div>
+      <section className="border-t border-line bg-white">
+        <div className="mx-auto grid max-w-[1240px] gap-5 px-5 py-12 md:grid-cols-2 lg:px-8">
+          {news
+            .filter((entry) => entry.slug !== item.slug)
+            .map((entry) => (
+              <Link key={entry.slug} href={`/haberler/${entry.slug}`} className="border border-line bg-paper p-5">
+                <p className="text-[11px] font-semibold tracking-[0.16em] text-burgundy uppercase">{entry.date}</p>
+                <h2 className="mt-2 text-lg font-semibold tracking-tight">{entry.title[lang]}</h2>
+                <p className="mt-2 text-sm leading-6 text-muted">{entry.excerpt[lang]}</p>
+              </Link>
+            ))}
+        </div>
+      </section>
     </article>
   );
 }
