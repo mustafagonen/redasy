@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
-import { Outfit, Noto_Sans_Arabic } from "next/font/google";
+import { Inter, Montserrat, Noto_Sans_Arabic } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Providers } from "@/components/Providers";
+import { SiteCanvas } from "@/components/SiteCanvas";
 import { WhatsApp } from "@/components/WhatsApp";
 import "./globals.css";
 
-const outfit = Outfit({
+const inter = Inter({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-outfit",
+  variable: "--font-inter",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-montserrat",
+  weight: ["600", "700", "800"],
 });
 
 const arabic = Noto_Sans_Arabic({
@@ -23,16 +30,18 @@ export const metadata: Metadata = {
     template: "%s | REDASY",
   },
   description:
-    "Mobil kırma, eleme, iş makinesi ataşmanları, araç üstü ekipman ve mobil sağlık çözümleri. REDASY Engineering & Industrial Group, Ankara.",
+    "Mobil kırma, eleme, yıkama, konveyör, iş makinesi ataşmanları, araç üstü ekipman ve fason imalat. REDASY Engineering & Industrial Group, Ankara.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="tr" className={`${outfit.variable} ${arabic.variable}`}>
+    <html lang="tr" className={`${inter.variable} ${montserrat.variable} ${arabic.variable}`}>
       <body>
         <Providers>
           <Header />
-          <main>{children}</main>
+          <main>
+            <SiteCanvas>{children}</SiteCanvas>
+          </main>
           <Footer />
           <WhatsApp />
         </Providers>

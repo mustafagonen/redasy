@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
 import { I18nProvider, useI18n } from "@/lib/i18n";
+import { SiteState } from "./site";
 
 type QuoteCtx = {
   open: boolean;
@@ -100,7 +101,9 @@ function QuoteState({ children }: { children: ReactNode }) {
 export function Providers({ children }: { children: ReactNode }) {
   return (
     <I18nProvider>
-      <QuoteState>{children}</QuoteState>
+      <SiteState>
+        <QuoteState>{children}</QuoteState>
+      </SiteState>
     </I18nProvider>
   );
 }

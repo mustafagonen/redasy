@@ -49,13 +49,16 @@ const tr = (s: string, en: string, ar: string): L<string> => ({ tr: s, en, ar })
 const bullets = (tr: string[], en: string[], ar: string[]): L<string[]> => ({ tr, en, ar });
 
 export const phones = [
-  { display: "0850 303 02 06", tel: "+908503030206", role: tr("Santral", "Switchboard", "السنترال") },
-  { display: "0531 529 02 06", tel: "+905315290206", whatsapp: true, role: tr("WhatsApp", "WhatsApp", "واتساب") },
-  { display: "0312 870 06 02", tel: "+903128700602", role: tr("Ofis", "Office", "المكتب") },
+  { display: "+90 850 521 82 00", tel: "+908505218200", whatsapp: true, role: tr("Telefon", "Phone", "هاتف") },
+  { display: "+90 312 503 07 13", tel: "+903125030713", role: tr("Faks", "Fax", "فاكس") },
 ];
 export const phone = phones[0].display;
-export const whatsappNumber = "905315290206";
+export const whatsappNumber = "908505218200";
 export const email = "info@redasy.com";
+export const salesEmail = "satis@redasy.com";
+export const addressLine =
+  "Ankara Sanayi Odası 2. OSB, Alcı Mahallesi, 2013. Cadde, No: 15, Sincan / Ankara, Türkiye";
+export const legalName = "REDASY Endüstri Makina San. ve Tic. Ltd. Şti.";
 
 export const products: Product[] = [
   {
