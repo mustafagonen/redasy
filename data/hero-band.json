@@ -1,0 +1,64 @@
+{
+  "panels": [
+    {
+      "id": "kirma",
+      "tr": {
+        "title": "Mobil Kırma & Eleme Sistemleri",
+        "text": "Agrega ve madencilik için yüksek verimli çözümler."
+      },
+      "en": {
+        "title": "Mobile Crushing & Screening Systems",
+        "text": "High-efficiency solutions for aggregates and mining."
+      },
+      "ar": {
+        "title": "أنظمة التكسير والغربلة المتنقلة",
+        "text": "حلول عالية الكفاءة للركام والتعدين."
+      }
+    },
+    {
+      "id": "atasman",
+      "tr": {
+        "title": "İş Makinesi Ataşmanları",
+        "text": "Kırma, kesme ve performans artıran ataşmanlar."
+      },
+      "en": {
+        "title": "Construction Equipment Attachments",
+        "text": "Attachments for crushing, cutting, and higher performance."
+      },
+      "ar": {
+        "title": "ملحقات معدات البناء",
+        "text": "ملحقات للتكسير والقطع ورفع الأداء."
+      }
+    },
+    {
+      "id": "arac",
+      "tr": {
+        "title": "Araç Üstü Ekipmanlar",
+        "text": "Vidanjör, tanker ve özel çevre temizlik araçları."
+      },
+      "en": {
+        "title": "Truck-Mounted Equipment",
+        "text": "Vacuum trucks, tankers, and specialized environmental cleaning vehicles."
+      },
+      "ar": {
+        "title": "تجهيزات محمولة على المركبات",
+        "text": "شاحنات شفط وصهاريج ومركبات تنظيف بيئي خاصة."
+      }
+    },
+    {
+      "id": "mobil",
+      "tr": {
+        "title": "Mobil Çözümler",
+        "text": "Mobil kan alma aracı, sağlık klinikleri ve donörler."
+      },
+      "en": {
+        "title": "Mobile Solutions",
+        "text": "Mobile blood-collection vehicle, health clinics, and donors."
+      },
+      "ar": {
+        "title": "حلول متنقلة",
+        "text": "مركبة جمع دم متنقلة وعيادات صحية ومتبرعون."
+      }
+    }
+  ]
+}

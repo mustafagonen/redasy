@@ -1,129 +1,119 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
-import { activities } from "@/lib/activities";
-import { languages, useI18n } from "@/lib/i18n";
-import { Logo } from "./Logo";
-import { useSite, type SiteView } from "./site";
+import { useState } from "react";
+import { Logo } from "@/components/Logo";
+import { publicPhones, telHref, type ContactInfo } from "@/lib/contact";
+import { socialIcon, type SocialConfig } from "@/lib/social";
 
-export function Header() {
-  const { t, lang, setLang } = useI18n();
-  const { view, go, openContact } = useSite();
-  const [open, setOpen] = useState(false);
-  const areas = activities.filter((item) => item.slug !== "lazer-kesim");
+const links = [
+  { href: "/#anasayfa", label: "Anasayfa" },
+  { href: "/#kurumsal", label: "Kurumsal" },
+  { href: "/#faaliyet", label: "Faaliyet Alanları" },
+  { href: "/#kariyer", label: "Kariyer" },
+  { href: "/#iletisim", label: "İletişim" },
+];
 
-  const jump = (next: SiteView) => {
-    setOpen(false);
-    go(next);
-  };
+function Social({ social }: { social: SocialConfig }) {
+  const links = social.links.filter((item) => item.visible && item.href);
+  if (!links.length) return null;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white shadow-md print:hidden">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Logo />
-        <nav className="hidden h-full items-center lg:flex">
-          <NavButton active={view === "home"} onClick={() => jump("home")}>
-            {t("home")}
-          </NavButton>
-          <NavButton active={view === "hakkimizda"} onClick={() => jump("hakkimizda")}>
-            {t("about")}
-          </NavButton>
-          <div className="group relative flex h-full items-center">
-            <button
-              type="button"
-              onClick={() => jump("kirma-eleme-yikama")}
-              className="flex h-14 items-center gap-2 rounded-t-md border-b-4 border-[#b3192b] bg-[#8b1220] px-5 text-[15px] font-semibold text-white shadow-sm hover:bg-[#b3192b]"
-            >
-              {t("areas")}
-              <span aria-hidden className="text-xs">▾</span>
-            </button>
-            <div className="invisible absolute start-0 top-[74px] z-50 w-72 translate-y-2 rounded-b-lg border border-white/10 bg-[#23282e]/95 py-3 text-white opacity-0 shadow-2xl backdrop-blur-md transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-              {areas.map((item, index) => (
-                <button
-                  key={item.slug}
-                  type="button"
-                  onClick={() => jump(item.slug as SiteView)}
-                  className={`block w-full px-5 py-2.5 text-start text-[14.5px] hover:bg-white/5 ${index === 0 ? "font-semibold text-[#e04f5f]" : "text-gray-200 hover:bg-[#8b1220]/40 hover:text-white"}`}
-                >
-                  {index === 0 ? "● " : ""}
-                  {item.tab[lang].replace(/^\d+\.\s/, "")}
-                </button>
-              ))}
-              <button
-                type="button"
-                onClick={() => jump("lazer-kesim")}
-                className="block w-full px-5 py-2.5 text-start text-[14.5px] text-gray-200 hover:bg-[#8b1220]/40 hover:text-white"
+    <div className="flex items-center gap-3.5">
+      {links.map((item) => {
+        const icon = socialIcon(item.id);
+        return (
+          <a
+            key={item.id}
+            href={item.href}
+            aria-label={icon.label}
+            target={item.newTab ? "_blank" : undefined}
+            rel={item.newTab ? "noreferrer" : undefined}
+            className="text-white/95 hover:text-white"
+          >
+            <svg viewBox="0 0 24 24" className="h-[15px] w-[15px]" fill="currentColor" aria-hidden>
+              <path d={icon.path} />
+            </svg>
+          </a>
+        );
+      })}
+    </div>
+  );
+}
+
+export function Header({ contact, social }: { contact: ContactInfo; social: SocialConfig }) {
+  const [open, setOpen] = useState(false);
+  const call = publicPhones(contact)[0];
+
+  return (
+    <header id="anasayfa" className="bg-white">
+      <div className="bg-brand-bar text-white">
+        <div className="mx-auto flex h-9 max-w-[1200px] items-center justify-end px-5 sm:px-8">
+          <Social social={social} />
+        </div>
+      </div>
+      <div className="border-b border-line">
+        <div className="mx-auto flex h-[4.25rem] max-w-[1200px] items-center justify-between gap-6 px-5 sm:px-8">
+          <Logo />
+          <nav className="hidden items-center gap-7 lg:flex" aria-label="Ana menü">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-[#2a2a2a] hover:text-brand"
               >
-                Lazer Kesim İşlemi
-              </button>
-            </div>
-          </div>
-          <NavButton active={view === "haberler"} onClick={() => jump("haberler")}>
-            {t("news")}
-          </NavButton>
-          <NavButton active={false} onClick={openContact}>
-            {t("contact")}
-          </NavButton>
-        </nav>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center text-sm font-semibold text-gray-600">
-            {languages.map((item, index) => (
-              <span key={item.id} className="flex items-center">
-                {index > 0 ? <span className="mx-1 text-gray-300">|</span> : null}
-                <button type="button" onClick={() => setLang(item.id)} className={lang === item.id ? "px-1 font-bold text-[#8b1220]" : "px-1 hover:text-[#8b1220]"}>
-                  {item.label}
-                </button>
-              </span>
+                {link.label}
+              </a>
             ))}
-          </div>
+          </nav>
+          {call ? (
+            <a href={telHref(call.number)} className="hidden items-center gap-2 text-sm font-semibold text-[#222] lg:flex">
+              <PhoneIcon />
+              {call.number}
+            </a>
+          ) : null}
           <button
             type="button"
-            aria-label={t("menu")}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line lg:hidden"
+            aria-expanded={open}
+            aria-label={open ? "Menüyü kapat" : "Menüyü aç"}
             onClick={() => setOpen((value) => !value)}
-            className="rounded-lg bg-gray-100 p-2.5 text-[#1c2024] hover:bg-[#8b1220] hover:text-white lg:hidden"
           >
-            <span className="block h-0.5 w-5 bg-current" />
-            <span className="mt-1.5 block h-0.5 w-5 bg-current" />
-            <span className="mt-1.5 block h-0.5 w-5 bg-current" />
+            <span className="flex w-4 flex-col gap-1">
+              <span className="h-px bg-ink" />
+              <span className="h-px bg-ink" />
+              <span className="h-px bg-ink" />
+            </span>
           </button>
         </div>
       </div>
       {open ? (
-        <div className="space-y-1 border-t border-white/10 bg-[#1c2024] px-4 py-4 text-white lg:hidden">
-          <button type="button" onClick={() => jump("home")} className="block w-full rounded px-3 py-2 text-start font-medium hover:bg-white/10">
-            {t("home")}
-          </button>
-          <button type="button" onClick={() => jump("hakkimizda")} className="block w-full rounded px-3 py-2 text-start font-medium hover:bg-white/10">
-            {t("about")}
-          </button>
-          <div className="my-2 space-y-1 border-s-2 border-[#8b1220] ps-3">
-            <p className="px-2 py-1 text-xs font-semibold tracking-wider text-gray-400 uppercase">{t("areas")}</p>
-            {activities.map((item) => (
-              <button key={item.slug} type="button" onClick={() => jump(item.slug as SiteView)} className="block w-full px-2 py-1.5 text-start text-sm text-gray-200">
-                {item.tab[lang]}
-              </button>
-            ))}
-          </div>
-          <button type="button" onClick={() => jump("haberler")} className="block w-full rounded px-3 py-2 text-start font-medium hover:bg-white/10">
-            {t("news")}
-          </button>
-          <button type="button" onClick={() => { setOpen(false); openContact(); }} className="mt-2 block w-full rounded bg-[#8b1220] px-3 py-2 text-center font-medium">
-            Bize Ulaşın
-          </button>
-        </div>
+        <nav className="border-b border-line bg-white px-5 py-4 lg:hidden" aria-label="Mobil menü">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="block py-2.5 text-sm font-semibold uppercase tracking-[0.12em]"
+            >
+              {link.label}
+            </a>
+          ))}
+          {call ? (
+            <a href={telHref(call.number)} className="mt-2 flex items-center gap-2 py-2 text-sm font-semibold">
+              <PhoneIcon />
+              {call.number}
+            </a>
+          ) : null}
+        </nav>
       ) : null}
     </header>
   );
 }
 
-function NavButton({ active, onClick, children }: { active: boolean; onClick: () => void; children: ReactNode }) {
+function PhoneIcon() {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`flex h-full items-center border-b-4 px-4 text-[15px] font-medium transition-colors ${active ? "border-[#8b1220] text-[#8b1220]" : "border-transparent text-[#1c2024] hover:text-[#8b1220]"}`}
-    >
-      {children}
-    </button>
+    <svg viewBox="0 0 24 24" className="h-4 w-4 text-brand" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+      <path d="M7.5 3.8h2.2l1.2 3-1.6 1a12 12 0 0 0 5.9 5.9l1-1.6 3 1.2v2.2a2 2 0 0 1-2.2 2A16.2 16.2 0 0 1 5.5 6a2 2 0 0 1 2-2.2Z" strokeLinejoin="round" />
+    </svg>
   );
 }

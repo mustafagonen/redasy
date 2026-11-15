@@ -1,13 +1,17 @@
-"use client";
-
-import { useSite } from "./site";
-
-export function Logo() {
-  const { go } = useSite();
+export function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
+  const light = tone === "light";
   return (
-    <button type="button" onClick={() => go("home")} className="inline-flex shrink-0 flex-col text-start" aria-label="REDASY Engineering & Industrial Group">
-      <img src="/brand/redasy-logo.png" alt="" className="h-11 w-auto" />
-      <span className="text-[10.5px] font-medium tracking-tight text-gray-500">Engineering & Industrial Group</span>
-    </button>
+    <a href="/#anasayfa" aria-label="REDASY" className="flex items-center gap-2.5">
+      <img
+        src={light ? "/brand/symbol-white.png" : "/brand/symbol.png"}
+        alt=""
+        className="h-10 w-10 object-contain"
+      />
+      <img
+        src={light ? "/brand/wordmark-white.png" : "/brand/wordmark.png"}
+        alt=""
+        className="h-[1.35rem] w-auto"
+      />
+    </a>
   );
 }

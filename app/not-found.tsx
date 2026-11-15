@@ -1,14 +1,25 @@
-import Link from "next/link";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { WhatsAppChat } from "@/components/WhatsAppChat";
+import { readContact } from "@/lib/contactStore";
+import { readSocial } from "@/lib/socialStore";
 
-export default function NotFound() {
+export default async function NotFound() {
+  const [contact, social] = await Promise.all([readContact(), readSocial()]);
   return (
-    <div className="bg-paper px-4 py-28 text-center text-ink">
-      <p className="kicker">REDASY</p>
-      <h1 className="mt-3 text-5xl font-semibold tracking-tight">404</h1>
-      <p className="mt-3 text-muted">Aradığınız sayfa bulunamadı.</p>
-      <Link href="/" className="btn btn-fill mt-8">
-        Ana sayfaya dön
-      </Link>
-    </div>
+    <>
+      <Header contact={contact} social={social} />
+      <main>
+        <div className="mx-auto max-w-3xl px-5 py-24 text-center">
+          <h1 className="font-display text-3xl font-extrabold uppercase">Sayfa bulunamadı</h1>
+          <p className="mt-3 text-sm text-muted">Aradığınız sayfa bu sitede yok.</p>
+          <a href="/" className="mt-6 inline-flex rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white">
+            Anasayfa
+          </a>
+        </div>
+      </main>
+      <Footer />
+      <WhatsAppChat contact={contact} />
+    </>
   );
 }

@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "id": "facebook",
+      "visible": true,
+      "href": "/#iletisim",
+      "newTab": false
+    },
+    {
+      "id": "instagram",
+      "visible": true,
+      "href": "/#iletisim",
+      "newTab": false
+    },
+    {
+      "id": "x",
+      "visible": true,
+      "href": "/#iletisim",
+      "newTab": false
+    },
+    {
+      "id": "youtube",
+      "visible": true,
+      "href": "/#iletisim",
+      "newTab": false
+    }
+  ]
+}
