@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
-import { Noto_Sans_Arabic } from "next/font/google";
 import { DashboardNav } from "@/components/dashboard/DashboardNav";
 import { Logo } from "@/components/Logo";
-
-const arabic = Noto_Sans_Arabic({
-  subsets: ["arabic"],
-  weight: ["400", "600", "700"],
-  variable: "--font-arabic",
-});
 
 export const metadata: Metadata = {
   title: "Yönetim | REDASY",
@@ -15,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`${arabic.variable} min-h-screen bg-[#f3f3f3] lg:grid lg:grid-cols-[272px_1fr]`}>
+    <div className="min-h-screen bg-[#f3f3f3] lg:grid lg:grid-cols-[272px_1fr]">
       <aside className="flex flex-col bg-brand text-white lg:sticky lg:top-0 lg:h-screen">
         <div className="flex items-center justify-between gap-4 border-b border-white/10 px-6 py-5 lg:block">
           <Logo tone="light" />

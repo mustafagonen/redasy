@@ -13,6 +13,7 @@
 
 html {
   scroll-behavior: smooth;
+  --font-arabic: "Segoe UI", Tahoma, "Noto Sans Arabic", Arial, sans-serif;
 }
 
 @media (scripting: none) {
