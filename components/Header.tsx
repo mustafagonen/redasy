@@ -24,7 +24,7 @@ function Social({ social }: { social: SocialConfig }) {
             rel={item.newTab ? "noreferrer" : undefined}
             className="text-white/95 hover:text-white"
           >
-            <svg viewBox="0 0 24 24" className="h-[15px] w-[15px]" fill="currentColor" aria-hidden>
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden>
               <path d={icon.path} />
             </svg>
           </a>

@@ -2,6 +2,7 @@
   "panels": [
     {
       "id": "kirma",
+      "image": "/images/home/kirma-color.jpg",
       "tr": {
         "title": "Mobil Kırma & Eleme Sistemleri",
         "text": "Agrega ve madencilik için yüksek verimli çözümler."
@@ -17,6 +18,7 @@
     },
     {
       "id": "atasman",
+      "image": "/images/home/atasman-color.jpg",
       "tr": {
         "title": "İş Makinesi Ataşmanları",
         "text": "Kırma, kesme ve performans artıran ataşmanlar."
@@ -32,6 +34,7 @@
     },
     {
       "id": "arac",
+      "image": "/images/home/arac-color.jpg",
       "tr": {
         "title": "Araç Üstü Ekipmanlar",
         "text": "Vidanjör, tanker ve özel çevre temizlik araçları."
@@ -47,6 +50,7 @@
     },
     {
       "id": "mobil",
+      "image": "/images/home/mobil-color.jpg",
       "tr": {
         "title": "Mobil Çözümler",
         "text": "Mobil kan alma aracı, sağlık klinikleri ve donörler."

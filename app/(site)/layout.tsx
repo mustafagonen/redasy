@@ -13,7 +13,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
     <>
       <Header contact={contact} social={social} nav={nav} />
       <main>{children}</main>
-      <Footer />
+      <Footer contact={contact} social={social} nav={nav} />
       <WhatsAppChat contact={contact} />
     </>
   );

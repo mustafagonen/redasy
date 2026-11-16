@@ -1,0 +1,49 @@
+{
+  "steps": [
+    {
+      "id": "muhendislik",
+      "tr": {
+        "title": "Üstün Mühendislik",
+        "text": "Güçlü Ar-Ge ve mühendislik kadromuzla her türlü ihtiyaca çözüm sunarız..."
+      },
+      "en": {
+        "title": "Superior Engineering",
+        "text": "Our strong R&D and engineering team delivers a solution for every need..."
+      },
+      "ar": {
+        "title": "هندسة متفوقة",
+        "text": "نقدم حلاً لكل احتياج بفضل فريق البحث والتطوير والهندسة القوي..."
+      }
+    },
+    {
+      "id": "kalite",
+      "tr": {
+        "title": "Yüksek Kalite & Güven",
+        "text": "Uluslararası standartlarda üretilen kaliteli ürünlerimizle dünya çapında..."
+      },
+      "en": {
+        "title": "High Quality & Trust",
+        "text": "Quality products manufactured to international standards, worldwide..."
+      },
+      "ar": {
+        "title": "جودة عالية وثقة",
+        "text": "منتجات عالية الجودة مصنّعة وفق المعايير الدولية حول العالم..."
+      }
+    },
+    {
+      "id": "erisim",
+      "tr": {
+        "title": "Global Erişim",
+        "text": "Dünya çapındaki imalat ağımız ve uluslararası konnektörlerimiz..."
+      },
+      "en": {
+        "title": "Global Reach",
+        "text": "Our worldwide manufacturing network and international connectors..."
+      },
+      "ar": {
+        "title": "وصول عالمي",
+        "text": "شبكة التصنيع العالمية وموصلاتنا الدولية..."
+      }
+    }
+  ]
+}

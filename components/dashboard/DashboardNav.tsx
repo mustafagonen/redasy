@@ -24,6 +24,11 @@ const items = [
     icon: "M4 5h7v6H4zM13 5h7v6h-7zM4 13h7v6H4zM13 13h7v6h-7z",
   },
   {
+    href: "/dashboard/asamalar",
+    label: "Aşamalar",
+    icon: "M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01",
+  },
+  {
     href: "/dashboard/iletisim",
     label: "İletişim",
     icon: "M7 4.5h2.2l1.1 2.8-1.5.9a8.5 8.5 0 0 0 4.5 4.5l.9-1.5 2.8 1.1V15a1.6 1.6 0 0 1-1.8 1.6A12 12 0 0 1 5.4 6.3 1.6 1.6 0 0 1 7 4.5Z",

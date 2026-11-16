@@ -19,7 +19,7 @@ export default async function NotFound() {
           </a>
         </div>
       </main>
-      <Footer />
+      <Footer contact={contact} social={social} nav={nav} />
       <WhatsAppChat contact={contact} />
     </>
   );

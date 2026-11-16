@@ -1,26 +1,32 @@
 import type { ContactInfo } from "@/lib/contact";
+import type { HeroPanelContent, HeroPanelId } from "@/lib/heroBand";
 import type { PageSlug, SitePage } from "@/lib/pages";
 
-const frames: Record<PageSlug, { src: string; alt: string; focus: string }> = {
-  hakkimizda: { src: "/images/home/atolye.jpg", alt: "Atölyede kaynak yapan çalışanlar", focus: "center center" },
-  vizyonumuz: { src: "/images/home/kirma.jpg", alt: "Taş ocağında mobil kırma ve eleme tesisi", focus: "center 58%" },
-  sertifikalarimiz: { src: "/images/home/arac.jpg", alt: "Araç üstü ekipman", focus: "70% center" },
-  "kalite-politikamiz": { src: "/images/home/atasman.jpg", alt: "Ekskavatör kovası", focus: "32% 100%" },
+type ShotId = HeroPanelId | "atolye";
+
+const frames: Record<PageSlug, ShotId> = {
+  hakkimizda: "atolye",
+  vizyonumuz: "kirma",
+  sertifikalarimiz: "arac",
+  "kalite-politikamiz": "atasman",
 };
 
-const studies: Record<PageSlug, string[]> = {
-  hakkimizda: ["/images/home/kirma.jpg", "/images/home/mobil.jpg", "/images/home/arac.jpg"],
-  vizyonumuz: ["/images/home/atolye.jpg", "/images/home/atasman.jpg", "/images/home/mobil.jpg"],
-  sertifikalarimiz: ["/images/home/kirma.jpg", "/images/home/atolye.jpg", "/images/home/atasman.jpg"],
-  "kalite-politikamiz": ["/images/home/atolye.jpg", "/images/home/kirma.jpg", "/images/home/mobil.jpg"],
+const studies: Record<PageSlug, ShotId[]> = {
+  hakkimizda: ["kirma", "mobil", "arac"],
+  vizyonumuz: ["atolye", "atasman", "mobil"],
+  sertifikalarimiz: ["kirma", "atolye", "atasman"],
+  "kalite-politikamiz": ["atolye", "kirma", "mobil"],
 };
 
-function focusOf(src: string) {
-  if (src.includes("arac")) return "72% center";
-  if (src.includes("atasman")) return "36% 60%";
-  if (src.includes("mobil")) return "40% center";
-  if (src.includes("kirma")) return "center 55%";
+function focusOf(id: ShotId) {
+  if (id === "mobil") return "40% center";
   return "center center";
+}
+
+function shotOf(panels: HeroPanelContent[], id: ShotId) {
+  if (id === "atolye") return { src: "/images/home/atolye.jpg", alt: "Atölyede kaynak yapan çalışanlar", gray: false, focus: focusOf(id) };
+  const panel = panels.find((item) => item.id === id);
+  return { src: panel?.image ?? "", alt: panel?.tr.title ?? "", gray: true, focus: focusOf(id) };
 }
 
 const figures = [
@@ -30,8 +36,8 @@ const figures = [
   { value: "500+", label: "Uzman Personel" },
 ];
 
-export function InstitutionPage({ page, pages, contact }: { page: SitePage; pages: SitePage[]; contact: ContactInfo }) {
-  const frame = frames[page.slug];
+export function InstitutionPage({ page, pages, contact, heroPanels }: { page: SitePage; pages: SitePage[]; contact: ContactInfo; heroPanels: HeroPanelContent[] }) {
+  const frame = shotOf(heroPanels, frames[page.slug]);
 
   return (
     <article>
@@ -57,13 +63,13 @@ export function InstitutionPage({ page, pages, contact }: { page: SitePage; page
             <img
               src={frame.src}
               alt={frame.alt}
-              className="absolute inset-0 h-full w-full object-cover lg:hidden"
+              className={`absolute inset-0 h-full w-full object-cover lg:hidden ${frame.gray ? "grayscale" : ""}`}
               style={{ clipPath: "polygon(0 10%, 100% 0, 100% 100%, 0 100%)", objectPosition: frame.focus }}
             />
             <img
               src={frame.src}
               alt=""
-              className="absolute inset-0 hidden h-full w-full object-cover lg:block"
+              className={`absolute inset-0 hidden h-full w-full object-cover lg:block ${frame.gray ? "grayscale" : ""}`}
               style={{ clipPath: "polygon(13% 0, 100% 0, 100% 100%, 0 100%)", objectPosition: frame.focus }}
             />
           </div>
@@ -87,7 +93,7 @@ export function InstitutionPage({ page, pages, contact }: { page: SitePage; page
         <section key={section.id} id={section.id} className={`scroll-mt-6 border-t border-[#e7e7e7] ${index % 2 ? "bg-white" : "bg-[#f7f6f6]"}`}>
           <div className="grid lg:grid-cols-2">
             <div className={`relative min-h-[340px] sm:min-h-[460px] ${index % 2 ? "lg:order-2" : ""}`}>
-              <Study kind={(index % 3) as 0 | 1 | 2} src={studies[page.slug][index % 3]} mark={String(index + 1).padStart(2, "0")} />
+              <Study kind={(index % 3) as 0 | 1 | 2} shot={shotOf(heroPanels, studies[page.slug][index % 3])} mark={String(index + 1).padStart(2, "0")} />
             </div>
             <div className="flex flex-col justify-center px-6 py-14 sm:px-12 lg:px-16 lg:py-20">
               <p className="font-display text-[4.5rem] font-bold leading-none text-brand/15">{String(index + 1).padStart(2, "0")}</p>
@@ -122,8 +128,8 @@ export function InstitutionPage({ page, pages, contact }: { page: SitePage; page
   );
 }
 
-function Study({ kind, src, mark }: { kind: 0 | 1 | 2; src: string; mark: string }) {
-  const position = focusOf(src);
+function Study({ kind, shot, mark }: { kind: 0 | 1 | 2; shot: { src: string; gray: boolean; focus: string }; mark: string }) {
+  const tone = shot.gray ? "grayscale" : "";
 
   if (kind === 1) {
     return (
@@ -140,7 +146,7 @@ function Study({ kind, src, mark }: { kind: 0 | 1 | 2; src: string; mark: string
           <span className="absolute bottom-6 left-6 text-[11px] font-semibold tracking-[0.28em] text-white/50">{mark}</span>
         </div>
         <div className="relative min-h-[280px]">
-          <img src={src} alt="" className="absolute inset-0 h-full w-full object-cover" style={{ objectPosition: position, clipPath: "polygon(14% 0, 100% 0, 100% 100%, 0 100%)" }} />
+          <img src={shot.src} alt="" className={`absolute inset-0 h-full w-full object-cover ${tone}`} style={{ objectPosition: shot.focus, clipPath: "polygon(14% 0, 100% 0, 100% 100%, 0 100%)" }} />
         </div>
       </div>
     );
@@ -150,10 +156,10 @@ function Study({ kind, src, mark }: { kind: 0 | 1 | 2; src: string; mark: string
     return (
       <div className="absolute inset-0 bg-[#38444e]" aria-hidden>
         <img
-          src={src}
+          src={shot.src}
           alt=""
-          className="absolute inset-0 h-[78%] w-full object-cover"
-          style={{ objectPosition: position, clipPath: "polygon(0 0, 100% 0, 100% 88%, 0 100%)" }}
+          className={`absolute inset-0 h-[78%] w-full object-cover ${tone}`}
+          style={{ objectPosition: shot.focus, clipPath: "polygon(0 0, 100% 0, 100% 88%, 0 100%)" }}
         />
         <div className="absolute inset-x-0 bottom-0 flex h-[26%] items-end justify-between bg-brand px-7 pb-6 sm:px-9">
           <span className="font-display text-[2.4rem] font-bold leading-none text-white">{mark}</span>
@@ -175,10 +181,10 @@ function Study({ kind, src, mark }: { kind: 0 | 1 | 2; src: string; mark: string
       }}
     >
       <img
-        src={src}
+        src={shot.src}
         alt=""
-        className="absolute bottom-10 left-7 top-10 w-[58%] object-cover sm:left-10 sm:w-[62%]"
-        style={{ objectPosition: position, clipPath: "polygon(0 0, 100% 0, 84% 100%, 0 100%)" }}
+        className={`absolute bottom-10 left-7 top-10 w-[58%] object-cover sm:left-10 sm:w-[62%] ${tone}`}
+        style={{ objectPosition: shot.focus, clipPath: "polygon(0 0, 100% 0, 84% 100%, 0 100%)" }}
       />
       <div className="absolute right-7 top-10 grid h-[4.5rem] w-[4.5rem] place-items-center bg-brand sm:right-10">
         <span className="text-[1.7rem] font-light leading-none text-white">+</span>

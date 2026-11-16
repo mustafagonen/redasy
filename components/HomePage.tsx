@@ -3,7 +3,8 @@
 import { ContactForm } from "@/components/ContactForm";
 import { Logo } from "@/components/Logo";
 import { publicPhones, telHref, type ContactInfo } from "@/lib/contact";
-import { heroSlides, type HeroPanelContent } from "@/lib/heroBand";
+import { type HeroPanelContent } from "@/lib/heroBand";
+import { type StageStep } from "@/lib/stageSteps";
 import { MotionConfig, animate, motion, useInView, useMotionValue, useTransform, type Transition } from "motion/react";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 
@@ -68,9 +69,11 @@ const reasons = [
 
 const seen = { once: true, margin: "0px 0px -8% 0px" } as const;
 
+const cut = "min(14cqw, 24cqh)";
+
 function clip(index: number, count: number) {
-  const topLeft = index === 0 ? "0 0" : "0.65vw 0";
-  const bottomRight = index === count - 1 ? "100% 100%" : "calc(100% - 0.65vw) 100%";
+  const topLeft = index === 0 ? "0 0" : `${cut} 0`;
+  const bottomRight = index === count - 1 ? "100% 100%" : `calc(100% - ${cut}) 100%`;
   return `polygon(${topLeft}, 100% 0, ${bottomRight}, 0 100%)`;
 }
 
@@ -78,47 +81,57 @@ function rise(delay = 0, duration = 0.72): Transition {
   return { duration, delay, ease: EASE };
 }
 
-export function HomePage({ heroPanels, contact }: { heroPanels: HeroPanelContent[]; contact: ContactInfo }) {
+export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanelContent[]; contact: ContactInfo; steps: StageStep[] }) {
   const mode = useMotionMode();
-  const panels = heroSlides.map((slide) => {
-    const copy = heroPanels.find((item) => item.id === slide.id);
-    return {
-      ...slide,
-      title: copy?.tr.title ?? "",
-      text: copy?.tr.text ?? "",
-    };
-  });
+  const panels = heroPanels.map((panel) => ({
+    ...panel,
+    title: panel.tr.title,
+    text: panel.tr.text,
+    alt: panel.tr.title,
+  }));
   const phones = publicPhones(contact);
 
   return (
     <MotionConfig reducedMotion="never">
     <MotionModeContext.Provider value={mode}>
     <>
-      <section id="faaliyet" className="motion-root bg-white">
-        <div className="hidden h-[440px] lg:flex">
+      <section id="faaliyet" className="motion-root flex h-[calc(100dvh-6.5rem-1px)] flex-col overflow-hidden bg-white">
+        <div className="flex min-h-0 flex-1 [container-type:size]">
           {panels.map((panel, index) => (
             <div
               key={panel.id}
-              className="group relative min-w-0 flex-[1_1_0%] transition-[flex-grow] duration-500 ease-[cubic-bezier(0.215,0.61,0.355,1)] hover:z-10 hover:grow-[1.72]"
+              className="group relative min-w-0 flex-[1_1_0%] transition-[flex-grow] duration-700 ease-[cubic-bezier(0.215,0.61,0.355,1)] hover:z-10 hover:grow-[1.72]"
+              style={index < panels.length - 1 ? { marginRight: `calc(0.65vw - ${cut})` } : undefined}
             >
               <div className="absolute inset-0 overflow-hidden" style={{ clipPath: clip(index, panels.length) }}>
-                <motion.div className="h-full w-full" {...enter(mode, { opacity: 0 }, index * 0.12, 1)}>
+                <div
+                  className={`pointer-events-none absolute top-0 left-1/2 h-full -translate-x-1/2 ${panel.id === "mobil" ? "w-[58cqw]" : ""}`}
+                  style={panel.id === "mobil" ? undefined : { width: "calc(35.73cqw + min(15.3cqw, 26.24cqh) + 10px)" }}
+                >
                   <img
-                    src={panel.src}
-                    alt={panel.alt}
-                    className="h-full w-full origin-center object-cover transition-[transform,object-position] duration-700 ease-[cubic-bezier(0.215,0.61,0.355,1)] group-hover:scale-[1.06] group-hover:[object-position:34%_center]"
+                    src={panel.image}
+                    alt=""
+                    aria-hidden
+                    draggable={false}
+                    className="absolute inset-0 h-full w-full object-cover grayscale"
                   />
-                </motion.div>
+                  <img
+                    src={panel.image}
+                    alt={panel.alt}
+                    draggable={false}
+                    className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.215,0.61,0.355,1)] group-hover:opacity-100"
+                  />
+                </div>
               </div>
             </div>
           ))}
         </div>
-        <div className="hidden bg-[#ececee] lg:block">
-          <div className="grid grid-cols-4">
+        <div className="h-[4.75rem] shrink-0 bg-[#ececee] sm:h-[5.25rem]">
+          <div className="grid h-full grid-cols-4">
             {panels.map((panel, index) => (
               <div
                 key={panel.id}
-                className={`relative min-w-0 py-5 ${index === 0 ? "pl-5 pr-2" : index === panels.length - 1 ? "pl-6 pr-5" : "pl-6 pr-2"}`}
+                className={`relative flex min-w-0 items-center ${index === 0 ? "pl-3 pr-1 sm:pl-5 sm:pr-2" : index === panels.length - 1 ? "pl-3 pr-2 sm:pl-6 sm:pr-5" : "pl-3 pr-1 sm:pl-6 sm:pr-2"}`}
               >
                 {index > 0 ? (
                   <motion.span
@@ -132,23 +145,7 @@ export function HomePage({ heroPanels, contact }: { heroPanels: HeroPanelContent
             ))}
           </div>
         </div>
-        <div className="lg:hidden">
-          {panels.map((panel, index) => (
-            <article key={panel.id}>
-              <div className="overflow-hidden">
-                <motion.img
-                  src={panel.src}
-                  alt={panel.alt}
-                  className="aspect-[16/10] w-full object-cover"
-                  {...enter(mode, { opacity: 0, scale: 1.05 }, 0, 0.9)}
-                />
-              </div>
-              <div className="bg-[#ececee] px-5 py-4">
-                <Caption title={panel.title} text={panel.text} delay={0.08 + index * 0.04} />
-              </div>
-            </article>
-          ))}
-        </div>
+        <StageIntro steps={steps} />
       </section>
 
       <section id="kurumsal" className="motion-root bg-white">
@@ -215,10 +212,7 @@ export function HomePage({ heroPanels, contact }: { heroPanels: HeroPanelContent
                 <p className="font-display text-[2rem] font-bold leading-none" aria-label={item.value}>
                   <CountUp value={item.value} delay={index * 0.1} />
                 </p>
-                <motion.p
-                  className="mt-1 text-xs text-white/80"
-                  {...enter(mode, { opacity: 0, y: 8 }, 0.15 + index * 0.1, 0.55)}
-                >
+                <motion.p className="mt-1 text-xs text-white/80" {...enter(mode, { opacity: 0, y: 8 }, 0.15 + index * 0.1, 0.55)}>
                   {item.label}
                 </motion.p>
               </div>
@@ -329,6 +323,28 @@ export function HomePage({ heroPanels, contact }: { heroPanels: HeroPanelContent
   );
 }
 
+function StageIntro({ steps }: { steps: StageStep[] }) {
+  const mode = useContext(MotionModeContext);
+  if (!steps.length) return null;
+  return (
+    <div className="flex h-[14.25rem] shrink-0 items-center border-t border-[#e6e6e6] bg-[#f7f6f6] sm:h-[15.75rem]">
+      <div className="mx-auto grid w-full max-w-[1200px] px-5 sm:px-8" style={{ gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))` }}>
+        {steps.map((step, index) => (
+          <motion.div
+            key={step.id}
+            className={`min-w-0 ${index > 0 ? "border-l border-[#e4e4e4] pl-3 sm:pl-8" : "pr-3 sm:pr-8"}`}
+            {...enter(mode, { opacity: 0, y: 12 }, 0.12 + index * 0.08, 0.6)}
+          >
+            <p className="text-[10px] font-semibold tracking-[0.2em] text-brand sm:text-[11px]">{String(index + 1).padStart(2, "0")}</p>
+            <h2 className="mt-2 font-display text-[13px] font-bold leading-tight text-ink sm:text-[1.2rem]">{step.tr.title}</h2>
+            <p className="mt-1.5 line-clamp-3 text-[11px] leading-4 text-muted sm:mt-2 sm:line-clamp-2 sm:text-[14px] sm:leading-6">{step.tr.text}</p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CountUp({ value, delay }: { value: string; delay: number }) {
   const mode = useContext(MotionModeContext);
   const ref = useRef<HTMLSpanElement>(null);
@@ -368,10 +384,10 @@ function Caption({ title, text, singleLine = false, delay = 0 }: { title: string
   return (
     <motion.div className="group flex items-center justify-between gap-2" {...enter(mode, { opacity: 0, y: 12 }, delay, 0.6)}>
       <div className="min-w-0">
-        <h2 className={singleLine ? "whitespace-nowrap text-[14px] font-bold uppercase leading-5 tracking-[0.01em]" : "text-[13px] font-bold uppercase leading-5 tracking-[0.04em]"}>
+        <h2 className={singleLine ? "truncate text-[12px] font-bold uppercase leading-4 tracking-[0.01em] sm:text-[14px] sm:leading-5" : "text-[13px] font-bold uppercase leading-5 tracking-[0.04em]"}>
           {title}
         </h2>
-        <p className={singleLine ? "mt-1 whitespace-nowrap text-[12px] leading-5 tracking-[-0.032em] text-muted" : "mt-1 max-w-[28ch] text-[13px] leading-5 text-muted"}>
+        <p className={singleLine ? "mt-0.5 truncate text-[11px] leading-4 tracking-[-0.032em] text-muted sm:mt-1 sm:text-[12px] sm:leading-5" : "mt-1 max-w-[28ch] text-[13px] leading-5 text-muted"}>
           {text}
         </p>
       </div>

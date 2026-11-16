@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { heroSlides, type HeroCopy, type HeroPanelContent } from "@/lib/heroBand";
+import { useRef, useState } from "react";
+import { type HeroCopy, type HeroPanelContent, type HeroPanelId } from "@/lib/heroBand";
 
 const languages: { id: keyof Pick<HeroPanelContent, "tr" | "en" | "ar">; code: string; label: string }[] = [
   { id: "tr", code: "TR", label: "Türkçe" },
@@ -12,13 +12,41 @@ const languages: { id: keyof Pick<HeroPanelContent, "tr" | "en" | "ar">; code: s
 export function HeroBandEditor({ initialPanels }: { initialPanels: HeroPanelContent[] }) {
   const [panels, setPanels] = useState(initialPanels);
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState<HeroPanelId | null>(null);
   const [message, setMessage] = useState<{ tone: "ok" | "warn" | "error"; text: string } | null>(null);
+  const files = useRef<Record<string, HTMLInputElement | null>>({});
 
   function update(id: HeroPanelContent["id"], lang: "tr" | "en" | "ar", field: keyof HeroCopy, value: string) {
     setPanels((current) =>
       current.map((panel) => (panel.id === id ? { ...panel, [lang]: { ...panel[lang], [field]: value } } : panel)),
     );
     setMessage(null);
+  }
+
+  async function replaceImage(id: HeroPanelId, file: File | undefined) {
+    if (!file) return;
+    setUploading(id);
+    setMessage(null);
+    try {
+      const body = new FormData();
+      body.set("id", id);
+      body.set("file", file);
+      const response = await fetch("/api/hero-band/image", { method: "POST", body });
+      const payload = await response.json().catch(() => null);
+      if (!response.ok || !payload?.image) {
+        setMessage({ tone: "error", text: payload?.error || "Görsel değiştirilemedi." });
+        return;
+      }
+      setPanels((current) => current.map((panel) => (panel.id === id ? { ...panel, image: payload.image } : panel)));
+      setMessage({
+        tone: payload.firebase === "ok" ? "ok" : "warn",
+        text: "Görsel değişti. Önceki dosya sistemden silindi. Sitede renksiz hali CSS filtresiyle oluşur.",
+      });
+    } catch {
+      setMessage({ tone: "error", text: "Görsel yüklenemedi." });
+    } finally {
+      setUploading(null);
+    }
   }
 
   async function save() {
@@ -78,8 +106,8 @@ export function HeroBandEditor({ initialPanels }: { initialPanels: HeroPanelCont
 
       <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8">
         <p className="max-w-3xl text-sm leading-6 text-muted">
-          Ana sayfada dört görselin altında kayan gri şeridin başlığı ve açıklaması. Türkçe metin sitede görünür.
-          İngilizce ve Arapça çeviriler bu ekranda tutulur.
+          Dört görsel ve altlarındaki gri şerit buradan yönetilir. Yeni görsel yüklendiğinde eskisi silinir.
+          Sitede görsel dururken CSS filtresiyle renksizdir, üzerine gelince kendi rengine döner. Türkçe metin sitede görünür.
         </p>
 
         {message ? (
@@ -113,17 +141,37 @@ export function HeroBandEditor({ initialPanels }: { initialPanels: HeroPanelCont
 
         <div className="mt-6 space-y-5">
           {panels.map((panel, index) => {
-            const slide = heroSlides.find((item) => item.id === panel.id);
             const titleLong = panel.tr.title.trim().length > 34;
             const textLong = panel.tr.text.trim().length > 52;
             return (
               <article key={panel.id} className="rounded-2xl border border-[#ececec] bg-white p-5 shadow-[0_10px_30px_rgba(26,26,26,0.04)] sm:p-6">
-                <div className="flex items-center gap-4">
-                  <img src={slide?.src} alt="" className="h-16 w-24 rounded-xl object-cover" />
-                  <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-4">
+                  <img src={panel.image} alt="" className="h-16 w-24 rounded-xl object-cover" />
+                  <div className="min-w-0 flex-1">
                     <p className="text-[11px] font-bold tracking-[0.08em] text-brand">0{index + 1}</p>
                     <h2 className="truncate font-display text-lg font-bold text-ink">{panel.tr.title || "Başlıksız görsel"}</h2>
                   </div>
+                  <input
+                    ref={(node) => {
+                      files.current[panel.id] = node;
+                    }}
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp"
+                    className="hidden"
+                    onChange={(event) => {
+                      const file = event.target.files?.[0];
+                      event.target.value = "";
+                      void replaceImage(panel.id, file);
+                    }}
+                  />
+                  <button
+                    type="button"
+                    disabled={uploading === panel.id}
+                    onClick={() => files.current[panel.id]?.click()}
+                    className="rounded-full border border-[#e4e4e6] px-4 py-2 text-sm font-semibold text-ink hover:border-brand hover:text-brand disabled:opacity-60"
+                  >
+                    {uploading === panel.id ? "Yükleniyor" : "Görseli değiştir"}
+                  </button>
                 </div>
 
                 <div className="mt-5 grid gap-4 lg:grid-cols-3">
