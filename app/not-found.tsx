@@ -2,13 +2,14 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { WhatsAppChat } from "@/components/WhatsAppChat";
 import { readContact } from "@/lib/contactStore";
+import { readNav } from "@/lib/navStore";
 import { readSocial } from "@/lib/socialStore";
 
 export default async function NotFound() {
-  const [contact, social] = await Promise.all([readContact(), readSocial()]);
+  const [contact, social, nav] = await Promise.all([readContact(), readSocial(), readNav()]);
   return (
     <>
-      <Header contact={contact} social={social} />
+      <Header contact={contact} social={social} nav={nav} />
       <main>
         <div className="mx-auto max-w-3xl px-5 py-24 text-center">
           <h1 className="font-display text-3xl font-extrabold uppercase">Sayfa bulunamadı</h1>

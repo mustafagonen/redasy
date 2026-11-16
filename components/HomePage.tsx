@@ -69,8 +69,8 @@ const reasons = [
 const seen = { once: true, margin: "0px 0px -8% 0px" } as const;
 
 function clip(index: number, count: number) {
-  const topLeft = index === 0 ? "0 0" : "8% 0";
-  const bottomRight = index === count - 1 ? "100% 100%" : "92% 100%";
+  const topLeft = index === 0 ? "0 0" : "0.65vw 0";
+  const bottomRight = index === count - 1 ? "100% 100%" : "calc(100% - 0.65vw) 100%";
   return `polygon(${topLeft}, 100% 0, ${bottomRight}, 0 100%)`;
 }
 
@@ -95,17 +95,20 @@ export function HomePage({ heroPanels, contact }: { heroPanels: HeroPanelContent
     <MotionModeContext.Provider value={mode}>
     <>
       <section id="faaliyet" className="motion-root bg-white">
-        <div className="hidden h-[440px] grid-cols-4 lg:grid">
+        <div className="hidden h-[440px] lg:flex">
           {panels.map((panel, index) => (
-            <div key={panel.id} className="relative bg-white">
+            <div
+              key={panel.id}
+              className="group relative min-w-0 flex-[1_1_0%] transition-[flex-grow] duration-500 ease-[cubic-bezier(0.215,0.61,0.355,1)] hover:z-10 hover:grow-[1.72]"
+            >
               <div className="absolute inset-0 overflow-hidden" style={{ clipPath: clip(index, panels.length) }}>
-                <motion.img
-                  src={panel.src}
-                  alt={panel.alt}
-                  className="h-full w-full object-cover"
-                  {...enter(mode, { opacity: 0, scale: 1.08 }, index * 0.12, 1.15)}
-                  whileHover={mode === "run" ? { scale: 1.045, transition: { duration: 0.8, delay: 0, ease: EASE } } : undefined}
-                />
+                <motion.div className="h-full w-full" {...enter(mode, { opacity: 0 }, index * 0.12, 1)}>
+                  <img
+                    src={panel.src}
+                    alt={panel.alt}
+                    className="h-full w-full origin-center object-cover transition-[transform,object-position] duration-700 ease-[cubic-bezier(0.215,0.61,0.355,1)] group-hover:scale-[1.06] group-hover:[object-position:34%_center]"
+                  />
+                </motion.div>
               </div>
             </div>
           ))}
