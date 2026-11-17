@@ -27,16 +27,17 @@ export function ThemeStudio({ initial }: { initial: Theme }) {
   useLayoutEffect(() => {
     const pane = paneRef.current;
     if (!pane) return;
+    const node: HTMLDivElement = pane;
     function measure() {
       if (device !== "desktop") {
         setScale(1);
         return;
       }
-      setScale(Math.min(1, pane.clientWidth / desktopWidth));
+      setScale(Math.min(1, node.clientWidth / desktopWidth));
     }
     measure();
     const observer = new ResizeObserver(measure);
-    observer.observe(pane);
+    observer.observe(node);
     return () => observer.disconnect();
   }, [device]);
 
