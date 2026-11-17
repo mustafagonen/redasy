@@ -95,7 +95,7 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
     <MotionConfig reducedMotion="never">
     <MotionModeContext.Provider value={mode}>
     <>
-      <section id="faaliyet" className="motion-root flex h-[calc(100dvh-6.5rem-1px)] flex-col overflow-hidden bg-white">
+      <section id="faaliyet" data-theme="surface" className="motion-root flex h-[calc(100dvh-6.5rem-1px)] flex-col overflow-hidden bg-surface">
         <div className="flex min-h-0 flex-1 [container-type:size]">
           {panels.map((panel, index) => (
             <div
@@ -126,7 +126,7 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
             </div>
           ))}
         </div>
-        <div className="h-[4.75rem] shrink-0 bg-[#ececee] sm:h-[5.25rem]">
+        <div data-theme="caption" className="h-[4.75rem] shrink-0 bg-caption sm:h-[5.25rem]">
           <div className="grid h-full grid-cols-4">
             {panels.map((panel, index) => (
               <div
@@ -135,7 +135,8 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
               >
                 {index > 0 ? (
                   <motion.span
-                    className="absolute inset-y-3.5 left-0 w-px origin-top bg-[#c4c4c6]"
+                    data-theme="caption-line"
+                    className="absolute inset-y-3.5 left-0 w-px origin-top bg-caption-line"
                     aria-hidden
                     {...enter(mode, { scaleY: 0 }, 0.42 + index * 0.08, 0.55)}
                   />
@@ -148,28 +149,31 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
         <StageIntro steps={steps} />
       </section>
 
-      <section id="kurumsal" className="motion-root bg-white">
+      <section id="kurumsal" data-theme="surface" className="motion-root bg-surface">
         <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:py-20">
           <div>
             <motion.p
-              className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#8d8d8d]"
+              data-theme="soft"
+              className="text-[12px] font-semibold uppercase tracking-[0.22em] text-soft"
               {...enter(mode, { opacity: 0, y: 12 })}
             >
               Hakkımızda Bölümü
             </motion.p>
             <motion.h1
+              data-theme="ink"
               className="mt-3 max-w-[24ch] font-display text-[1.55rem] font-bold uppercase leading-[1.2] tracking-tight text-ink sm:text-[1.85rem]"
               {...enter(mode, { opacity: 0, y: 18 }, 0.08, 0.8)}
             >
               Geleceğin mühendislik çözümlerini bugünden inşa ediyoruz.
             </motion.h1>
             <motion.h2
+              data-theme="brand"
               className="mt-8 font-display text-lg font-bold text-brand"
               {...enter(mode, { opacity: 0, y: 12 }, 0.16)}
             >
               Biz Kimiz?
             </motion.h2>
-            <div className="mt-3 max-w-[62ch] space-y-4 text-[15px] leading-7 text-[#4d4d4d]">
+            <div data-theme="body" className="mt-3 max-w-[62ch] space-y-4 text-[15px] leading-7 text-body">
               <motion.p {...enter(mode, { opacity: 0, y: 14 }, 0.22)}>
                 REDASY olarak, mobil kırma eleme sistemlerinden özel araç üstü ekipmanlara kadar, imalat ve mühendislik gücünü geniş sanayi fabrikamız sayesinde ortaya koyuyoruz.
               </motion.p>
@@ -179,7 +183,8 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
             </div>
             <motion.a
               href="#neden-biz"
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#3f0405]"
+              data-theme="brand"
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-on-brand hover:bg-brand-hover"
               {...enter(mode, { opacity: 0, y: 12 }, 0.38)}
               whileHover={mode === "run" ? { y: -2 } : undefined}
               whileTap={mode === "run" ? { scale: 0.98 } : undefined}
@@ -201,7 +206,7 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
         </div>
       </section>
 
-      <section className="motion-root bg-brand text-white" aria-label="Rakamlar">
+      <section data-theme="brand" className="motion-root bg-brand text-on-brand" aria-label="Rakamlar">
         <div className="mx-auto flex max-w-[1200px] flex-col gap-8 px-5 py-8 sm:px-8 lg:flex-row lg:items-center lg:justify-between">
           <motion.div {...enter(mode, { opacity: 0, x: -12 })}>
             <Logo tone="light" />
@@ -209,10 +214,10 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
           <div className="grid flex-1 grid-cols-2 gap-6 sm:grid-cols-4 lg:max-w-[820px]">
             {stats.map((item, index) => (
               <div key={item.label}>
-                <p className="font-display text-[2rem] font-bold leading-none" aria-label={item.value}>
+                <p data-theme="on-brand" className="font-display text-[2rem] font-bold leading-none text-on-brand" aria-label={item.value}>
                   <CountUp value={item.value} delay={index * 0.1} />
                 </p>
-                <motion.p className="mt-1 text-xs text-white/80" {...enter(mode, { opacity: 0, y: 8 }, 0.15 + index * 0.1, 0.55)}>
+                <motion.p data-theme="on-brand" className="mt-1 text-xs text-on-brand/80" {...enter(mode, { opacity: 0, y: 8 }, 0.15 + index * 0.1, 0.55)}>
                   {item.label}
                 </motion.p>
               </div>
@@ -221,10 +226,11 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
         </div>
       </section>
 
-      <section id="neden-biz" className="motion-root bg-paper">
+      <section id="neden-biz" data-theme="paper" className="motion-root bg-paper">
         <div className="mx-auto max-w-[1200px] px-5 py-16 sm:px-8">
           <motion.h2
-            className="text-center font-display text-[1.7rem] font-extrabold uppercase tracking-[0.08em]"
+            className="text-center font-display text-[1.7rem] font-extrabold uppercase tracking-[0.08em] text-ink"
+            data-theme="ink"
             {...enter(mode, { opacity: 0, y: 16 })}
           >
             Neden Biz?
@@ -233,28 +239,29 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
             {reasons.map((item, index) => (
               <motion.article
                 key={item.title}
-                className="rounded-2xl border border-[#ececec] bg-white px-6 py-8 text-center shadow-[0_8px_24px_rgba(0,0,0,0.03)]"
+                className="rounded-2xl border border-line bg-surface px-6 py-8 text-center shadow-[0_8px_24px_rgba(0,0,0,0.03)]"
+                data-theme="surface"
                 {...enter(mode, { opacity: 0, y: 24 }, index * 0.12, 0.75)}
                 whileHover={mode === "run" ? { y: -6, transition: { duration: 0.35, delay: 0, ease: EASE } } : undefined}
               >
                 <ReasonIcon name={item.icon} />
-                <h3 className="mt-4 font-display text-lg font-bold">{item.title}</h3>
-                <p className="mx-auto mt-2 max-w-[28ch] text-sm leading-6 text-muted">{item.text}</p>
+                <h3 data-theme="ink" className="mt-4 font-display text-lg font-bold text-ink">{item.title}</h3>
+                <p data-theme="muted" className="mx-auto mt-2 max-w-[28ch] text-sm leading-6 text-muted">{item.text}</p>
               </motion.article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="iletisim" className="motion-root bg-white">
+      <section id="iletisim" data-theme="surface" className="motion-root bg-surface">
         <div id="kariyer" className="mx-auto max-w-[1200px] px-5 py-16 sm:px-8 lg:py-20">
           <motion.div
-            className="overflow-hidden rounded-[1.6rem] border border-[#ececec] bg-white shadow-[0_20px_50px_rgba(26,26,26,0.06)] lg:grid lg:grid-cols-[0.9fr_1.1fr]"
+            className="overflow-hidden rounded-[1.6rem] border border-line bg-surface shadow-[0_20px_50px_rgba(26,26,26,0.06)] lg:grid lg:grid-cols-[0.9fr_1.1fr]"
             {...enter(mode, { opacity: 0, y: 28 }, 0, 0.8)}
           >
-            <div className="bg-brand px-7 py-9 text-white sm:px-9 sm:py-11">
+            <div data-theme="brand" className="bg-brand px-7 py-9 text-on-brand sm:px-9 sm:py-11">
               <motion.p
-                className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/55"
+                className="text-[11px] font-semibold uppercase tracking-[0.22em] text-on-brand/55"
                 {...enter(mode, { opacity: 0, y: 10 }, 0.08)}
               >
                 İletişim
@@ -266,17 +273,17 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
                 Bizimle iletişime geçin
               </motion.h2>
               <motion.p
-                className="mt-4 max-w-[34ch] text-sm leading-6 text-white/75"
+                className="mt-4 max-w-[34ch] text-sm leading-6 text-on-brand/75"
                 {...enter(mode, { opacity: 0, y: 12 }, 0.2)}
               >
                 Projeleriniz için profesyonel çözümler sunmaya hazırız.
               </motion.p>
               <ul className="mt-9 space-y-3">
                 <motion.li {...enter(mode, { opacity: 0, x: -14 }, 0.24, 0.55)}>
-                  <div className="flex items-center gap-4 rounded-2xl bg-white/10 px-4 py-3.5 ring-1 ring-white/15">
+                  <div className="flex items-center gap-4 rounded-2xl bg-on-brand/10 px-4 py-3.5 ring-1 ring-on-brand/15">
                     <ContactGlyph name="pin" />
                     <span>
-                      <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/50">Adres</span>
+                      <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-on-brand/50">Adres</span>
                       <span className="mt-0.5 block text-sm font-semibold">{contact.address}</span>
                     </span>
                   </div>
@@ -286,10 +293,10 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
                     key={phone.id}
                     {...enter(mode, { opacity: 0, x: -14 }, 0.3 + index * 0.08, 0.55)}
                   >
-                    <a href={telHref(phone.number)} className="flex items-center gap-4 rounded-2xl bg-white/10 px-4 py-3.5 ring-1 ring-white/15 transition hover:bg-white/15">
+                    <a href={telHref(phone.number)} className="flex items-center gap-4 rounded-2xl bg-on-brand/10 px-4 py-3.5 ring-1 ring-on-brand/15 transition hover:bg-on-brand/15">
                       <ContactGlyph name="phone" />
                       <span>
-                        <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/50">Telefon {index + 1}</span>
+                        <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-on-brand/50">Telefon {index + 1}</span>
                         <span className="mt-0.5 block text-sm font-semibold">{phone.number}</span>
                       </span>
                     </a>
@@ -298,10 +305,10 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
                 <motion.li
                   {...enter(mode, { opacity: 0, x: -14 }, 0.3 + phones.length * 0.08, 0.55)}
                 >
-                  <a href={`mailto:${contact.email}`} className="flex items-center gap-4 rounded-2xl bg-white/10 px-4 py-3.5 ring-1 ring-white/15 transition hover:bg-white/15">
+                  <a href={`mailto:${contact.email}`} className="flex items-center gap-4 rounded-2xl bg-on-brand/10 px-4 py-3.5 ring-1 ring-on-brand/15 transition hover:bg-on-brand/15">
                     <ContactGlyph name="mail" />
                     <span>
-                      <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/50">E-posta</span>
+                      <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-on-brand/50">E-posta</span>
                       <span className="mt-0.5 block text-sm font-semibold">{contact.email}</span>
                     </span>
                   </a>
@@ -309,7 +316,8 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
               </ul>
             </div>
             <motion.div
-              className="bg-[#f6f6f7] px-6 py-8 sm:px-8 sm:py-10 lg:px-10"
+              className="bg-form px-6 py-8 sm:px-8 sm:py-10 lg:px-10"
+              data-theme="form"
               {...enter(mode, { opacity: 0, x: 18 }, 0.16, 0.75)}
             >
               <ContactForm />
@@ -327,17 +335,17 @@ function StageIntro({ steps }: { steps: StageStep[] }) {
   const mode = useContext(MotionModeContext);
   if (!steps.length) return null;
   return (
-    <div className="flex h-[14.25rem] shrink-0 items-center border-t border-[#e6e6e6] bg-[#f7f6f6] sm:h-[15.75rem]">
+    <div data-theme="stage" className="flex h-[14.25rem] shrink-0 items-center border-t border-line bg-stage sm:h-[15.75rem]">
       <div className="mx-auto grid w-full max-w-[1200px] px-5 sm:px-8" style={{ gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))` }}>
         {steps.map((step, index) => (
           <motion.div
             key={step.id}
-            className={`min-w-0 ${index > 0 ? "border-l border-[#e4e4e4] pl-3 sm:pl-8" : "pr-3 sm:pr-8"}`}
+            className={`min-w-0 ${index > 0 ? "border-l border-line pl-3 sm:pl-8" : "pr-3 sm:pr-8"}`}
             {...enter(mode, { opacity: 0, y: 12 }, 0.12 + index * 0.08, 0.6)}
           >
-            <p className="text-[10px] font-semibold tracking-[0.2em] text-brand sm:text-[11px]">{String(index + 1).padStart(2, "0")}</p>
-            <h2 className="mt-2 font-display text-[13px] font-bold leading-tight text-ink sm:text-[1.2rem]">{step.tr.title}</h2>
-            <p className="mt-1.5 line-clamp-3 text-[11px] leading-4 text-muted sm:mt-2 sm:line-clamp-2 sm:text-[14px] sm:leading-6">{step.tr.text}</p>
+            <p data-theme="brand" className="text-[10px] font-semibold tracking-[0.2em] text-brand sm:text-[11px]">{String(index + 1).padStart(2, "0")}</p>
+            <h2 data-theme="ink" className="mt-2 font-display text-[13px] font-bold leading-tight text-ink sm:text-[1.2rem]">{step.tr.title}</h2>
+            <p data-theme="muted" className="mt-1.5 line-clamp-3 text-[11px] leading-4 text-muted sm:mt-2 sm:line-clamp-2 sm:text-[14px] sm:leading-6">{step.tr.text}</p>
           </motion.div>
         ))}
       </div>
@@ -373,7 +381,7 @@ function CountUp({ value, delay }: { value: string; delay: number }) {
 
 function Arrow({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 28 16" className={`h-3.5 w-5 shrink-0 text-brand ${className}`} fill="none" aria-hidden>
+    <svg viewBox="0 0 28 16" data-theme="brand" className={`h-3.5 w-5 shrink-0 text-brand ${className}`} fill="none" aria-hidden>
       <path d="M2 8h20M16 2.5 23.5 8 16 13.5" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -384,10 +392,10 @@ function Caption({ title, text, singleLine = false, delay = 0 }: { title: string
   return (
     <motion.div className="group flex items-center justify-between gap-2" {...enter(mode, { opacity: 0, y: 12 }, delay, 0.6)}>
       <div className="min-w-0">
-        <h2 className={singleLine ? "truncate text-[12px] font-bold uppercase leading-4 tracking-[0.01em] sm:text-[14px] sm:leading-5" : "text-[13px] font-bold uppercase leading-5 tracking-[0.04em]"}>
+        <h2 data-theme="ink" className={singleLine ? "truncate text-[12px] font-bold uppercase leading-4 tracking-[0.01em] text-ink sm:text-[14px] sm:leading-5" : "text-[13px] font-bold uppercase leading-5 tracking-[0.04em] text-ink"}>
           {title}
         </h2>
-        <p className={singleLine ? "mt-0.5 truncate text-[11px] leading-4 tracking-[-0.032em] text-muted sm:mt-1 sm:text-[12px] sm:leading-5" : "mt-1 max-w-[28ch] text-[13px] leading-5 text-muted"}>
+        <p data-theme="muted" className={singleLine ? "mt-0.5 truncate text-[11px] leading-4 tracking-[-0.032em] text-muted sm:mt-1 sm:text-[12px] sm:leading-5" : "mt-1 max-w-[28ch] text-[13px] leading-5 text-muted"}>
           {text}
         </p>
       </div>
@@ -415,7 +423,7 @@ function ReasonIcon({ name }: { name: "compass" | "medal" | "globe" }) {
         <>
           <Stroke d="M17.6 27.4 12.8 41.6 19.4 36.2 21.2 28.6" delay={0} />
           <Stroke d="M30.4 27.4 35.2 41.6 28.6 36.2 26.8 28.6" delay={0.1} />
-          <Ring cx="24" cy="19.2" r="10.6" delay={0.16} fill="#fff" />
+          <Ring cx="24" cy="19.2" r="10.6" delay={0.16} fill="var(--theme-surface)" />
           <Ring cx="24" cy="19.2" r="7.2" delay={0.3} />
           <Stroke d="m19.3 19.4 3 3.1 6-6.3" delay={0.48} duration={0.45} />
         </>
@@ -473,7 +481,7 @@ function Ring({
 
 function ContactGlyph({ name }: { name: "pin" | "phone" | "mail" }) {
   return (
-    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white/10" aria-hidden>
+    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-on-brand/10" aria-hidden>
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         {name === "pin" ? (
           <>

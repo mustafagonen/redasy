@@ -58,22 +58,23 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate className="flex h-full flex-col">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8d8d8d]">Bize yazın</p>
-      <h3 className="mt-2 font-display text-2xl font-bold leading-tight text-ink">Projenizi anlatın</h3>
+      <p data-theme="soft" className="text-[11px] font-semibold uppercase tracking-[0.18em] text-soft">Bize yazın</p>
+      <h3 data-theme="ink" className="mt-2 font-display text-2xl font-bold leading-tight text-ink">Projenizi anlatın</h3>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <label className="block text-[12px] font-semibold text-ink">
           Ad Soyad
-          <input name="name" aria-label="Ad Soyad" placeholder="Adınız" autoComplete="name" className={field} />
+          <input name="name" data-theme="field" aria-label="Ad Soyad" placeholder="Adınız" autoComplete="name" className={field} />
         </label>
         <label className="block text-[12px] font-semibold text-ink">
           E-posta
-          <input name="email" type="email" aria-label="E-posta" placeholder="ornek@sirket.com" autoComplete="email" className={field} />
+          <input name="email" data-theme="field" type="email" aria-label="E-posta" placeholder="ornek@sirket.com" autoComplete="email" className={field} />
         </label>
       </div>
       <label className="mt-4 block text-[12px] font-semibold text-ink">
         Mesajınız
         <textarea
           name="message"
+          data-theme="field"
           aria-label="Mesajınız"
           placeholder="Kısaca projenizden bahsedin"
           rows={5}
@@ -81,7 +82,7 @@ export function ContactForm() {
         />
       </label>
       {error ? <p className="mt-3 text-sm text-brand">{error}</p> : null}
-      <button type="submit" disabled={sending} className="mt-5 h-12 rounded-full bg-brand text-sm font-semibold text-white transition hover:bg-brand-bar disabled:opacity-60">
+      <button type="submit" data-theme="brand" disabled={sending} className="mt-5 h-12 rounded-full bg-brand text-sm font-semibold text-on-brand transition hover:bg-brand-bar disabled:opacity-60">
         {sending ? "Gönderiliyor" : "Gönder"}
       </button>
     </form>

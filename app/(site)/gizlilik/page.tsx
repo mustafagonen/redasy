@@ -8,10 +8,10 @@ export default async function GizlilikPage() {
   const contact = await readContact();
   const phone = contact.phones.find((item) => !item.whatsapp) ?? contact.phones[0];
   return (
-    <article className="mx-auto max-w-3xl px-5 py-16 sm:px-8">
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8d8d8d]">REDASY</p>
-      <h1 className="mt-2 font-display text-3xl font-extrabold uppercase">Gizlilik Politikası</h1>
-      <div className="mt-6 space-y-4 text-[15px] leading-7 text-[#444]">
+    <article data-theme="surface" className="mx-auto max-w-3xl bg-surface px-5 py-16 sm:px-8">
+      <p data-theme="soft" className="text-xs font-semibold uppercase tracking-[0.18em] text-soft">REDASY</p>
+      <h1 data-theme="ink" className="mt-2 font-display text-3xl font-extrabold uppercase text-ink">Gizlilik Politikası</h1>
+      <div data-theme="body" className="mt-6 space-y-4 text-[15px] leading-7 text-body">
         <p>
           Bu sayfa, REDASY web sitesindeki iletişim formunda paylaştığınız ad, e-posta ve mesaj bilgilerinin nasıl
           ele alındığını açıklar.
