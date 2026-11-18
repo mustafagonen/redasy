@@ -78,9 +78,8 @@ body {
   color: var(--theme-on-brand);
 }
 
-html.theme-preview,
-html.theme-preview * {
-  cursor: crosshair !important;
+html.page-preview [data-block] {
+  cursor: pointer;
 }
 
 .theme-hot {

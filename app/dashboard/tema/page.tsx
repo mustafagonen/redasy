@@ -1,9 +1,5 @@
-import { ThemeStudio } from "@/components/dashboard/ThemeStudio";
-import { readTheme } from "@/lib/themeStore";
+import { redirect } from "next/navigation";
 
-export const dynamic = "force-dynamic";
-
-export default async function ThemePage() {
-  const theme = await readTheme();
-  return <ThemeStudio initial={theme} />;
+export default function ThemePage() {
+  redirect("/dashboard/anasayfa");
 }

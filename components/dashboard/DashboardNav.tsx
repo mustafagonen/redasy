@@ -29,9 +29,9 @@ const items = [
     icon: "M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01",
   },
   {
-    href: "/dashboard/tema",
-    label: "Tema",
-    icon: "M12 4.2a7.8 7.8 0 1 0 0 15.6 7.8 7.8 0 0 0 0-15.6zM12 8.2v3.2l2.4 1.4",
+    href: "/dashboard/anasayfa",
+    label: "Anasayfa",
+    icon: "M4 5h16v4H4zM4 11h16v3H4zM4 16h16v3H4z",
   },
   {
     href: "/dashboard/iletisim",

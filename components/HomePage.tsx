@@ -3,8 +3,10 @@
 import { ContactForm } from "@/components/ContactForm";
 import { Logo } from "@/components/Logo";
 import { publicPhones, telHref, type ContactInfo } from "@/lib/contact";
+import { blockColorStyle, type HomeBlock } from "@/lib/homeBlocks";
 import { type HeroPanelContent } from "@/lib/heroBand";
 import { type StageStep } from "@/lib/stageSteps";
+import type { CSSProperties } from "react";
 import { MotionConfig, animate, motion, useInView, useMotionValue, useTransform, type Transition } from "motion/react";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 
@@ -81,7 +83,19 @@ function rise(delay = 0, duration = 0.72): Transition {
   return { duration, delay, ease: EASE };
 }
 
-export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanelContent[]; contact: ContactInfo; steps: StageStep[] }) {
+export function HomePage({
+  heroPanels,
+  contact,
+  steps,
+  blocks,
+  selectedId = null,
+}: {
+  heroPanels: HeroPanelContent[];
+  contact: ContactInfo;
+  steps: StageStep[];
+  blocks: HomeBlock[];
+  selectedId?: string | null;
+}) {
   const mode = useMotionMode();
   const panels = heroPanels.map((panel) => ({
     ...panel,
@@ -94,8 +108,46 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
   return (
     <MotionConfig reducedMotion="never">
     <MotionModeContext.Provider value={mode}>
-    <>
-      <section id="faaliyet" data-theme="surface" className="motion-root flex h-[calc(100dvh-6.5rem-1px)] flex-col overflow-hidden bg-surface">
+      {blocks.map((block, index) => (
+        <BlockSection
+          key={block.id}
+          block={block}
+          primary={blocks.findIndex((item) => item.kind === block.kind) === index}
+          selected={selectedId === block.id}
+          panels={panels}
+          phones={phones}
+          contact={contact}
+          steps={steps}
+        />
+      ))}
+    </MotionModeContext.Provider>
+    </MotionConfig>
+  );
+}
+
+function BlockSection({
+  block,
+  primary,
+  selected,
+  panels,
+  phones,
+  contact,
+  steps,
+}: {
+  block: HomeBlock;
+  primary: boolean;
+  selected: boolean;
+  panels: { id: string; image: string; alt: string; title: string; text: string }[];
+  phones: ReturnType<typeof publicPhones>;
+  contact: ContactInfo;
+  steps: StageStep[];
+}) {
+  const mode = useContext(MotionModeContext);
+  const style = blockColorStyle(block.colors) as CSSProperties;
+  const mark = selected ? "outline outline-2 outline-[#2563eb] outline-offset-[-2px]" : "";
+  if (block.kind === "film") {
+    return (
+      <section id={primary ? "faaliyet" : undefined} data-block={block.id} data-theme="surface" style={style} className={`motion-root flex h-[calc(100dvh-6.5rem-1px+8rem-14.25rem)] flex-col overflow-hidden bg-surface sm:h-[calc(100dvh-6.5rem-1px+8rem-15.75rem)] ${mark}`}>
         <div className="flex min-h-0 flex-1 [container-type:size]">
           {panels.map((panel, index) => (
             <div
@@ -146,10 +198,19 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
             ))}
           </div>
         </div>
+      </section>
+    );
+  }
+  if (block.kind === "stages") {
+    return (
+      <section data-block={block.id} style={style} className={`motion-root ${mark}`}>
         <StageIntro steps={steps} />
       </section>
-
-      <section id="kurumsal" data-theme="surface" className="motion-root bg-surface">
+    );
+  }
+  if (block.kind === "about") {
+    return (
+      <section id={primary ? "kurumsal" : undefined} data-block={block.id} data-theme="surface" style={style} className={`motion-root bg-surface ${mark}`}>
         <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:py-20">
           <div>
             <motion.p
@@ -205,8 +266,11 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
           </motion.div>
         </div>
       </section>
-
-      <section data-theme="brand" className="motion-root bg-brand text-on-brand" aria-label="Rakamlar">
+    );
+  }
+  if (block.kind === "stats") {
+    return (
+      <section data-block={block.id} data-theme="brand" style={style} className={`motion-root bg-brand text-on-brand ${mark}`} aria-label="Rakamlar">
         <div className="mx-auto flex max-w-[1200px] flex-col gap-8 px-5 py-8 sm:px-8 lg:flex-row lg:items-center lg:justify-between">
           <motion.div {...enter(mode, { opacity: 0, x: -12 })}>
             <Logo tone="light" />
@@ -225,8 +289,11 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
           </div>
         </div>
       </section>
-
-      <section id="neden-biz" data-theme="paper" className="motion-root bg-paper">
+    );
+  }
+  if (block.kind === "reasons") {
+    return (
+      <section id={primary ? "neden-biz" : undefined} data-block={block.id} data-theme="paper" style={style} className={`motion-root bg-paper ${mark}`}>
         <div className="mx-auto max-w-[1200px] px-5 py-16 sm:px-8">
           <motion.h2
             className="text-center font-display text-[1.7rem] font-extrabold uppercase tracking-[0.08em] text-ink"
@@ -252,8 +319,10 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
           </div>
         </div>
       </section>
-
-      <section id="iletisim" data-theme="surface" className="motion-root bg-surface">
+    );
+  }
+  return (
+      <section id={primary ? "iletisim" : undefined} data-block={block.id} data-theme="surface" style={style} className={`motion-root bg-surface ${mark}`}>
         <div id="kariyer" className="mx-auto max-w-[1200px] px-5 py-16 sm:px-8 lg:py-20">
           <motion.div
             className="overflow-hidden rounded-[1.6rem] border border-line bg-surface shadow-[0_20px_50px_rgba(26,26,26,0.06)] lg:grid lg:grid-cols-[0.9fr_1.1fr]"
@@ -325,9 +394,6 @@ export function HomePage({ heroPanels, contact, steps }: { heroPanels: HeroPanel
           </motion.div>
         </div>
       </section>
-    </>
-    </MotionModeContext.Provider>
-    </MotionConfig>
   );
 }
 
