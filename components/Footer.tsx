@@ -97,7 +97,7 @@ export function Footer({ contact, social, nav }: { contact: ContactInfo; social:
               ))}
               <li>
                 <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-on-brand/38">E-posta</p>
-                <a href={`mailto:${contact.email}`} className="mt-1 block text-[14px] text-on-brand/78 transition hover:text-on-brand">
+                <a href={`mailto:${contact.email}`} className="mt-1 block break-all text-[14px] text-on-brand/78 transition hover:text-on-brand">
                   {contact.email}
                 </a>
               </li>
@@ -107,7 +107,7 @@ export function Footer({ contact, social, nav }: { contact: ContactInfo; social:
       </div>
 
       <div className="border-t border-on-brand/10">
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-3 px-5 py-5 text-[12px] text-on-brand/50 sm:flex-row sm:items-center sm:gap-6 sm:px-8">
+        <div className="mx-auto flex max-w-[1200px] flex-col gap-3 px-5 pt-5 pb-24 text-[12px] text-on-brand/50 sm:px-8 md:flex-row md:items-center md:gap-6 md:py-5">
           <p>© {year} REDASY. Tüm Hakları Saklıdır.</p>
           <p className="flex flex-wrap gap-x-5 gap-y-2">
             <a href="/gizlilik" className="transition hover:text-on-brand">

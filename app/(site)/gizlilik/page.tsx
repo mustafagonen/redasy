@@ -18,7 +18,7 @@ export default async function GizlilikPage() {
         </p>
         <p>
           Formdaki bilgiler size dönüş yapmak için kullanılır. Üçüncü kişilere satılmaz. Ulaşmak için{" "}
-          <a className="font-semibold text-brand" href={`mailto:${contact.email}`}>
+          <a className="break-all font-semibold text-brand" href={`mailto:${contact.email}`}>
             {contact.email}
           </a>{" "}
           adresini{phone ? <> veya <a className="font-semibold text-brand" href={telHref(phone.number)}>{phone.number}</a> numaralı telefonu</> : null} kullanabilirsiniz. Adres: {contact.address}.

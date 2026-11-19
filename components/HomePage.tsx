@@ -147,8 +147,10 @@ function BlockSection({
   const mark = selected ? "outline outline-2 outline-[#2563eb] outline-offset-[-2px]" : "";
   if (block.kind === "film") {
     return (
-      <section id={primary ? "faaliyet" : undefined} data-block={block.id} data-theme="surface" style={style} className={`motion-root flex h-[calc(100dvh-6.5rem-1px+8rem-14.25rem)] flex-col overflow-hidden bg-surface sm:h-[calc(100dvh-6.5rem-1px+8rem-15.75rem)] ${mark}`}>
-        <div className="flex min-h-0 flex-1 [container-type:size]">
+      <section id={primary ? "faaliyet" : undefined} data-block={block.id} data-theme="surface" style={style} className={`motion-root bg-surface lg:flex lg:h-[calc(100dvh-6.5rem-1px+8rem-15.75rem)] lg:flex-col lg:overflow-hidden ${mark}`}>
+        <FilmTouch panels={panels} columns={1} />
+        <FilmTouch panels={panels} columns={2} />
+        <div className="hidden min-h-0 flex-1 [container-type:size] lg:flex">
           {panels.map((panel, index) => (
             <div
               key={panel.id}
@@ -178,7 +180,7 @@ function BlockSection({
             </div>
           ))}
         </div>
-        <div data-theme="caption" className="h-[4.75rem] shrink-0 bg-caption sm:h-[5.25rem]">
+        <div data-theme="caption" className="hidden h-[5.25rem] shrink-0 bg-caption lg:block">
           <div className="grid h-full grid-cols-4">
             {panels.map((panel, index) => (
               <div
@@ -211,7 +213,7 @@ function BlockSection({
   if (block.kind === "about") {
     return (
       <section id={primary ? "kurumsal" : undefined} data-block={block.id} data-theme="surface" style={style} className={`motion-root bg-surface ${mark}`}>
-        <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:py-20">
+        <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 py-14 sm:px-8 md:grid-cols-2 md:gap-8 md:py-16 lg:grid-cols-[1.15fr_0.85fr] lg:py-20">
           <div>
             <motion.p
               data-theme="soft"
@@ -254,7 +256,7 @@ function BlockSection({
             </motion.a>
           </div>
           <motion.div
-            className="overflow-hidden rounded-[1.4rem] shadow-[0_18px_40px_rgba(0,0,0,0.16)]"
+            className="max-md:order-first overflow-hidden rounded-[1.4rem] shadow-[0_18px_40px_rgba(0,0,0,0.16)]"
             {...enter(mode, { opacity: 0, y: 20 }, 0.12, 0.9)}
           >
             <motion.img
@@ -281,7 +283,7 @@ function BlockSection({
                 <p data-theme="on-brand" className="font-display text-[2rem] font-bold leading-none text-on-brand" aria-label={item.value}>
                   <CountUp value={item.value} delay={index * 0.1} />
                 </p>
-                <motion.p data-theme="on-brand" className="mt-1 text-xs text-on-brand/80" {...enter(mode, { opacity: 0, y: 8 }, 0.15 + index * 0.1, 0.55)}>
+                <motion.p data-theme="on-brand" className="mt-1 text-balance text-xs leading-snug text-on-brand/80" {...enter(mode, { opacity: 0, y: 8 }, 0.15 + index * 0.1, 0.55)}>
                   {item.label}
                 </motion.p>
               </div>
@@ -310,6 +312,7 @@ function BlockSection({
                 data-theme="surface"
                 {...enter(mode, { opacity: 0, y: 24 }, index * 0.12, 0.75)}
                 whileHover={mode === "run" ? { y: -6, transition: { duration: 0.35, delay: 0, ease: EASE } } : undefined}
+                whileTap={mode === "run" ? { scale: 0.98 } : undefined}
               >
                 <ReasonIcon name={item.icon} />
                 <h3 data-theme="ink" className="mt-4 font-display text-lg font-bold text-ink">{item.title}</h3>
@@ -328,7 +331,7 @@ function BlockSection({
             className="overflow-hidden rounded-[1.6rem] border border-line bg-surface shadow-[0_20px_50px_rgba(26,26,26,0.06)] lg:grid lg:grid-cols-[0.9fr_1.1fr]"
             {...enter(mode, { opacity: 0, y: 28 }, 0, 0.8)}
           >
-            <div data-theme="brand" className="bg-brand px-7 py-9 text-on-brand sm:px-9 sm:py-11">
+            <div data-theme="brand" className="bg-brand px-5 py-9 text-on-brand sm:px-9 sm:py-11">
               <motion.p
                 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-on-brand/55"
                 {...enter(mode, { opacity: 0, y: 10 }, 0.08)}
@@ -378,7 +381,7 @@ function BlockSection({
                     <ContactGlyph name="mail" />
                     <span>
                       <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-on-brand/50">E-posta</span>
-                      <span className="mt-0.5 block text-sm font-semibold">{contact.email}</span>
+                      <span className="mt-0.5 block break-all text-sm font-semibold">{contact.email}</span>
                     </span>
                   </a>
                 </motion.li>
@@ -397,23 +400,201 @@ function BlockSection({
   );
 }
 
+type FilmPanel = { id: string; image: string; alt: string; title: string; text: string };
+
+function FilmTouch({ panels, columns }: { panels: FilmPanel[]; columns: 1 | 2 }) {
+  const scroller = useRef<HTMLDivElement>(null);
+  const [page, setPage] = useState(0);
+  const [hint, setHint] = useState(true);
+  const pages: FilmPanel[][] = [];
+  for (let index = 0; index < panels.length; index += columns) pages.push(panels.slice(index, index + columns));
+
+  function sync() {
+    const node = scroller.current;
+    if (!node || !node.clientWidth) return;
+    const next = Math.round(node.scrollLeft / node.clientWidth);
+    setPage(Math.max(0, Math.min(pages.length - 1, next)));
+    if (node.scrollLeft > 12) setHint(false);
+  }
+
+  function go(next: number) {
+    const node = scroller.current;
+    if (!node) return;
+    const target = Math.max(0, Math.min(pages.length - 1, next));
+    node.scrollTo({ left: target * node.clientWidth, behavior: "smooth" });
+    setPage(target);
+    setHint(false);
+  }
+
+  return (
+    <div className={columns === 1 ? "relative md:hidden" : "hidden md:block lg:hidden"}>
+      <div
+        ref={scroller}
+        onScroll={sync}
+        className="snap-row flex"
+        tabIndex={0}
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Faaliyet görselleri"
+        onKeyDown={(event) => {
+          if (event.key === "ArrowRight") {
+            event.preventDefault();
+            go(page + 1);
+          }
+          if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            go(page - 1);
+          }
+        }}
+      >
+        {pages.map((group, pageIndex) => (
+          <article key={group.map((item) => item.id).join("-")} className="snap-page w-full min-w-full shrink-0" aria-hidden={pageIndex !== page}>
+            <div className={`relative overflow-hidden ${columns === 1 ? "h-[62vh] max-h-[520px] min-h-[300px]" : "h-[46vh] max-h-[460px] min-h-[340px]"}`}>
+              {columns === 1 ? (
+                <FilmFrame panel={group[0]} active={pageIndex === page} clip="polygon(0 0, 100% 0, 100% 100%, 0 100%)" />
+              ) : (
+                <div className="absolute inset-0 flex">
+                  <div className="relative z-10 h-full w-[58%]">
+                    <FilmFrame panel={group[0]} active={pageIndex === page} clip="polygon(0 0, 100% 0, 74% 100%, 0 100%)" />
+                  </div>
+                  {group[1] ? (
+                    <div className="relative -ml-[10%] h-full w-[52%]">
+                      <FilmFrame panel={group[1]} active={pageIndex === page} clip="polygon(22% 0, 100% 0, 100% 100%, 0 100%)" />
+                    </div>
+                  ) : null}
+                </div>
+              )}
+              {columns === 1 ? <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-caption" style={{ clipPath: "polygon(0 100%, 100% 0, 100% 100%)" }} /> : null}
+              {columns === 1 && hint && pageIndex === 0 ? (
+                <div className="pointer-events-none absolute top-4 right-4 z-20 flex items-center gap-2 rounded-full bg-ink/75 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-on-brand">
+                  Kaydır <span className="nudge">→</span>
+                </div>
+              ) : null}
+            </div>
+            <div data-theme="caption" className={`grid bg-caption ${columns === 2 ? "grid-cols-2" : ""}`}>
+              {group.map((panel, index) => {
+                const order = panels.findIndex((item) => item.id === panel.id) + 1;
+                return (
+                  <div key={panel.id} className={columns === 2 ? (index === 0 ? "py-5 pr-6 pl-8" : "py-5 pr-8 pl-8") : "px-5 pt-4 pb-5"}>
+                    <p data-theme="brand" className="text-[11px] font-semibold tracking-[0.2em] text-brand">
+                      {String(order).padStart(2, "0")}
+                      <span data-theme="soft" className="text-soft"> / {String(panels.length).padStart(2, "0")}</span>
+                    </p>
+                    <h2 data-theme="ink" className="mt-1.5 font-display text-[1.05rem] font-bold uppercase leading-tight text-ink md:text-lg">{panel.title}</h2>
+                    <p data-theme="muted" className="mt-1.5 text-[13px] leading-5 text-muted md:text-sm md:leading-6">{panel.text}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </article>
+        ))}
+      </div>
+      {columns === 1 ? (
+        <div className="absolute left-4 z-20 flex items-center gap-1 rounded-full bg-ink/75 py-1 pr-2 pl-1 text-on-brand" style={{ top: "calc(max(300px, min(62vh, 520px)) - 5.75rem)" }}>
+          <button type="button" aria-label="Önceki görsel" disabled={page === 0} onClick={() => go(page - 1)} className="grid h-10 w-10 place-items-center rounded-full text-lg leading-none disabled:opacity-30">
+            <span aria-hidden>←</span>
+          </button>
+          <button type="button" aria-label="Sonraki görsel" disabled={page === pages.length - 1} onClick={() => go(page + 1)} className="grid h-10 w-10 place-items-center rounded-full text-lg leading-none disabled:opacity-30">
+            <span aria-hidden>→</span>
+          </button>
+          <div className="flex items-center pl-1" role="tablist" aria-label="Görsel sayfaları">
+            {pages.map((group, index) => (
+              <button key={group[0].id} type="button" role="tab" aria-selected={index === page} aria-label={`${index + 1}. görsel`} onClick={() => go(index)} className="grid h-10 w-6 place-items-center">
+                <span className={`block h-2 rounded-full transition-all duration-300 ${index === page ? "w-5 bg-on-brand" : "w-2 bg-on-brand/40"}`} />
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : null}
+      <div data-theme="caption" className={`items-center justify-between gap-4 bg-caption px-8 pt-3 pb-5 ${columns === 1 ? "hidden" : "flex"}`}>
+        <div className="flex items-center gap-2" role="tablist" aria-label="Görsel sayfaları">
+          {pages.map((group, index) => (
+            <button
+              key={group[0].id}
+              type="button"
+              role="tab"
+              aria-selected={index === page}
+              aria-label={`${index + 1}. görsel`}
+              onClick={() => go(index)}
+              className="grid h-11 w-11 place-items-center"
+            >
+              <span className={`block h-2.5 rounded-full transition-all duration-300 ${index === page ? "w-7 bg-brand" : "w-2.5 bg-caption-line"}`} />
+            </button>
+          ))}
+        </div>
+        <div className="flex gap-2">
+          <button type="button" aria-label="Önceki görsel" disabled={page === 0} onClick={() => go(page - 1)} className="grid h-11 w-11 place-items-center rounded-full border border-line bg-surface text-lg leading-none text-ink disabled:opacity-30">
+            <span aria-hidden>←</span>
+          </button>
+          <button type="button" aria-label="Sonraki görsel" disabled={page === pages.length - 1} onClick={() => go(page + 1)} className="grid h-11 w-11 place-items-center rounded-full border border-line bg-surface text-lg leading-none text-ink disabled:opacity-30">
+            <span aria-hidden>→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FilmFrame({ panel, active, clip }: { panel: FilmPanel; active: boolean; clip: string }) {
+  return (
+    <div className="absolute inset-0 overflow-hidden" style={{ clipPath: clip }}>
+      <img src={panel.image} alt="" aria-hidden draggable={false} className="absolute inset-0 h-full w-full object-cover grayscale" />
+      <img
+        src={panel.image}
+        alt={panel.alt}
+        draggable={false}
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-[cubic-bezier(0.215,0.61,0.355,1)] ${active ? "opacity-100" : "opacity-0"}`}
+      />
+    </div>
+  );
+}
+
 function StageIntro({ steps }: { steps: StageStep[] }) {
   const mode = useContext(MotionModeContext);
   if (!steps.length) return null;
   return (
-    <div data-theme="stage" className="flex h-[14.25rem] shrink-0 items-center border-t border-line bg-stage sm:h-[15.75rem]">
-      <div className="mx-auto grid w-full max-w-[1200px] px-5 sm:px-8" style={{ gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))` }}>
+    <div data-theme="stage" className="border-t border-line bg-stage lg:flex lg:h-[15.75rem] lg:items-center">
+      <div className="mx-auto flex max-w-[1200px] flex-col px-5 py-2 md:hidden">
         {steps.map((step, index) => (
-          <motion.div
+          <motion.article
             key={step.id}
-            className={`min-w-0 ${index > 0 ? "border-l border-line pl-3 sm:pl-8" : "pr-3 sm:pr-8"}`}
-            {...enter(mode, { opacity: 0, y: 12 }, 0.12 + index * 0.08, 0.6)}
+            className="border-b border-line py-5 last:border-b-0"
+            {...enter(mode, { opacity: 0, y: 16 }, 0.08 + index * 0.08, 0.6)}
           >
-            <p data-theme="brand" className="text-[10px] font-semibold tracking-[0.2em] text-brand sm:text-[11px]">{String(index + 1).padStart(2, "0")}</p>
-            <h2 data-theme="ink" className="mt-2 font-display text-[13px] font-bold leading-tight text-ink sm:text-[1.2rem]">{step.tr.title}</h2>
-            <p data-theme="muted" className="mt-1.5 line-clamp-3 text-[11px] leading-4 text-muted sm:mt-2 sm:line-clamp-2 sm:text-[14px] sm:leading-6">{step.tr.text}</p>
-          </motion.div>
+            <p data-theme="brand" className="text-[11px] font-semibold tracking-[0.2em] text-brand">{String(index + 1).padStart(2, "0")}</p>
+            <h2 data-theme="ink" className="mt-2 font-display text-lg font-bold leading-tight text-ink">{step.tr.title}</h2>
+            <p data-theme="muted" className="mt-2 text-sm leading-6 text-muted">{step.tr.text}</p>
+          </motion.article>
         ))}
+      </div>
+      <div className="snap-row hidden gap-4 px-8 py-8 md:flex lg:hidden">
+        {steps.map((step, index) => (
+          <motion.article
+            key={step.id}
+            className="w-[46%] shrink-0 snap-start rounded-2xl border border-line bg-surface px-6 py-7"
+            data-theme="surface"
+            {...enter(mode, { opacity: 0, y: 16 }, 0.08 + index * 0.08, 0.6)}
+          >
+            <p data-theme="brand" className="text-[11px] font-semibold tracking-[0.2em] text-brand">{String(index + 1).padStart(2, "0")}</p>
+            <h2 data-theme="ink" className="mt-2 font-display text-xl font-bold leading-tight text-ink">{step.tr.title}</h2>
+            <p data-theme="muted" className="mt-2 text-sm leading-6 text-muted">{step.tr.text}</p>
+          </motion.article>
+        ))}
+      </div>
+      <div className="mx-auto hidden w-full lg:block">
+        <div className="mx-auto grid w-full max-w-[1200px] px-8" style={{ gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))` }}>
+          {steps.map((step, index) => (
+            <motion.div
+              key={step.id}
+              className={`min-w-0 ${index > 0 ? "border-l border-line pl-8" : "pr-8"}`}
+              {...enter(mode, { opacity: 0, y: 12 }, 0.12 + index * 0.08, 0.6)}
+            >
+              <p data-theme="brand" className="text-[11px] font-semibold tracking-[0.2em] text-brand">{String(index + 1).padStart(2, "0")}</p>
+              <h2 data-theme="ink" className="mt-2 font-display text-[1.2rem] font-bold leading-tight text-ink">{step.tr.title}</h2>
+              <p data-theme="muted" className="mt-2 line-clamp-2 text-[14px] leading-6 text-muted">{step.tr.text}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );

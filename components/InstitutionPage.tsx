@@ -46,15 +46,15 @@ export function InstitutionPage({ page, pages, contact, heroPanels }: { page: Si
           <div className="flex flex-col justify-between px-6 py-12 sm:px-10 lg:px-14 lg:py-16">
             <p data-theme="on-brand" className="text-[12px] font-semibold uppercase tracking-[0.28em] text-on-brand/55">Kurumsal</p>
             <div className="mt-10 lg:mt-0">
-              <h1 data-theme="on-brand" className="max-w-[16ch] font-display text-[2.7rem] font-extrabold uppercase leading-[0.92] tracking-tight text-on-brand sm:text-[3.4rem] lg:text-[3.7rem]">
+              <h1 data-theme="on-brand" className="max-w-[16ch] font-display text-[2.15rem] font-extrabold uppercase leading-[0.95] tracking-tight text-on-brand sm:text-[3.1rem] lg:text-[3.7rem]">
                 {page.title}
               </h1>
               {page.lead ? <p data-theme="on-brand" className="mt-6 max-w-[32rem] text-balance text-[17px] leading-8 text-on-brand/78">{page.lead}</p> : null}
             </div>
-            <p data-theme="on-brand" className="mt-12 text-[13px] tracking-wide text-on-brand/70">
-              {contact.address}
-              <span className="px-2 text-on-brand/35">/</span>
-              <a className="underline-offset-4 hover:underline" href={`mailto:${contact.email}`}>
+            <p data-theme="on-brand" className="mt-12 flex flex-col gap-1 text-[13px] tracking-wide text-on-brand/70 sm:flex-row sm:flex-wrap sm:items-center">
+              <span>{contact.address}</span>
+              <span className="hidden px-2 text-on-brand/35 sm:inline">/</span>
+              <a className="break-all underline-offset-4 hover:underline" href={`mailto:${contact.email}`}>
                 {contact.email}
               </a>
             </p>
@@ -191,9 +191,9 @@ function Study({ kind, shot, mark }: { kind: 0 | 1 | 2; shot: { src: string; gra
       <div data-theme="brand" className="absolute right-7 top-10 grid h-[4.5rem] w-[4.5rem] place-items-center bg-brand sm:right-10">
         <span className="text-[1.7rem] font-light leading-none text-on-brand">+</span>
       </div>
-      <div className="absolute bottom-8 right-7 flex items-center gap-3 sm:right-10">
-        <span data-theme="slate" className="h-px w-16 bg-slate/50" />
-        <span data-theme="slate" className="text-[11px] font-semibold tracking-[0.26em] text-slate">REDASY {mark}</span>
+      <div className="absolute right-5 bottom-8 flex items-center gap-3 sm:right-10">
+        <span data-theme="slate" className="h-px w-8 bg-slate/50 sm:w-16" />
+        <span data-theme="slate" className="text-[10px] font-semibold tracking-[0.16em] text-slate sm:text-[11px] sm:tracking-[0.26em]">REDASY {mark}</span>
       </div>
     </div>
   );

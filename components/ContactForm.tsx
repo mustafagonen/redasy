@@ -82,7 +82,7 @@ export function ContactForm() {
         />
       </label>
       {error ? <p className="mt-3 text-sm text-brand">{error}</p> : null}
-      <button type="submit" data-theme="brand" disabled={sending} className="mt-5 h-12 rounded-full bg-brand text-sm font-semibold text-on-brand transition hover:bg-brand-bar disabled:opacity-60">
+      <button type="submit" data-theme="brand" disabled={sending} className="mt-5 h-12 w-full rounded-full bg-brand px-8 text-sm font-semibold text-on-brand transition hover:bg-brand-bar disabled:opacity-60 sm:w-fit">
         {sending ? "Gönderiliyor" : "Gönder"}
       </button>
     </form>

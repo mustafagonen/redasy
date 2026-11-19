@@ -71,6 +71,65 @@ html {
 body {
   background: var(--theme-surface);
   color: var(--theme-ink);
+  overflow-x: clip;
+}
+
+.snap-row {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.snap-row::-webkit-scrollbar {
+  display: none;
+}
+
+.snap-page {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@keyframes nudge-x {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+.nudge {
+  display: inline-block;
+  animation: nudge-x 1.3s ease-in-out infinite;
+}
+
+@keyframes menu-curtain {
+  from { clip-path: inset(0 0 100% 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes menu-curtain-out {
+  from { clip-path: inset(0 0 0 0); }
+  to { clip-path: inset(0 0 100% 0); }
+}
+
+.menu-panel {
+  animation: menu-curtain 0.52s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.menu-closing .menu-panel {
+  animation: menu-curtain-out 0.32s cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+@keyframes menu-row {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+.menu-row {
+  animation: menu-row 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.menu-closing .menu-row {
+  animation: none;
 }
 
 ::selection {
