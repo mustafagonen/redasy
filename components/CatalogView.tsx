@@ -61,6 +61,22 @@ function Frame({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+function CardWatermark({ src }: { src: string }) {
+  return (
+    <span className="pointer-events-none absolute inset-0" aria-hidden>
+      <img src={src} alt="" draggable={false} className="absolute inset-0 h-full w-full object-cover grayscale opacity-[0.14]" />
+      <img
+        src={src}
+        alt=""
+        draggable={false}
+        className="absolute inset-0 h-full w-full object-cover opacity-0 transition duration-700 ease-[cubic-bezier(0.215,0.61,0.355,1)] group-hover:opacity-40"
+        style={{ clipPath: "polygon(46% 0, 100% 0, 100% 100%, 28% 100%)" }}
+      />
+      <span className="absolute inset-0 bg-gradient-to-r from-caption from-35% via-caption/88 via-60% to-caption/25" />
+    </span>
+  );
+}
+
 function SiblingBar({ catalog, category }: { catalog: Catalog; category: Category }) {
   const siblings = visibleCategories(catalog, category.parentId);
   if (siblings.length < 2) return null;
@@ -141,14 +157,16 @@ export function CatalogView({
               const nested = visibleCategories(catalog, item.id);
               const ownProducts = visibleProducts(catalog, item.id);
               const href = nested.length ? publicHref(catalog.categories, item) : productListHref(catalog.categories, item);
+              const mark = category ? undefined : frames[item.id];
               return (
-                <a key={item.id} href={href} className="group flex min-h-[240px] flex-col justify-between border border-line bg-caption p-6 sm:p-7">
-                  <div>
+                <a key={item.id} href={href} className="group relative flex min-h-[280px] flex-col justify-between overflow-hidden border border-line bg-caption p-6 sm:p-7">
+                  {mark ? <CardWatermark src={mark.src} /> : null}
+                  <div className="relative">
                     <p data-theme="brand" className="text-[11px] font-bold tracking-[0.18em] text-brand">{String(index + 1).padStart(2, "0")}</p>
-                    <h2 data-theme="ink" className="mt-2 font-display text-2xl font-extrabold uppercase leading-tight text-ink">{item.title.tr}</h2>
-                    {item.lead.tr ? <p data-theme="muted" className="mt-3 max-w-[48ch] text-sm leading-6 text-muted">{item.lead.tr}</p> : null}
+                    <h2 data-theme="ink" className="mt-2 max-w-[16ch] font-display text-2xl font-extrabold uppercase leading-tight text-ink">{item.title.tr}</h2>
+                    {item.lead.tr ? <p data-theme="muted" className="mt-3 max-w-[36ch] text-sm leading-6 text-muted">{item.lead.tr}</p> : null}
                   </div>
-                  <div className="mt-6 flex items-center justify-between gap-3">
+                  <div className="relative mt-6 flex items-center justify-between gap-3">
                     <span data-theme="soft" className="text-[11px] font-semibold uppercase tracking-[0.14em] text-soft">
                       {nested.length ? `${nested.length} alt grup` : ownProducts.length ? `${ownProducts.length} ürün` : "Grup"}
                     </span>

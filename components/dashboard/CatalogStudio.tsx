@@ -452,31 +452,23 @@ export function CatalogStudio({ initial }: { initial: Catalog }) {
             </div>
           ) : null}
 
-          {product && category ? (
-            <ProductEditor
+          {category ? (
+            <CategoryEditor
               catalog={catalog}
               category={category}
               product={product}
               lang={lang}
               rtl={rtl}
               uploading={uploading}
-              onBack={() => setProductId(null)}
-              onChange={(patch, title) => patchProduct(product.id, patch, title)}
-              onUpload={uploadImages}
-              onDelete={() => setPendingDelete({ kind: "product", id: product.id })}
-            />
-          ) : category ? (
-            <CategoryEditor
-              catalog={catalog}
-              category={category}
-              lang={lang}
-              rtl={rtl}
               onChange={(patch, title) => patchCategory(category.id, patch, title)}
               onAddChild={() => addCategory(category.id)}
               onAddProduct={addProduct}
               onOpenProduct={setProductId}
               onMoveProduct={moveProduct}
               onDelete={() => setPendingDelete({ kind: "category", id: category.id })}
+              onChangeProduct={(id, patch, title) => patchProduct(id, patch, title)}
+              onUpload={uploadImages}
+              onDeleteProduct={(id) => setPendingDelete({ kind: "product", id })}
             />
           ) : (
             <section className="rounded-2xl bg-white p-8 shadow-[0_10px_30px_rgba(26,26,26,0.04)]">
@@ -579,25 +571,35 @@ function IconButton({ label, onClick, children }: { label: string; onClick: () =
 function CategoryEditor({
   catalog,
   category,
+  product,
   lang,
   rtl,
+  uploading,
   onChange,
   onAddChild,
   onAddProduct,
   onOpenProduct,
   onMoveProduct,
   onDelete,
+  onChangeProduct,
+  onUpload,
+  onDeleteProduct,
 }: {
   catalog: Catalog;
   category: Category;
+  product: Product | null;
   lang: CatalogLang;
   rtl: boolean;
+  uploading: boolean;
   onChange: (patch: Partial<Category>, title?: string) => void;
   onAddChild: () => void;
   onAddProduct: () => void;
-  onOpenProduct: (id: string) => void;
+  onOpenProduct: (id: string | null) => void;
   onMoveProduct: (id: string, direction: -1 | 1) => void;
   onDelete: () => void;
+  onChangeProduct: (id: string, patch: Partial<Product>, title?: string) => void;
+  onUpload: (files: FileList | null) => void;
+  onDeleteProduct: (id: string) => void;
 }) {
   const products = productsOf(catalog.products, category.id);
   const crumbs = publicHref(catalog.categories, category);
@@ -652,17 +654,53 @@ function CategoryEditor({
           </button>
         </div>
         {products.length ? (
-          <ul className="mt-4 divide-y divide-line">
-            {products.map((item) => (
-              <li key={item.id} className="flex items-center gap-3 py-3">
-                <button type="button" onClick={() => onOpenProduct(item.id)} className="min-w-0 flex-1 text-left">
-                  <span className={`block truncate font-semibold ${item.visible ? "text-ink" : "text-soft line-through"}`}>{item.title.tr || "Adsız ürün"}</span>
-                  <span className="block truncate text-sm text-muted">{item.summary.tr || item.slug}</span>
-                </button>
-                <IconButton label="Yukarı" onClick={() => onMoveProduct(item.id, -1)}>↑</IconButton>
-                <IconButton label="Aşağı" onClick={() => onMoveProduct(item.id, 1)}>↓</IconButton>
-              </li>
-            ))}
+          <ul className="mt-4 space-y-2">
+            {products.map((item) => {
+              const open = product?.id === item.id;
+              return (
+                <li key={item.id} className={`overflow-hidden rounded-2xl border transition ${open ? "border-brand bg-[#faf7f7]" : "border-line bg-white hover:border-brand/50"}`}>
+                  <div className="flex items-center gap-1 pr-1">
+                    <button
+                      type="button"
+                      aria-expanded={open}
+                      onClick={() => onOpenProduct(open ? null : item.id)}
+                      className="flex min-w-0 flex-1 items-center gap-3 px-3 py-3 text-left"
+                    >
+                      <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-full ${open ? "bg-brand text-white" : "bg-[#ececee] text-ink"}`} aria-hidden>
+                        <svg viewBox="0 0 20 20" className={`h-4 w-4 transition ${open ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="1.8">
+                          <path d="M5 7.5 10 12.5 15 7.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                      <span className="min-w-0">
+                        <span className={`block truncate font-semibold ${item.visible ? "text-ink" : "text-soft line-through"}`}>{item.title.tr || "Adsız ürün"}</span>
+                        <span className="block truncate text-sm text-muted">{item.summary.tr || item.slug}</span>
+                      </span>
+                      <span className={`ml-auto shrink-0 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] ${open ? "bg-brand text-white" : "bg-[#ececee] text-ink"}`}>
+                        {open ? "Kapat" : "Düzenle"}
+                      </span>
+                    </button>
+                    <IconButton label="Yukarı" onClick={() => onMoveProduct(item.id, -1)}>↑</IconButton>
+                    <IconButton label="Aşağı" onClick={() => onMoveProduct(item.id, 1)}>↓</IconButton>
+                  </div>
+                  {open ? (
+                    <div className="border-t border-brand/15 px-3 py-4 sm:px-4">
+                      <ProductEditor
+                        catalog={catalog}
+                        category={category}
+                        product={item}
+                        lang={lang}
+                        rtl={rtl}
+                        uploading={uploading}
+                        embedded
+                        onChange={(patch, title) => onChangeProduct(item.id, patch, title)}
+                        onUpload={onUpload}
+                        onDelete={() => onDeleteProduct(item.id)}
+                      />
+                    </div>
+                  ) : null}
+                </li>
+              );
+            })}
           </ul>
         ) : (
           <p className="mt-4 text-sm leading-6 text-muted">Bu kategoride ürün yok. Alt kategorisi olan bir kategoriye de ürün eklenebilir.</p>
@@ -679,6 +717,7 @@ function ProductEditor({
   lang,
   rtl,
   uploading,
+  embedded = false,
   onBack,
   onChange,
   onUpload,
@@ -690,7 +729,8 @@ function ProductEditor({
   lang: CatalogLang;
   rtl: boolean;
   uploading: boolean;
-  onBack: () => void;
+  embedded?: boolean;
+  onBack?: () => void;
   onChange: (patch: Partial<Product>, title?: string) => void;
   onUpload: (files: FileList | null) => void;
   onDelete: () => void;
@@ -704,20 +744,26 @@ function ProductEditor({
     onChange({ images });
   }
 
+  const card = embedded ? "rounded-2xl border border-line bg-white p-5" : "rounded-2xl bg-white p-5 shadow-[0_10px_30px_rgba(26,26,26,0.04)]";
+
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <button type="button" onClick={onBack} className="text-sm font-semibold text-muted hover:text-ink">
-          ← {category.title.tr || "Kategori"}
-        </button>
+        {onBack ? (
+          <button type="button" onClick={onBack} className="text-sm font-semibold text-muted hover:text-ink">
+            ← {category.title.tr || "Kategori"}
+          </button>
+        ) : (
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8d8d8d]">{publicHref(catalog.categories, category, product)}</p>
+        )}
         <button type="button" onClick={onDelete} className="text-sm font-semibold text-brand">
           Ürünü sil
         </button>
       </div>
 
-      <section className="rounded-2xl bg-white p-5 shadow-[0_10px_30px_rgba(26,26,26,0.04)]">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8d8d8d]">{publicHref(catalog.categories, category, product)}</p>
-        <h2 className="mt-1 font-display text-2xl font-bold text-ink">{product.title[lang] || product.title.tr || "Adsız ürün"}</h2>
+      <section className={card}>
+        {onBack ? <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8d8d8d]">{publicHref(catalog.categories, category, product)}</p> : null}
+        <h2 className={`${onBack ? "mt-1" : ""} font-display text-2xl font-bold text-ink`}>{product.title[lang] || product.title.tr || "Adsız ürün"}</h2>
         <label className="mt-4 flex items-center gap-3 text-sm font-semibold text-ink">
           <input type="checkbox" checked={product.visible} onChange={(event) => onChange({ visible: event.target.checked })} />
           Sitede görünsün
@@ -760,7 +806,7 @@ function ProductEditor({
         </div>
       </section>
 
-      <section className="rounded-2xl bg-white p-5 shadow-[0_10px_30px_rgba(26,26,26,0.04)]">
+      <section className={card}>
         <div className="flex items-center justify-between gap-3">
           <h3 className="font-display text-xl font-bold text-ink">Görseller</h3>
           <label className="cursor-pointer rounded-full bg-[#ececee] px-4 py-2 text-sm font-semibold text-ink">

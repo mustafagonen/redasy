@@ -3,52 +3,16 @@
 import { usePathname } from "next/navigation";
 
 const items = [
-  {
-    href: "/dashboard/sosyal",
-    label: "Sosyal medya",
-    icon: "M8.2 10.2a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Zm7.6-.8a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6ZM8.2 17.4a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Zm.4-5.6 5.6-2.6M8.6 12.4l5.6 2.6",
-  },
-  {
-    href: "/dashboard/menu",
-    label: "Menü",
-    icon: "M4 7h16M4 12h16M7 17h10",
-  },
-  {
-    href: "/dashboard/sayfalar",
-    label: "Sayfalar",
-    icon: "M6 4.5h8.2L18 8.2V19.5H6zM14 4.8V8.4h3.4",
-  },
-  {
-    href: "/dashboard/urunler",
-    label: "Ürünler",
-    icon: "M5 7h6v6H5zM13 7h6v6h-6zM5 15h6v4H5zM13 15h6v4h-6z",
-  },
-  {
-    href: "/dashboard",
-    label: "Gri bant",
-    icon: "M4 5h7v6H4zM13 5h7v6h-7zM4 13h7v6H4zM13 13h7v6h-7z",
-  },
-  {
-    href: "/dashboard/asamalar",
-    label: "Aşamalar",
-    icon: "M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01",
-  },
-  {
-    href: "/dashboard/anasayfa",
-    label: "Anasayfa",
-    icon: "M4 5h16v4H4zM4 11h16v3H4zM4 16h16v3H4z",
-  },
-  {
-    href: "/dashboard/iletisim",
-    label: "İletişim",
-    icon: "M7 4.5h2.2l1.1 2.8-1.5.9a8.5 8.5 0 0 0 4.5 4.5l.9-1.5 2.8 1.1V15a1.6 1.6 0 0 1-1.8 1.6A12 12 0 0 1 5.4 6.3 1.6 1.6 0 0 1 7 4.5Z",
-  },
-  {
-    href: "/dashboard/talepler",
-    label: "Talepler",
-    icon: "M5 6.5h14v11H5zM5 6.5l7 5.5 7-5.5",
-  },
-];
+  { href: "/dashboard/sosyal", label: "Sosyal medya", icon: "share" },
+  { href: "/dashboard/menu", label: "Menü", icon: "menu" },
+  { href: "/dashboard/sayfalar", label: "Sayfalar", icon: "pages" },
+  { href: "/dashboard/urunler", label: "Ürünler", icon: "products" },
+  { href: "/dashboard", label: "Gri bant", icon: "band" },
+  { href: "/dashboard/asamalar", label: "Aşamalar", icon: "steps" },
+  { href: "/dashboard/anasayfa", label: "Anasayfa", icon: "home" },
+  { href: "/dashboard/iletisim", label: "İletişim", icon: "phone" },
+  { href: "/dashboard/talepler", label: "Talepler", icon: "mail" },
+] as const;
 
 export function DashboardNav() {
   const pathname = usePathname();
@@ -63,15 +27,71 @@ export function DashboardNav() {
             href={item.href}
             className={`flex min-w-max items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold lg:w-full ${active ? "bg-white/15 text-white" : "text-white/75 hover:bg-white/10 hover:text-white"}`}
           >
-            <span className="grid h-8 w-8 place-items-center rounded-lg bg-white/15" aria-hidden>
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <path d={item.icon} />
-              </svg>
+            <span className="grid h-6 w-6 shrink-0 place-items-center" aria-hidden>
+              <NavIcon name={item.icon} />
             </span>
             {item.label}
           </a>
         );
       })}
     </nav>
+  );
+}
+
+function NavIcon({ name }: { name: (typeof items)[number]["icon"] }) {
+  return (
+    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      {name === "share" ? (
+        <>
+          <circle cx="6.5" cy="12" r="2.3" />
+          <circle cx="17" cy="6.5" r="2.3" />
+          <circle cx="17" cy="17.5" r="2.3" />
+          <path d="M8.6 11.1 14.8 7.6M8.6 12.9l6.2 3.5" />
+        </>
+      ) : null}
+      {name === "menu" ? <path d="M4.5 7h15M4.5 12h15M7.5 17h9" /> : null}
+      {name === "pages" ? (
+        <>
+          <path d="M7 4.5h6.1L17.5 8.6V19.5H7z" />
+          <path d="M13 4.7V8.7h4.2" />
+        </>
+      ) : null}
+      {name === "products" ? (
+        <>
+          <rect x="4.2" y="4.2" width="6.6" height="6.6" rx="1.5" />
+          <rect x="13.2" y="4.2" width="6.6" height="6.6" rx="1.5" />
+          <rect x="4.2" y="13.2" width="6.6" height="6.6" rx="1.5" />
+          <rect x="13.2" y="13.2" width="6.6" height="6.6" rx="1.5" />
+        </>
+      ) : null}
+      {name === "band" ? (
+        <>
+          <rect x="3.6" y="6.2" width="16.8" height="11.6" rx="1.8" />
+          <path d="M8 6.2v11.6M12 6.2v11.6M16 6.2v11.6" />
+        </>
+      ) : null}
+      {name === "steps" ? (
+        <>
+          <circle cx="5.2" cy="6.5" r="1.15" />
+          <circle cx="5.2" cy="12" r="1.15" />
+          <circle cx="5.2" cy="17.5" r="1.15" />
+          <path d="M9 6.5h10.2M9 12h10.2M9 17.5h10.2" />
+        </>
+      ) : null}
+      {name === "home" ? (
+        <>
+          <rect x="4" y="4.4" width="16" height="4.4" rx="1.2" />
+          <rect x="4" y="10.6" width="16" height="3.2" rx="1.1" />
+          <rect x="4" y="15.8" width="16" height="3.2" rx="1.1" />
+        </>
+      ) : null}
+      {name === "phone" ? <path d="M8 4.4h2.1l1.1 2.8-1.6 1a8.2 8.2 0 0 0 4.4 4.4l1-1.6 2.8 1.1v2.1a1.6 1.6 0 0 1-1.7 1.6A12.2 12.2 0 0 1 6.4 6.1 1.6 1.6 0 0 1 8 4.4Z" /> : null}
+      {name === "mail" ? (
+        <>
+          <rect x="4" y="6" width="16" height="12" rx="1.8" />
+          <path d="m4.5 7.2 7.5 5.6 7.5-5.6" />
+        </>
+      ) : null}
+    </svg>
   );
 }
