@@ -64,14 +64,11 @@ export function HeroBandEditor({ initialPanels }: { initialPanels: HeroPanelCont
         return;
       }
       if (body?.firebase === "ok") {
-        setMessage({ tone: "ok", text: "Kaydedildi. Gri bant Firebase’e yazıldı. Sitede Türkçe metinler güncellendi." });
+        setMessage({ tone: "ok", text: "Kaydedildi." });
       } else if (body?.firebase === "denied") {
-        setMessage({
-          tone: "warn",
-          text: "Metinler siteye kaydedildi. Firebase yazmayı reddetti; kural açılınca aynı kayıt buluta da gider.",
-        });
+        setMessage({ tone: "warn", text: "Firebase yazmayı reddetti. Kayıt gitmedi." });
       } else {
-        setMessage({ tone: "warn", text: "Metinler siteye kaydedildi. Firebase yazısı bu sefer tamamlanamadı." });
+        setMessage({ tone: "warn", text: "Firebase yazısı tamamlanamadı. Kayıt gitmedi." });
       }
     } catch {
       setMessage({ tone: "error", text: "Bağlantı kurulamadı. Kayıt gönderilemedi." });

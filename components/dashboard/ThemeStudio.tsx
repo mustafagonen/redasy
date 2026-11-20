@@ -175,7 +175,7 @@ export function ThemeStudio({ initial }: { initial: Theme }) {
           </button>
           <button
             type="button"
-            onClick={() => persist(theme, "Renkler siteye yazıldı.")}
+            onClick={() => persist(theme, "Renkler Firebase’e yazıldı.")}
             disabled={saving || !dirty}
             className="h-10 rounded-full bg-brand px-4 text-sm font-semibold text-white disabled:opacity-40"
           >

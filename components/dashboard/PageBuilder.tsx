@@ -162,7 +162,7 @@ export function PageBuilder({ initial }: { initial: HomeBlock[] }) {
           </button>
           <button
             type="button"
-            onClick={() => persist(blocks, "Anasayfa siteye yazıldı.")}
+            onClick={() => persist(blocks, "Anasayfa Firebase’e yazıldı.")}
             disabled={saving || !dirty}
             className="h-10 rounded-full bg-brand px-4 text-sm font-semibold text-white disabled:opacity-40"
           >

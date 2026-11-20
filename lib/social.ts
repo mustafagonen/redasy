@@ -30,7 +30,7 @@ export const defaultSocial: SocialConfig = {
   links: socialCatalog.map((item) => ({
     id: item.id,
     visible: true,
-    href: "/#iletisim",
+    href: "",
     newTab: false,
   })),
 };

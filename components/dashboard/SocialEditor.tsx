@@ -31,11 +31,11 @@ export function SocialEditor({ initial }: { initial: SocialConfig }) {
       }
       if (body?.social) setSocial(body.social);
       if (body?.firebase === "ok") {
-        setMessage({ tone: "ok", text: "Kaydedildi. Sosyal ikonlar sitede ve Firebase’de güncellendi." });
+        setMessage({ tone: "ok", text: "Kaydedildi." });
       } else if (body?.firebase === "denied") {
-        setMessage({ tone: "warn", text: "Ayarlar siteye kaydedildi. Firebase yazmayı reddetti." });
+        setMessage({ tone: "warn", text: "Firebase yazmayı reddetti. Kayıt gitmedi." });
       } else {
-        setMessage({ tone: "warn", text: "Ayarlar siteye kaydedildi. Firebase yazısı bu sefer tamamlanamadı." });
+        setMessage({ tone: "warn", text: "Firebase yazısı tamamlanamadı. Kayıt gitmedi." });
       }
     } catch {
       setMessage({ tone: "error", text: "Bağlantı kurulamadı." });

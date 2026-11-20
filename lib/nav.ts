@@ -20,15 +20,7 @@ export type NavConfig = {
 const MAX_ITEMS = 8;
 const MAX_CHILDREN = 8;
 
-export const defaultNav: NavConfig = {
-  items: [
-    { id: "anasayfa", label: "Anasayfa", href: "/#anasayfa", visible: true, submenu: false, children: [] },
-    { id: "kurumsal", label: "Kurumsal", href: "/#kurumsal", visible: true, submenu: false, children: [] },
-    { id: "faaliyet", label: "Faaliyet Alanları", href: "/#faaliyet", visible: true, submenu: false, children: [] },
-    { id: "kariyer", label: "Kariyer", href: "/#kariyer", visible: true, submenu: false, children: [] },
-    { id: "iletisim", label: "İletişim", href: "/#iletisim", visible: true, submenu: false, children: [] },
-  ],
-};
+export const defaultNav: NavConfig = { items: [] };
 
 function text(value: unknown, max: number) {
   return typeof value === "string" ? value.trim().slice(0, max) : "";

@@ -304,9 +304,9 @@ export function CatalogStudio({ initial }: { initial: Catalog }) {
       }
       setCatalog(body.catalog);
       setSaved(JSON.stringify(body.catalog));
-      if (body.firebase === "ok") setMessage({ tone: "ok", text: "Kaydedildi. Katalog sitede ve Firebase’de güncellendi." });
-      else if (body.firebase === "denied") setMessage({ tone: "warn", text: "Katalog siteye kaydedildi. Firebase yazmayı reddetti." });
-      else setMessage({ tone: "warn", text: "Katalog siteye kaydedildi. Firebase yazısı bu sefer tamamlanamadı." });
+      if (body.firebase === "ok") setMessage({ tone: "ok", text: "Kaydedildi." });
+      else if (body.firebase === "denied") setMessage({ tone: "warn", text: "Firebase yazmayı reddetti. Kayıt gitmedi." });
+      else setMessage({ tone: "warn", text: "Firebase yazısı tamamlanamadı. Kayıt gitmedi." });
     } catch {
       setMessage({ tone: "error", text: "Bağlantı kurulamadı." });
     } finally {

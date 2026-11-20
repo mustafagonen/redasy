@@ -16,35 +16,13 @@ export function isHeroPanelId(value: string): value is HeroPanelId {
   return (heroPanelIds as string[]).includes(value);
 }
 
+const blankCopy = (): HeroCopy => ({ title: "", text: "" });
+
 export const defaultHeroPanels: HeroPanelContent[] = [
-  {
-    id: "kirma",
-    image: "/images/home/kirma-color.jpg",
-    tr: { title: "Mobil Kırma & Eleme Sistemleri", text: "Agrega ve madencilik için yüksek verimli çözümler." },
-    en: { title: "Mobile Crushing & Screening Systems", text: "High-efficiency solutions for aggregates and mining." },
-    ar: { title: "أنظمة التكسير والغربلة المتنقلة", text: "حلول عالية الكفاءة للركام والتعدين." },
-  },
-  {
-    id: "atasman",
-    image: "/images/home/atasman-color.jpg",
-    tr: { title: "İş Makinesi Ataşmanları", text: "Kırma, kesme ve performans artıran ataşmanlar." },
-    en: { title: "Construction Equipment Attachments", text: "Attachments for crushing, cutting, and higher performance." },
-    ar: { title: "ملحقات معدات البناء", text: "ملحقات للتكسير والقطع ورفع الأداء." },
-  },
-  {
-    id: "arac",
-    image: "/images/home/arac-color.jpg",
-    tr: { title: "Araç Üstü Ekipmanlar", text: "Vidanjör, tanker ve özel çevre temizlik araçları." },
-    en: { title: "Truck-Mounted Equipment", text: "Vacuum trucks, tankers, and specialized environmental cleaning vehicles." },
-    ar: { title: "تجهيزات محمولة على المركبات", text: "شاحنات شفط وصهاريج ومركبات تنظيف بيئي خاصة." },
-  },
-  {
-    id: "mobil",
-    image: "/images/home/mobil-color.jpg",
-    tr: { title: "Mobil Çözümler", text: "Mobil kan alma aracı, sağlık klinikleri ve donörler." },
-    en: { title: "Mobile Solutions", text: "Mobile blood-collection vehicle, health clinics, and donors." },
-    ar: { title: "حلول متنقلة", text: "مركبة جمع دم متنقلة وعيادات صحية ومتبرعون." },
-  },
+  { id: "kirma", image: "/images/home/panels/kirma-1795010691119.jpg", tr: blankCopy(), en: blankCopy(), ar: blankCopy() },
+  { id: "atasman", image: "/images/home/atasman-color.jpg", tr: blankCopy(), en: blankCopy(), ar: blankCopy() },
+  { id: "arac", image: "/images/home/arac-color.jpg", tr: blankCopy(), en: blankCopy(), ar: blankCopy() },
+  { id: "mobil", image: "/images/home/mobil-color.jpg", tr: blankCopy(), en: blankCopy(), ar: blankCopy() },
 ];
 
 function imageOf(value: unknown, fallback: string) {
