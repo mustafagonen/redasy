@@ -1,0 +1,6519 @@
+{
+  "categories": [
+    {
+      "id": "kirma",
+      "parentId": null,
+      "slug": "kirma-eleme-yikama",
+      "order": 0,
+      "visible": true,
+      "title": {
+        "tr": "Kırma, Eleme ve Yıkama Sistemleri",
+        "en": "",
+        "ar": ""
+      },
+      "lead": {
+        "tr": "Mobil kırma, eleme, yıkama hatları ve bu hatların yedek parça çözümleri.",
+        "en": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kirma-makine",
+      "parentId": "kirma",
+      "slug": "makineler",
+      "order": 0,
+      "visible": true,
+      "title": {
+        "tr": "Mobil Kırma, Eleme ve Yıkama Makineleri",
+        "en": "",
+        "ar": ""
+      },
+      "lead": {
+        "tr": "Mobil çeneli ve darbeli kırıcılar, yıkama tesisleri, tekerlekli şasiler, konveyör bantlar ve bunker sistemleri.",
+        "en": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kirma-yedek",
+      "parentId": "kirma",
+      "slug": "yedek-parca",
+      "order": 1,
+      "visible": true,
+      "title": {
+        "tr": "Yedek Parça Çözümleri",
+        "en": "",
+        "ar": ""
+      },
+      "lead": {
+        "tr": "Kırma ve eleme hatları için çene astarları, paletler, elek telleri, rotor parçaları ve helezon bileşenleri.",
+        "en": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "atasman",
+      "parentId": null,
+      "slug": "is-makinesi-atasmanlari",
+      "order": 1,
+      "visible": true,
+      "title": {
+        "tr": "İş Makinesi Ataşmanları",
+        "en": "",
+        "ar": ""
+      },
+      "lead": {
+        "tr": "Hardox sacdan üretilen ekskavatör kovaları, elek kovalar, yıkım makasları, riper ve hızlı değiştirici çözümleri.",
+        "en": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "arac",
+      "parentId": null,
+      "slug": "arac-ustu-ekipmanlar",
+      "order": 2,
+      "visible": true,
+      "title": {
+        "tr": "Araç Üstü Ekipmanlar",
+        "en": "",
+        "ar": ""
+      },
+      "lead": {
+        "tr": "Frigo kasalar, vidanjörler, tankerler, silobas, çöp kasası, itfaiye, vinç, kancalı yükleyici ve kurtarıcı üst yapıları.",
+        "en": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "mobil",
+      "parentId": null,
+      "slug": "mobil-cozumler",
+      "order": 3,
+      "visible": true,
+      "title": {
+        "tr": "Mobil Çözümler ve Özel Amaçlı Treylerler",
+        "en": "",
+        "ar": ""
+      },
+      "lead": {
+        "tr": "Mobil diş kliniği, kan bağışı ve laboratuvar araçları, mamografi tarama tırları, mobil mutfak ve afet koordinasyon merkezleri.",
+        "en": "",
+        "ar": ""
+      }
+    }
+  ],
+  "products": [
+    {
+      "id": "mc-120",
+      "categoryId": "kirma-makine",
+      "slug": "mc-120",
+      "order": 0,
+      "visible": true,
+      "title": {
+        "tr": "Mobil Çeneli ve Darbeli Kırıcı - MC-120",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "YÜKSEK PERFORMANS & MOBİLİTE",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Zorlu şantiye ve maden şartlarında yüksek verimlilikle çalışmak üzere tasarlanan MC-120, üstün kırma kapasitesi, paletli yürüyüş sistemi ve kolay taşınabilirliği ile her türlü doğal taş ve geri dönüşüm malzemesini hızla işler.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "mc-120-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "MC-120",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mc-120-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "Mobil Kırma & Eleme Serisi",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "mc-120-h0",
+          "text": {
+            "tr": "Mobil Çeneli ve Darbeli Kırıcılar",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mc-120-h1",
+          "text": {
+            "tr": "Mobil Eleme Üniteleri",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mc-120-h2",
+          "text": {
+            "tr": "Paletli ve Tekerlekli Seçenekler",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "mc-120-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "mc-120-r0",
+              "label": {
+                "tr": "Kapasite",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "150 - 250 Ton / Saat",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mc-120-r1",
+              "label": {
+                "tr": "Ağırlık",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "42 Ton (Donanıma Göre)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mc-120-r2",
+              "label": {
+                "tr": "Kırıcı Tipi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Çeneli ve Darbeli (Kombine)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mc-120-r3",
+              "label": {
+                "tr": "Yürüyüş Sistemi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Ağır Hizmet Tipi Paletli",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mc-120-r4",
+              "label": {
+                "tr": "Besleme Boyutu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Maksimum 800 mm",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mc-120-r5",
+              "label": {
+                "tr": "Kontrol Sistemi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Kablosuz Uzaktan Kumanda & PLC",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mc-120-r6",
+              "label": {
+                "tr": "Motor Gücü",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "350 kW Jeneratör & Dizel",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mc-120-r7",
+              "label": {
+                "tr": "Çevre Dostu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Toz İndirgeme ve Gürültü İzolasyonu",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "mw-200",
+      "categoryId": "kirma-makine",
+      "slug": "mw-200",
+      "order": 1,
+      "visible": true,
+      "title": {
+        "tr": "Mobil Eleme ve Helezonlu Yıkama Tesisi - MW-200",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "YÜKSEK VERİMLİ AGREGA YIKAMA & ELEME",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Dere malzemesi, kırma kum ve kil oranı yüksek agregaların yıkanması ve sınıflandırılması için geliştirilen MW-200; helezonlu yıkayıcı, yüksek frekanslı susuzlandırma eleği ve hidrosiklon opsiyonuyla tertemiz beton agregası üretir.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "mw-200-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "MW-200",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mw-200-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "Mobil Yıkama Serisi",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "mw-200-h0",
+          "text": {
+            "tr": "Mobil Helezonlu Yıkama Üniteleri",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mw-200-h1",
+          "text": {
+            "tr": "Kılçık ve Susuzlandırma Elekleri",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mw-200-h2",
+          "text": {
+            "tr": "Kum ve Çakıl Yıkama Tesisleri",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "mw-200-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "mw-200-r0",
+              "label": {
+                "tr": "Yıkama Kapasitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "120 - 220 Ton / Saat",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mw-200-r1",
+              "label": {
+                "tr": "Elek Kat Sayısı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "3 veya 4 Katlı Yıkamalı Elek",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mw-200-r2",
+              "label": {
+                "tr": "Yıkama Ünitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Çift Mil Helezon Yıkayıcı / Kova",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mw-200-r3",
+              "label": {
+                "tr": "Susuzlandırma",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Poliüretan Panelli Kılçık Elek",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mw-200-r4",
+              "label": {
+                "tr": "Su Tüketimi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Geri Kazanımlı Düşük Su Sarfiyatı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mw-200-r5",
+              "label": {
+                "tr": "Şasi Yapısı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Tekerlekli veya Paletli Mobil Şasi",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "mt-175",
+      "categoryId": "kirma-makine",
+      "slug": "mt-175",
+      "order": 2,
+      "visible": true,
+      "title": {
+        "tr": "Tekerlekli Şasi Mobil Kırma & Eleme Tesisi - MT-175",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "HIZLI KURULUM & YÜKSEK KAPASİTELİ ÜRETİM",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Karayolu taşımacılığına uygun 3 akslı tridem tekerlekli şasi üzerinde geliştirilen MT-175, hidrolik ayak sistemi sayesinde vinç gerektirmeden saatler içerisinde üretime hazır hale gelir.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "mt-175-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "MT-175",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mt-175-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "Tekerlekli Mobil Serisi",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "mt-175-h0",
+          "text": {
+            "tr": "Mobil Çeneli ve Darbeli Kırıcılar",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mt-175-h1",
+          "text": {
+            "tr": "Paletli ve Tekerlekli Seçenekler",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mt-175-h2",
+          "text": {
+            "tr": "Yüksek Kapasiteli Agrega Üretimi",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "mt-175-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "mt-175-r0",
+              "label": {
+                "tr": "Üretim Kapasitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "180 - 300 Ton / Saat",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mt-175-r1",
+              "label": {
+                "tr": "Şasi Tipi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "3 Akslı Ağır Hizmet Tekerlekli Treyler",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mt-175-r2",
+              "label": {
+                "tr": "Kırıcı Ünitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Sekonder / Primer Darbeli Kırıcı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mt-175-r3",
+              "label": {
+                "tr": "Kurulum Süresi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Hidrolik Ayaklar ile 2 Saatte Kurulum",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mt-175-r4",
+              "label": {
+                "tr": "Otomasyon",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Tam Otomatik PLC Yük Sensörlü",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mt-175-r5",
+              "label": {
+                "tr": "Stok Konveyörleri",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "3 Adet Hidrolik Katlanır Konveyör",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "cb-500",
+      "categoryId": "kirma-makine",
+      "slug": "cb-500",
+      "order": 3,
+      "visible": true,
+      "title": {
+        "tr": "Konveyör Bantlar & Çelik Bunker Sistemleri - CB-500",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "YÜKSEK DAYANIMLI TAŞIMA VE DEPOLAMA SİSTEMLERİ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Kırma ve eleme tesislerinin kesintisiz malzeme akışını sağlayan ağır hizmet tipi NPU/kafes şasili konveyör bantlarımız ve yüksek hacimli çelik stok/besleme bunkerlerimiz, aşınmaya ve ağır yüklere karşı maksimum mukavemet sunar.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "cb-500-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "CB-500",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "cb-500-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "Taşıma ve Stoklama Serisi",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "cb-500-h0",
+          "text": {
+            "tr": "Ağır Hizmet Tipi Konveyör Bantlar",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "cb-500-h1",
+          "text": {
+            "tr": "Stok ve Besleme Bunkerleri",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "cb-500-h2",
+          "text": {
+            "tr": "Mobil ve Sabit Silo Çözümleri",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "cb-500-h3",
+          "text": {
+            "tr": "Yüksek Kapasiteli Çelik Bunkerler",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "cb-500-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "cb-500-r0",
+              "label": {
+                "tr": "Bant Genişlikleri",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "600 mm - 1400 mm Arası Seçenekler",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "cb-500-r1",
+              "label": {
+                "tr": "Şasi Tasarımı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Bükümlü Sac, NPU veya Kafes Konstrüksiyon",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "cb-500-r2",
+              "label": {
+                "tr": "Bunker Hacmi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "15 m³ - 150 m³ Modüler Çelik Bunker",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "cb-500-r3",
+              "label": {
+                "tr": "Silo Çözümleri",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Mobil ve Sabit Agrega/Çimento Siloları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "cb-500-r4",
+              "label": {
+                "tr": "Bant Kalitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "EP125 / EP160 / EP200 Çok Katlı Kauçuk",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "cb-500-r5",
+              "label": {
+                "tr": "Tahrik Grubu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Ağır Hizmet Redüktör ve Kauçuk Kaplı Tambur",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "sp-konveyor",
+      "categoryId": "kirma-yedek",
+      "slug": "sp-cnv",
+      "order": 0,
+      "visible": true,
+      "title": {
+        "tr": "Bant Konveyör Yedek Parçaları – Rulo, Tambur ve Bantlar",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "KESİNTİSİZ MALZEME AKIŞI & SIZDIRMAZ RULO TEKNOLOJİSİ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Tozlu ve suya maruz kalan maden sahalarında uzun yıllar sorunsuz çalışan labirent keçeli taşıyıcı/dönüş ruloları, darbe ruloları, kauçuk kaplamalı tahrik tamburları ve aşınmaya dirençli konveyör bant yedek parçaları.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "sp-konveyor-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "SP-CNV",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-konveyor-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "YEDEK PARÇA SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "sp-konveyor-h0",
+          "text": {
+            "tr": "Rulolar ve Şaseler",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-konveyor-h1",
+          "text": {
+            "tr": "Yüksek Dayanımlı Bantlar",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-konveyor-h2",
+          "text": {
+            "tr": "Tahrik ve Gergi Tamburları",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "sp-konveyor-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "sp-konveyor-r0",
+              "label": {
+                "tr": "Rulo Tipleri",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Taşıyıcı, Darbe (Ringli), Dönüş ve Kılavuz Rulolar",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-konveyor-r1",
+              "label": {
+                "tr": "Sızdırmazlık",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Çoklu Labirent Keçe ve Toz Korumalı Rulman",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-konveyor-r2",
+              "label": {
+                "tr": "Tambur Grubu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Baklava Desen Kauçuk Kaplı Tahrik Tamburları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-konveyor-r3",
+              "label": {
+                "tr": "Bant Çeşitleri",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Düz, Çavuş Desenli ve Isıya/Yağa Dayanıklı Bantlar",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-konveyor-r4",
+              "label": {
+                "tr": "Sıyırıcılar",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Poliüretan ve Elmas Uçlu Bant Temizleme Sıyırıcıları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-konveyor-r5",
+              "label": {
+                "tr": "Stok Durumu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Tüm Standart Ölçülerde Hızlı Sevkiyat",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "sp-dmk",
+      "categoryId": "kirma-yedek",
+      "slug": "sp-dmk",
+      "order": 1,
+      "visible": true,
+      "title": {
+        "tr": "Dere Malzemesi Kırıcı (DMK) Yedek Parçaları",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "YÜKSEK SİLİSLİ DERE TAŞLARINA KARŞI KROM ALAŞIMLI DÖKÜM",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Aşındırıcılığı en yüksek olan dere çakılı ve bazalt gibi malzemelerin kırılmasında kullanılan DMK kırıcılar için özel yüksek kromlu darbe paletleri, gövde yan aşınma astarları ve rotor bileşenleri.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "sp-dmk-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "SP-DMK",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-dmk-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "YEDEK PARÇA SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "sp-dmk-h0",
+          "text": {
+            "tr": "DMK Kırıcı Palet ve Çeneler",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-dmk-h1",
+          "text": {
+            "tr": "Aşınma Astar Plakaları",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-dmk-h2",
+          "text": {
+            "tr": "Rotor ve Kırıcı Çekiçler",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "sp-dmk-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "sp-dmk-r0",
+              "label": {
+                "tr": "Alaşım Yapısı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Cr26 / Cr28 Yüksek Kromlu Beyaz Dökme Demir",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-dmk-r1",
+              "label": {
+                "tr": "Parça Çeşitleri",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "DMK Paletleri, Tavan Astarları, Yan Zırh Plakaları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-dmk-r2",
+              "label": {
+                "tr": "Sertlik",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "58 - 63 HRC Maksimum Aşınma Direnci",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-dmk-r3",
+              "label": {
+                "tr": "Isıl İşlem",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Bilgisayar Kontrollü Fırınlarda Özel Temperleme",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-dmk-r4",
+              "label": {
+                "tr": "Uygulama",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Dere Taşı, Kuvars, Bazalt ve Kırma Kum Üretimi",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-dmk-r5",
+              "label": {
+                "tr": "Kalite Kontrol",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Spektrometre ve Ultrasonik Çatlak Testli",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "sp-elek",
+      "categoryId": "kirma-yedek",
+      "slug": "sp-elk",
+      "order": 2,
+      "visible": true,
+      "title": {
+        "tr": "Titreşimli Elek Yedek Parçaları – Elek Telleri ve Helezon Yaylar",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "YÜKSEK ELEME VERİMİ & KOPMAYA DAYANIKLI YAY ÇELİĞİ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Titreşimli eleklerin performansını doğrudan belirleyen yüksek karbonlu yay çeliği elek telleri, poliüretan modüler susuzlandırma panelleri, ağır hizmet tipi helezon yaylar ve eksantrik tahrik milleri.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "sp-elek-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "SP-ELK",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-elek-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "YEDEK PARÇA SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "sp-elek-h0",
+          "text": {
+            "tr": "Çelik ve Poliüretan Elek Telleri",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-elek-h1",
+          "text": {
+            "tr": "Titreşim Motorları ve Yaylar",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-elek-h2",
+          "text": {
+            "tr": "Eksantrik Miller",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "sp-elek-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "sp-elek-r0",
+              "label": {
+                "tr": "Elek Teli Malzemesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "DIN 17223 Yay Çeliği ve Poliüretan Modül",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-elek-r1",
+              "label": {
+                "tr": "Göz Aralığı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "1 mm - 120 mm Arası Tüm Özel Ölçüler",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-elek-r2",
+              "label": {
+                "tr": "Elek Yayları",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Ağır Hizmet Tipi Çelik Helezon ve Kauçuk Takozlar",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-elek-r3",
+              "label": {
+                "tr": "Tahrik Parçaları",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Eksantrik Mil, Rulman Yatakları ve Labirent Kapaklar",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-elek-r4",
+              "label": {
+                "tr": "Bağlantı Elemanları",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Gerdirme Sacları, Elek Fitilleri ve U-Cıvatalar",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-elek-r5",
+              "label": {
+                "tr": "Uygulama",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Kuru Eleme, Yıkamalı Eleme ve Susuzlandırma",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "sp-tersiyer",
+      "categoryId": "kirma-yedek",
+      "slug": "sp-trs",
+      "order": 3,
+      "visible": true,
+      "title": {
+        "tr": "Tersiyer Kırıcı Yedek Parçaları – Palet ve Astar Grubu",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "KÜBİK İNCE AGREGA VE KUM ÜRETİMİNDE UZUN ÖMÜR",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "0-5 mm kaliteli beton ve asfalt kumu üretiminde çalışan tersiyer kırıcılar için yüksek kromlu paletler (çekiçler), pandül çarpma plakaları, rotor kama takımları ve yan gövde aşınma zırhları.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "sp-tersiyer-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "SP-TRS",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-tersiyer-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "YEDEK PARÇA SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "sp-tersiyer-h0",
+          "text": {
+            "tr": "Tersiyer Kırıcı Paletleri",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-tersiyer-h1",
+          "text": {
+            "tr": "Aşınma ve Çarpma Plakaları",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-tersiyer-h2",
+          "text": {
+            "tr": "Ayar Mekanizmaları",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "sp-tersiyer-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "sp-tersiyer-r0",
+              "label": {
+                "tr": "Palet Malzemesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Yüksek Kromlu Özel Döküm (GX260Cr27)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-tersiyer-r1",
+              "label": {
+                "tr": "Astar Grubu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Pandül Astarları, Gövde Yan Aşınma Plakaları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-tersiyer-r2",
+              "label": {
+                "tr": "Montaj Parçaları",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Palet Sıkma Kamaları, Rotor Milleri ve Burçlar",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-tersiyer-r3",
+              "label": {
+                "tr": "Denge Hassasiyeti",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Eşit Ağırlık Toleranslı Balanslı Döküm Setleri",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-tersiyer-r4",
+              "label": {
+                "tr": "Kırıcı Uyumu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "TK-65, TK-100, TK-130, TK-150 Tüm Modeller",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-tersiyer-r5",
+              "label": {
+                "tr": "Avantaj",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Düşük Ton Başına Aşınma Maliyeti",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "sp-ceneli",
+      "categoryId": "kirma-yedek",
+      "slug": "sp-mn22",
+      "order": 4,
+      "visible": true,
+      "title": {
+        "tr": "Çeneli Kırıcı Yedek Parçaları - Manganlı Çene Astarları",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "YÜKSEK AŞINMA DİRENCİ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Zorlu kırma ve madencilik şartlarında maksimum çalışma ömrü sunan manganlı çene astarlarımız, darbe ve aşınmaya karşı en yüksek dayanıklılığı sağlar. Ağır hizmet tipi tesislerimiz ve ocaklarımız için özel olarak üretilmiştir.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "sp-ceneli-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "SP-MN22",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-ceneli-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "YEDEK PARÇA SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "sp-ceneli-h0",
+          "text": {
+            "tr": "Hareketli ve Sabit Çeneler",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-ceneli-h1",
+          "text": {
+            "tr": "Aşınma Astarları (Çene)",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-ceneli-h2",
+          "text": {
+            "tr": "Merdaneler ve Volanlar",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "sp-ceneli-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "sp-ceneli-r0",
+              "label": {
+                "tr": "Malzeme Grubu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Mn14, Mn18, Mn22 Alaşımlı Manganez Çelik",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-ceneli-r1",
+              "label": {
+                "tr": "Darbe ve Aşınma Dayanımı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Yüksek aşınma ve darbe direnci",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-ceneli-r2",
+              "label": {
+                "tr": "Uyumlu Markalar",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Tüm global çeneli kırıcı markalarıyla uyumlu",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-ceneli-r3",
+              "label": {
+                "tr": "Uygulama Alanı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Sert doğal taşlar, madencilik, agrega ve geri dönüşüm",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-ceneli-r4",
+              "label": {
+                "tr": "Üretim Standartları",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "OEM standartlarında hassas döküm",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-ceneli-r5",
+              "label": {
+                "tr": "Sertlik Değeri",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Sıkışma sonrası 450-520 HB yüksek yüzey sertliği",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "sp-dikmilli",
+      "categoryId": "kirma-yedek",
+      "slug": "sp-vsı",
+      "order": 5,
+      "visible": true,
+      "title": {
+        "tr": "Dik Milli Kırıcı (VSI) Yedek Parçaları – Rotor Elmasları ve Pabuçlar",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "YÜKSEK HIZLI ROTORLAR İÇİN TUNGSTEN KARBÜR ELMAS TEKNOLOJİSİ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Taşı taşla kıran yüksek devirli VSI dik milli kırıcıların en kritik aşınma elemanları olan tungsten karbür uçlu rotor elmasları, dağıtıcı koniler, besleme boruları ve üst/alt rotor aşınma plakaları.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "sp-dikmilli-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "SP-VSI",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-dikmilli-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "YEDEK PARÇA SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "sp-dikmilli-h0",
+          "text": {
+            "tr": "Rotor Aşınma Parçaları",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-dikmilli-h1",
+          "text": {
+            "tr": "Kırıcı Elmaslar ve Pabuçlar",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-dikmilli-h2",
+          "text": {
+            "tr": "Dağıtıcı Tablalar",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "sp-dikmilli-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "sp-dikmilli-r0",
+              "label": {
+                "tr": "Rotor Elmasları",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Özel Tungsten Karbür Barlı Yüksek Dayanımlı Uçlar",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-dikmilli-r1",
+              "label": {
+                "tr": "Rotor Parçaları",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Dağıtıcı Tabla, Besleme Gözü, Yan Aşınma Sacları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-dikmilli-r2",
+              "label": {
+                "tr": "Örs / Anvil Grubu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Yüksek Kromlu Çarpma Pabuçları (Anvil)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-dikmilli-r3",
+              "label": {
+                "tr": "Çalışma Hızı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "50 - 75 m/sn Rotor Çevresel Hızlarına Tam Dayanım",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-dikmilli-r4",
+              "label": {
+                "tr": "Uyumlu Modeller",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "VSI-700, VSI-800, VSI-900 ve Global Markalar",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-dikmilli-r5",
+              "label": {
+                "tr": "Verimlilik",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Kübik Mıcır ve Dolgu Malzemesinde Maksimum Ömür",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "sp-sekonder",
+      "categoryId": "kirma-yedek",
+      "slug": "sp-sdk",
+      "order": 6,
+      "visible": true,
+      "title": {
+        "tr": "Sekonder Darbeli Kırıcı Yedek Parçaları",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "YÜKSEK DARBE VE AŞINMA DİRENCİ BİR ARADA",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Primer kırıcıdan çıkan iri malzemenin mıcır boyutlarına indirilmesinde görev yapan sekonder darbeli kırıcılar için seramik katkılı veya yüksek krom/mangan alaşımlı blow-bar paletler ve pandül astarları.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "sp-sekonder-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "SP-SDK",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-sekonder-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "YEDEK PARÇA SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "sp-sekonder-h0",
+          "text": {
+            "tr": "Kırıcı Paletler ve Çekiçler",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-sekonder-h1",
+          "text": {
+            "tr": "Aşınma ve Tavan Astarları",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-sekonder-h2",
+          "text": {
+            "tr": "Rotor ve Mil Bileşenleri",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "sp-sekonder-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "sp-sekonder-r0",
+              "label": {
+                "tr": "Blow-Bar Paletler",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Yüksek Krom, Martensitik Çelik ve Seramik Katkılı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-sekonder-r1",
+              "label": {
+                "tr": "Pandül Astarları",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "1., 2. ve 3. Kademe Kalın Döküm Çarpma Plakaları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-sekonder-r2",
+              "label": {
+                "tr": "Gövde Zırhları",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Kare/Dikdörtgen Yan Duvar Aşınma Astarları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-sekonder-r3",
+              "label": {
+                "tr": "Rotor Grubu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Ağır Hizmet Rotor Gövdesi, Kama ve Mil Yatakları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-sekonder-r4",
+              "label": {
+                "tr": "Isıl İşlem",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Darbe Kırılmalarına Karşı Özel Tokluk İşlemi",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-sekonder-r5",
+              "label": {
+                "tr": "Teslimat",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Standart Modeller İçin Stoktan Aynı Gün Sevkiyat",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "sp-cekicli",
+      "categoryId": "kirma-yedek",
+      "slug": "sp-ckc",
+      "order": 7,
+      "visible": true,
+      "title": {
+        "tr": "Çekiçli Kırıcı Yedek Parçaları – Çekiç, Rotor ve Izgaralar",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "KALKER, KÖMÜR VE ÇİMENTO HAMMADDELERİ İÇİN GÜÇLÜ ÇEKİÇLER",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Çimento fabrikaları, kömür hazırlama ve kireçtaşı tesislerinde kullanılan çekiçli kırıcılar için dövme veya bimetal döküm çekiçler, alt ızgara barları ve rotor milleri.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "sp-cekicli-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "SP-CKC",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-cekicli-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "YEDEK PARÇA SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "sp-cekicli-h0",
+          "text": {
+            "tr": "Kırıcı Çekiçler ve Rotorlar",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-cekicli-h1",
+          "text": {
+            "tr": "Izgara ve Elek Plakaları",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-cekicli-h2",
+          "text": {
+            "tr": "Zırh ve Aşınma Astarları",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "sp-cekicli-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "sp-cekicli-r0",
+              "label": {
+                "tr": "Çekiç Yapısı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Mn18Cr2 Manganlı veya Bimetal Krom Alaşımlı Çekiç",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-cekicli-r1",
+              "label": {
+                "tr": "Izgara Grubu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Aşınmaya Dirençli Alt Elek ve Izgara Barları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-cekicli-r2",
+              "label": {
+                "tr": "Rotor Aksı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "4140 Islah Çeliği Çekiç Pimleri ve Rotor Diskleri",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-cekicli-r3",
+              "label": {
+                "tr": "Balans",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Titreşimsiz Çalışma İçin Hassas Ağırlık Eşitleme",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-cekicli-r4",
+              "label": {
+                "tr": "Uygulama",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Kireçtaşı, Alçıtaşı, Kömür ve Maden Kırma",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-cekicli-r5",
+              "label": {
+                "tr": "Özel Üretim",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Numune veya Teknik Resme Göre Özel Döküm",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "sp-helezon",
+      "categoryId": "kirma-yedek",
+      "slug": "sp-hlz",
+      "order": 8,
+      "visible": true,
+      "title": {
+        "tr": "Helezon Yıkayıcı Yedek Parçaları – Aşınma Pabuçları ve Redüktör",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "SU VE KUMLA SÜREKLİ TEMASTA MAKSİMUM AŞINMA ÖMRÜ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Kum yıkama helezonlarının yapraklarını aşınmadan koruyan cıvatalı döküm/poliüretan helezon pabuçları, su altı alt yatak sızdırmazlık grupları ve yüksek torklu redüktör bileşenleri.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "sp-helezon-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "SP-HLZ",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-helezon-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "YEDEK PARÇA SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "sp-helezon-h0",
+          "text": {
+            "tr": "Helezon Aşınma Pabuçları",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-helezon-h1",
+          "text": {
+            "tr": "Mil ve Redüktör Parçaları",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "sp-helezon-h2",
+          "text": {
+            "tr": "Sarmal Aşınma Sacları",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "sp-helezon-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "sp-helezon-r0",
+              "label": {
+                "tr": "Aşınma Pabuçları",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Sfero Döküm, Hardox veya Poliüretan Helezon Pabuçları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-helezon-r1",
+              "label": {
+                "tr": "Alt Yatak Grubu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Su Geçirmez Çoklu Keçeli Alt Rulman Yatağı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-helezon-r2",
+              "label": {
+                "tr": "Sarmal Yapraklar",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Tam Boy Borulu Helezon Milleri ve Yaprak Sacları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-helezon-r3",
+              "label": {
+                "tr": "Tahrik Grubu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Ağır Hizmet Helisel Dişli Redüktör ve Kaplinler",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-helezon-r4",
+              "label": {
+                "tr": "Montaj",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Cıvatalı Tasarım İle Sahada Hızlı Pabuç Değişimi",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "sp-helezon-r5",
+              "label": {
+                "tr": "Uyumluluk",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "600 mm - 1200 mm Çaplı Tüm Helezon Yıkayıcılar",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "att-agir-kova",
+      "categoryId": "atasman",
+      "slug": "mc-150-hd",
+      "order": 0,
+      "visible": true,
+      "title": {
+        "tr": "Ağır Hizmet Tipi Ekskavatör Kovası",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "ÜSTÜN MUKAVEMET & GÜÇLENDİRİLMİŞ TASARIM",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Zorlu hafriyat, madencilik ve taş ocağı şartlarında çalışmak üzere özel olarak tasarlanan Ağır Hizmet Tipi Kovalarımız, yüksek aşınma direncine sahip Hardox ve Weldox saclar kullanılarak üretilmiştir. Ekstra takviyeli yan bıçaklar ve tırnak yapısıyla en zorlu zeminlerde bile maksimum ömür ve yüksek koparma kuvveti sunar.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "att-agir-kova-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "MC-150-HD",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-agir-kova-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "AĞIR HİZMET SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "att-agir-kova-h0",
+          "text": {
+            "tr": "Zorlu Şantiye & Kazı Şartları",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-agir-kova-h1",
+          "text": {
+            "tr": "Güçlendirilmiş tırnak ve aşınma plakaları",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-agir-kova-h2",
+          "text": {
+            "tr": "Ekstra hacimli, aşırı dayanıklı yapı",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-agir-kova-h3",
+          "text": {
+            "tr": "Zorlu kayaç ve kazı işlemleri için ideal",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "att-agir-kova-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "att-agir-kova-r0",
+              "label": {
+                "tr": "Hacim Kapasitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "0.8 m³ - 4.5 m³ (farklı tonajlara uygun)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-agir-kova-r1",
+              "label": {
+                "tr": "Tırnak & Adaptör Sistemi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Yüksek aşınma dayanımlı, kolay değiştirilebilir",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-agir-kova-r2",
+              "label": {
+                "tr": "Malzeme Yapısı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Ağır Hizmet Tipi Aşınma Plakaları (Hardox 450/500)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-agir-kova-r3",
+              "label": {
+                "tr": "Takviye Grubu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Ekstra alt ve yan aşınma şeritleri, burulma önleyici tasarım",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-agir-kova-r4",
+              "label": {
+                "tr": "Uyumlu Makineler",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "12 - 70 Ton Arası Ekskavatörler",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-agir-kova-r5",
+              "label": {
+                "tr": "Kaynak Kalitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Nüfuziyeti yüksek, özel koruyucu gaz altı kaynakları",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "att-elek-kova",
+      "categoryId": "atasman",
+      "slug": "red-sb-200",
+      "order": 1,
+      "visible": true,
+      "title": {
+        "tr": "Hidrolik Tamburlu Elek Kova (Rotatif Elek Ataşmanı)",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "SAHADA YERİNDE ELEME VE MALZEME GERİ KAZANIMI",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Dere yatağı malzemesi, boru hattı yastıklama toprağı ve yıkım atıklarını şantiye sahasında anında eleyerek nakliye maliyetlerini ortadan kaldıran hidrolik döner tamburlu elek kovası.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "att-elek-kova-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-SB-200",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-elek-kova-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "ELEME ATAŞMAN SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "att-elek-kova-h0",
+          "text": {
+            "tr": "Malzeme Sınıflandırma",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-elek-kova-h1",
+          "text": {
+            "tr": "Hareketli eleme ve ayıklama tamburu",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-elek-kova-h2",
+          "text": {
+            "tr": "Farklı elek boyutu seçenekleri",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-elek-kova-h3",
+          "text": {
+            "tr": "Sahada hızlı dolgu ve eleme imkanı",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "att-elek-kova-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "att-elek-kova-r0",
+              "label": {
+                "tr": "Tambur Hacmi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "0.6 m³ - 2.2 m³ Kapasite Seçenekleri",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-elek-kova-r1",
+              "label": {
+                "tr": "Elek Göz Aralığı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "20 mm - 80 mm Değiştirilebilir Elek Panelleri",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-elek-kova-r2",
+              "label": {
+                "tr": "Hidrolik Tahrik",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Yüksek Torklu Çift Yönlü Hidromotor Sistemi",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-elek-kova-r3",
+              "label": {
+                "tr": "Gövde Sacı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Hardox 450 Tambur Çemberi ve Ağız Bıçağı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-elek-kova-r4",
+              "label": {
+                "tr": "Uyumlu Makineler",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "14 - 45 Ton Ekskavatör ve Yükleyiciler",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-elek-kova-r5",
+              "label": {
+                "tr": "Kullanım Alanı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Boru Hattı Dolgusu, Dere Islahı, Peyzaj ve Geri Dönüşüm",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "att-grable",
+      "categoryId": "atasman",
+      "slug": "red-gr-360",
+      "order": 2,
+      "visible": true,
+      "title": {
+        "tr": "Grable (Hidrolik Kıskaç & 360° Döner Yakalayıcı)",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "360° HİDROLİK ROTATOR İLE HASSAS VE GÜÇLÜ KAVRAMA",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Kentsel dönüşüm yıkım atıklarının ayrıştırılması, kaya bloklarının yerleştirilmesi, hurda ve tomruk yükleme operasyonları için yüksek sıkma kuvvetine sahip Grable ataşmanı.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "att-grable-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-GR-360",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-grable-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "KAVRAMA & YIKIM SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "att-grable-h0",
+          "text": {
+            "tr": "Yıkım & Tomruk Taşıma",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-grable-h1",
+          "text": {
+            "tr": "Güçlü hidrolik kavrama ve 360° dönüş",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-grable-h2",
+          "text": {
+            "tr": "Hurda, tomruk ve yıkım atığı taşıma",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-grable-h3",
+          "text": {
+            "tr": "Güvenli ve yüksek tonajlı elleçleme",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "att-grable-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "att-grable-r0",
+              "label": {
+                "tr": "Dönüş Açısı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "360° Sonsuz Hidrolik Rotator Dönüş Sistemi",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-grable-r1",
+              "label": {
+                "tr": "Çene Yapısı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Hardox 450/500 Delikli veya Kapalı Çene Seçeneği",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-grable-r2",
+              "label": {
+                "tr": "Emniyet Sistemi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Yük Tutma Emniyet Valfli Hidrolik Silindir",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-grable-r3",
+              "label": {
+                "tr": "Çene Açıklığı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "1400 mm - 2400 mm Geniş Kavrama Kapasitesi",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-grable-r4",
+              "label": {
+                "tr": "Uyumlu Tonaj",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "12 - 40 Ton Arası Ekskavatörler",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-grable-r5",
+              "label": {
+                "tr": "Uygulama",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Yıkım Ayıklama, Anroşman Taş Dizimi, Ormancılık",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "att-izgara-kova",
+      "categoryId": "atasman",
+      "slug": "red-sk-180",
+      "order": 3,
+      "visible": true,
+      "title": {
+        "tr": "Izgara Elek Kova (İskelet Kaya Ayıklama Kovası)",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "KAYA VE İRİ MALZEME AYIKLAMADA PRATİK MÜHENDİSLİK",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Kazı esnasında ince toprak ile iri kaya parçalarını tek seferde birbirinden ayıran, yüksek mukavemetli ızgara kaburgalara sahip ağır hizmet tipi iskelet elek kovası.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "att-izgara-kova-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-SK-180",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-izgara-kova-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "ELEME & AYIKLAMA SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "att-izgara-kova-h0",
+          "text": {
+            "tr": "Agrega & Kaya Eleme",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-izgara-kova-h1",
+          "text": {
+            "tr": "Izgaralı eleme ve kaba malzeme ayırma",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-izgara-kova-h2",
+          "text": {
+            "tr": "Ağır hizmet tipi çelik çubuklar",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-izgara-kova-h3",
+          "text": {
+            "tr": "Dolgu öncesi taş ve toprak ayıklama",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "att-izgara-kova-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "att-izgara-kova-r0",
+              "label": {
+                "tr": "Izgara Aralığı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "50 mm - 150 mm Projeye Özel Izgara Boşluğu",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-izgara-kova-r1",
+              "label": {
+                "tr": "Malzeme Kalitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Hardox 450 Izgara Çubukları ve Ağız Bıçağı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-izgara-kova-r2",
+              "label": {
+                "tr": "Kapasite",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "0.5 m³ - 3.0 m³ Tonaja Uygun Üretim",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-izgara-kova-r3",
+              "label": {
+                "tr": "Tırnak Yapısı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Kaya Tipi Değiştirilebilir Tırnak ve Adaptör",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-izgara-kova-r4",
+              "label": {
+                "tr": "Uyumlu Makineler",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "8 - 50 Ton Ekskavatörler ve Beko Loderler",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-izgara-kova-r5",
+              "label": {
+                "tr": "Avantaj",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Kırıcıya Girecek Malzemeyi Ön Eleyerek Kapasite Artışı",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "att-kova",
+      "categoryId": "atasman",
+      "slug": "red-gp-120",
+      "order": 4,
+      "visible": true,
+      "title": {
+        "tr": "Standart Hafriyat ve Kanal Kazı Kovası",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "OPTİMİZE KAZI GEOMETRİSİ İLE DÜŞÜK YAKIT, YÜKSEK HIZ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Altyapı kanal açma, genel toprak hafriyatı ve tesviye işlerinde makinenin kol/bom kinematiğine tam uyum sağlayacak şekilde 3D CAD ve FEA analizleriyle tasarlanan standart ve kanal kovaları.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "att-kova-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-GP-120",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-kova-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "HAFRİYAT & KANAL SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "att-kova-h0",
+          "text": {
+            "tr": "Genel Kazı ve Altyapı İşlemleri",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-kova-h1",
+          "text": {
+            "tr": "Yüksek doluluk oranlı optimize kova geometrisi",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-kova-h2",
+          "text": {
+            "tr": "Yakıt tasarrufu sağlayan kolay dalma açısı",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-kova-h3",
+          "text": {
+            "tr": "Kanal, tesviye ve genel hafriyat kovaları",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "att-kova-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "att-kova-r0",
+              "label": {
+                "tr": "Kova Genişliği",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "300 mm (Dar Kanal) - 2200 mm (Tesviye/Hafriyat)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-kova-r1",
+              "label": {
+                "tr": "Gövde Sacı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "S355J2+N Gövde + Hardox 450 Bıçak ve Yan Kesiciler",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-kova-r2",
+              "label": {
+                "tr": "Hacim",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "0.2 m³ - 3.2 m³ Arası Tüm Ölçüler",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-kova-r3",
+              "label": {
+                "tr": "Kinematik Uyum",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Marka ve Modele Özel Pin Çapı ve Kulak Mesafesi",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-kova-r4",
+              "label": {
+                "tr": "Aşınma Koruması",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Alt Taban Kayıt Şeritleri ve Köşe Takviyeleri",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-kova-r5",
+              "label": {
+                "tr": "Garanti",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "REDASY Kaynak ve Üretim Kusurlarına Karşı Garanti",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "att-loader",
+      "categoryId": "atasman",
+      "slug": "red-ld-450",
+      "order": 5,
+      "visible": true,
+      "title": {
+        "tr": "Loader Kovası (Lastikli Yükleyici Kaya ve Yüksek Devirmeli Kova)",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "MERMER, MADEN VE AGREGA YÜKLEMELERİ İÇİN YÜKSEK KAPASİTE",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Lastikli yükleyiciler (Wheel Loader) için taş ocağı tipi V-ağızlı kaya kovaları, yüksek hacimli hafif malzeme kovaları ve yüksekten boşaltmalı (High-Tip) özel ataşmanlar.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "att-loader-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-LD-450",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-loader-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "YÜKLEYİCİ SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "att-loader-h0",
+          "text": {
+            "tr": "Yükleme & Malzeme Sevk",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-loader-h1",
+          "text": {
+            "tr": "Geniş hacimli malzeme taşıma ve yükleme",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-loader-h2",
+          "text": {
+            "tr": "Aşınmaya dayanıklı bıçak ve tırnaklar",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-loader-h3",
+          "text": {
+            "tr": "Maksimum doluluk oranı için optimize şasi",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "att-loader-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "att-loader-r0",
+              "label": {
+                "tr": "Kapasite Aralığı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "2.5 m³ - 8.0 m³ Yükleyici Tonajına Özel",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-loader-r1",
+              "label": {
+                "tr": "Ağız Tasarımı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Düz veya V-Tipi (Delta) Hardox 500 Kaya Bıçağı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-loader-r2",
+              "label": {
+                "tr": "Koruma Plakaları",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Cıvatalı Değiştirilebilir Alt Aşınma Bıçakları (Cutting Edge)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-loader-r3",
+              "label": {
+                "tr": "Kova Çeşitleri",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Kaya Kovası, Kömür/Tahıl Kovası, Mermer Çatalı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-loader-r4",
+              "label": {
+                "tr": "Dökülme Koruması",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Üst Taş Korkuluğu (Spill Guard) ile Güvenli Yükleme",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-loader-r5",
+              "label": {
+                "tr": "Uyumlu Makineler",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Volvo, CAT, Komatsu, Hidromek, Kawasaki, JCB vb.",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "att-makas",
+      "categoryId": "atasman",
+      "slug": "red-sh-500",
+      "order": 6,
+      "visible": true,
+      "title": {
+        "tr": "Hidrolik Yıkım, Beton Kırma ve Hurda Kesme Makası",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "YÜKSEK KESME KUVVETİ VE HIZLI VALF TEKNOLOJİSİ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Endüstriyel tesis sökümü, yüksek katlı bina yıkımı ve hurda çelik işleme sahalarında betonarme kolonları parçalayan ve çelik profilleri kesen yüksek basınçlı hidrolik makas.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "att-makas-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-SH-500",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-makas-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "YIKIM & HURDA SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "att-makas-h0",
+          "text": {
+            "tr": "Beton & Hurda Kesme",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-makas-h1",
+          "text": {
+            "tr": "Yüksek basınçlı hidrolik çeneler",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-makas-h2",
+          "text": {
+            "tr": "Hurda demir, çelik ve beton kırma",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-makas-h3",
+          "text": {
+            "tr": "Endüstriyel yıkım ve söküm işleri",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "att-makas-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "att-makas-r0",
+              "label": {
+                "tr": "Çalışma Basıncı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "320 - 380 Bar Yüksek Basınçlı Silindir",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-makas-r1",
+              "label": {
+                "tr": "Hızlandırma Valfi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Entegre Speed-Valve ile %35 Daha Hızlı Çene Kapama",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-makas-r2",
+              "label": {
+                "tr": "Kesici Bıçaklar",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "4 Yönlü Kullanılabilir Özel Alaşımlı Çelik Bıçaklar",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-makas-r3",
+              "label": {
+                "tr": "Dönüş Sistemi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "360° Hidrolik Sürekli Dönüş Mekanizması",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-makas-r4",
+              "label": {
+                "tr": "Uyumlu Ekskavatör",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "18 - 65 Ton Arası Yıkım Ekskavatörleri",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-makas-r5",
+              "label": {
+                "tr": "Gövde",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Yekpare İşlenmiş Weldox / Hardox Zırhlı Gövde",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "att-quick",
+      "categoryId": "atasman",
+      "slug": "red-qc-100",
+      "order": 7,
+      "visible": true,
+      "title": {
+        "tr": "Quick Coupler (Hidrolik Hızlı Ataşman Değiştirici)",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "KABİNDEN İNMEDEN SANİYELER İÇİNDE GÜVENLİ ATAŞMAN DEĞİŞİMİ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Operatörün kabinden çıkmadan kova, kırıcı, riper veya makas ataşmanlarını saniyeler içinde değiştirmesini sağlayan çift emniyet kilitli hidrolik Quick Coupler sistemi.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "att-quick-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-QC-100",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-quick-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "HIZLI DEĞİŞTİRİCİ SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "att-quick-h0",
+          "text": {
+            "tr": "Hızlı Ataşman Değişimi",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-quick-h1",
+          "text": {
+            "tr": "Kabin içinden hidrolik kilitleme",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-quick-h2",
+          "text": {
+            "tr": "Emniyet kilitli, güvenli bağlantı",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-quick-h3",
+          "text": {
+            "tr": "Saniyeler içinde ataşman değişimi",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "att-quick-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "att-quick-r0",
+              "label": {
+                "tr": "Kilitleme Sistemi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Hidrolik Silindir + Mekanik Emniyet Mandalı (Çift Kilit)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-quick-r1",
+              "label": {
+                "tr": "Kontrol",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Kabin İçi Sesli İkazlı Elektrik/Hidrolik Kontrol Valfi",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-quick-r2",
+              "label": {
+                "tr": "Değişim Süresi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "15 - 30 Saniye İçinde Tam Otomatik Bağlantı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-quick-r3",
+              "label": {
+                "tr": "Emniyet Valfi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Hortum Patlamasına Karşı Pilot Çekvalf Koruması",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-quick-r4",
+              "label": {
+                "tr": "Uyumlu Tonaj",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "8 Ton - 60 Ton Arası Tüm Ekskavatör Modelleri",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-quick-r5",
+              "label": {
+                "tr": "Malzeme",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Yüksek Dayanımlı Döküm/Hardox Hibrit Konstrüksiyon",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "att-riper",
+      "categoryId": "atasman",
+      "slug": "red-rp-90",
+      "order": 8,
+      "visible": true,
+      "title": {
+        "tr": "Ağır Hizmet Tipi Ekskavatör Riperi (Kaya ve Zemin Sökücü)",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "ÇATLAK KAYA, DONMUŞ ZEMİN VE ASFALT SÖKÜMÜNDE MAKSİMUM GÜÇ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Ekskavatörün tüm koparma kuvvetini tek bir uç noktada toplayarak tabakalı kayaları, donmuş zeminleri ve kalın asfalt/beton katmanlarını zahmetsizce söken tek parça bıçaklı riper.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "att-riper-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-RP-90",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-riper-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "ZEMİN SÖKÜM SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "att-riper-h0",
+          "text": {
+            "tr": "Zorlu Zemin Sökme",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-riper-h1",
+          "text": {
+            "tr": "Aşırı sert ve donmuş zemin sökümü",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-riper-h2",
+          "text": {
+            "tr": "Değiştirilebilir aşınma ucu ve şank",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "att-riper-h3",
+          "text": {
+            "tr": "Kırıcı öncesi gevşetme ve kırma işleri",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "att-riper-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "att-riper-r0",
+              "label": {
+                "tr": "Ana Bıçak (Şank)",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "80 mm - 150 mm Kalınlığında Tek Parça Hardox/Weldox",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-riper-r1",
+              "label": {
+                "tr": "Uç Sistemi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Kolay Değiştirilebilir Ağır Hizmet Riper Botu (Tırnağı)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-riper-r2",
+              "label": {
+                "tr": "Ön Koruma",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Şank Ön Yüzeyinde Değiştirilebilir Aşınma Koruyucu (Shroud)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-riper-r3",
+              "label": {
+                "tr": "Uyumlu Tonaj",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "14 - 75 Ton Arası Ekskavatörler",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-riper-r4",
+              "label": {
+                "tr": "Avantaj",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Hidrolik Kırıcıya Göre Çok Daha Düşük Bakım ve Yakıt Gideri",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "att-riper-r5",
+              "label": {
+                "tr": "Tasarım",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "FEA Statik Analiz ile Optimize Edilmiş Kavis Açısı",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "tr-frigo",
+      "categoryId": "arac",
+      "slug": "red-fr-3500",
+      "order": 0,
+      "visible": true,
+      "title": {
+        "tr": "Frigo Kasa (Soğuk Zincir Taşıma Kasası)",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "MAKSİMUM ISI YALITIMI & GÜVENLİ SEVKİYAT",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Gıda, ilaç ve her türlü bozulabilir hassas yükün soğuk zincir bozulmadan güvenle taşınması için tasarlanan Frigo Kasalarımız, yüksek yoğunluklu poliüretan panellerle üstün bir yalıtım performansı sunar. Hafif ve dayanıklı yapısı, sızdırmazlık özellikleri ve her marka-model kamyona tam uyumluluğu ile lojistik süreçlerinizi optimize eder.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "tr-frigo-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-FR-3500",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-frigo-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "ARAÇ ÜSTÜ EKİPMAN",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "tr-frigo-h0",
+          "text": {
+            "tr": "FRP panel ve yüksek yalıtım teknolojisi",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-frigo-h1",
+          "text": {
+            "tr": "-20°C / +4°C arası iklimlendirme",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-frigo-h2",
+          "text": {
+            "tr": "İlaç, gıda ve taze ürün lojistiğine uygun",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "tr-frigo-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "tr-frigo-r0",
+              "label": {
+                "tr": "Panel Yapısı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Yüksek Yoğunluklu Poliüretan (Sandviç Panel, 40-42 kg/m³)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-frigo-r1",
+              "label": {
+                "tr": "Sıcaklık Aralığı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "-20°C ile +4°C arası hassas iklimlendirme",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-frigo-r2",
+              "label": {
+                "tr": "Kasa Kalınlığı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Taban, tavan ve yan duvarlar için 50-100 mm arası yalıtım",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-frigo-r3",
+              "label": {
+                "tr": "İç Kaplama",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Hijyenik, Gıda Tüzüğüne Uygun, Kolay Temizlenebilir CTP/FRP",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-frigo-r4",
+              "label": {
+                "tr": "Zemin Yapısı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Aşınmaya ve kaymaya karşı dirençli alüminyum veya jelkot",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-frigo-r5",
+              "label": {
+                "tr": "Sızdırmazlık",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Çok katmanlı, özel EPDM kapı fitil sistemleri",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-frigo-r6",
+              "label": {
+                "tr": "Aksesuar ve Donanım",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "İç aydınlatma, çift kanatlı arka kapılar, paslanmaz kilitler",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-frigo-r7",
+              "label": {
+                "tr": "Uyumlu Tonajlar",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "3.5 Ton ile 26 Ton arası tüm kamyon ve kamyonetler",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "tr-vidanjor",
+      "categoryId": "arac",
+      "slug": "red-vd-1200",
+      "order": 1,
+      "visible": true,
+      "title": {
+        "tr": "Kombine Kanal Açma ve Vakumlu Vidanjör Ekipmanı",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "YÜKSEK VAKUM GÜCÜ VE BASINÇLI KANAL TEMİZLEME TEKNOLOJİSİ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Belediyeler, organize sanayi bölgeleri ve altyapı firmaları için yüksek emiş kapasiteli vakum pompası, hidrolik açılır arka kapak ve yüksek basınçlı su jeti sistemine sahip vidanjör üst yapısı.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "tr-vidanjor-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-VD-1200",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-vidanjor-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "BELEDİYE & ALTYAPI SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "tr-vidanjor-h0",
+          "text": {
+            "tr": "Yüksek emiş gücüne sahip vakum pompası",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-vidanjor-h1",
+          "text": {
+            "tr": "Ağır hizmet tipi çelik veya paslanmaz tank",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-vidanjor-h2",
+          "text": {
+            "tr": "Foseptik ve endüstriyel atık çekimi",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "tr-vidanjor-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "tr-vidanjor-r0",
+              "label": {
+                "tr": "Tank Kapasitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "6.000 Lt - 18.000 Lt Silindirik Çelik Tank",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-vidanjor-r1",
+              "label": {
+                "tr": "Vakum Pompası",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "12.000 - 30.000 Lt/dk İtalyan/Yerli Vakum Pompası",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-vidanjor-r2",
+              "label": {
+                "tr": "Tank Malzemesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "6-8 mm S355J2 Çelik veya AISI 304 Paslanmaz Çelik",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-vidanjor-r3",
+              "label": {
+                "tr": "Boşaltma Sistemi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Hidrolik Devirmeli Tank ve Tam Açılır Arka Bombe",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-vidanjor-r4",
+              "label": {
+                "tr": "Emniyet",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Çift Şamandıralı Taşma Önleyici ve Basınç Emniyet Valfi",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-vidanjor-r5",
+              "label": {
+                "tr": "Hortum Çıkrığı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Hidrolik Tahrikli Emme ve Basınçlı Yıkama Çıkrığı",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "tr-tanker",
+      "categoryId": "arac",
+      "slug": "red-tk-2000",
+      "order": 2,
+      "visible": true,
+      "title": {
+        "tr": "Araç Üstü Su, Akaryakıt ve Arazöz Tankeri",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "DALGAKIRANLI GÜVENLİ SIVI TAŞIMA VE SULAMA ARAZÖZÜ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "İçme suyu, yol yıkama/sulama arazözü, şantiye akaryakıt ikmali ve kimyasal sıvı taşımacılığı için uluslararası ADR/TSE standartlarına uygun bölmeli tanker üretimi.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "tr-tanker-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-TK-2000",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-tanker-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "SIVI LOJİSTİK SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "tr-tanker-h0",
+          "text": {
+            "tr": "Su, yakıt ve kimyasal taşıma tankları",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-tanker-h1",
+          "text": {
+            "tr": "Paslanmaz, karbon çelik veya alüminyum",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-tanker-h2",
+          "text": {
+            "tr": "Yangınla mücadele ve sulama arazözü",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "tr-tanker-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "tr-tanker-r0",
+              "label": {
+                "tr": "Hacim Seçenekleri",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "5.000 Lt - 25.000 Lt Eliptik veya Daire Kesitli",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-tanker-r1",
+              "label": {
+                "tr": "Gövde Yapısı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Dalgakıran Bölmeli Karbon Çelik, Krom veya Alüminyum",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-tanker-r2",
+              "label": {
+                "tr": "Pompa Sistemi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Şanzıman PTO Tahrikli Santrifüj veya Dişli Pompa",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-tanker-r3",
+              "label": {
+                "tr": "Arazöz Donanımı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Ön Yıkama Lansları, Arka Sulama Barı ve Su Monitörü",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-tanker-r4",
+              "label": {
+                "tr": "İç Kaplama",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "İçme Suyuna Uygun Gıda Epoksi veya AISI 304L",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-tanker-r5",
+              "label": {
+                "tr": "Test & Kalite",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "%100 Hidrostatik Sızdırmazlık ve Basınç Testli",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "tr-silobas",
+      "categoryId": "arac",
+      "slug": "red-sl-32",
+      "order": 3,
+      "visible": true,
+      "title": {
+        "tr": "Silobas (Basınçlı Dökme Çimento ve Toz Malzeme Tankeri)",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "HIZLI PNÖMATİK BOŞALTMA VE OPTİMİZE DARA AĞIRLIĞI",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Çimento, kalsit, alçı, kireç ve kül gibi toz/granül dökme malzemelerin basınçlı hava ile silolara hızla basılmasını sağlayan V-tipi ve damperli silobas çözümleri.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "tr-silobas-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-SL-32",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-silobas-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "DÖKME YÜK SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "tr-silobas-h0",
+          "text": {
+            "tr": "Çimento, alçı, kireç gibi dökme yükler",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-silobas-h1",
+          "text": {
+            "tr": "Kompresörlü pnömatik tahliye sistemi",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-silobas-h2",
+          "text": {
+            "tr": "Hafif ve yüksek mukavemetli çelik gövde",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "tr-silobas-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "tr-silobas-r0",
+              "label": {
+                "tr": "Kapasite",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "28 m³ - 45 m³ V-Tipi (W) Gövde Tasarımı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-silobas-r1",
+              "label": {
+                "tr": "Çalışma Basıncı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "2.0 Bar İşletme Basıncı / 3.0 Bar Test Basıncı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-silobas-r2",
+              "label": {
+                "tr": "Kompresör",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Dizel Motorlu veya Elektrikli 2/3 Pistonlu Kompresör",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-silobas-r3",
+              "label": {
+                "tr": "Malzeme",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Yüksek Mukavemetli İnce Taneli Basınçlı Kap Çeliği",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-silobas-r4",
+              "label": {
+                "tr": "Tahliye Süresi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Akışkanlaştırma Bezleri ile Dakikada 1.2 - 1.5 Ton Boşaltma",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-silobas-r5",
+              "label": {
+                "tr": "Yürür Aksam",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "3 Dingilli Hava Süspansiyonlu ve EBS Fren Sistemli",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "tr-cop",
+      "categoryId": "arac",
+      "slug": "red-cp-15",
+      "order": 4,
+      "visible": true,
+      "title": {
+        "tr": "Hidrolik Sıkıştırmalı Çöp Kasası Ekipmanı",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "YÜKSEK SIKIŞTIRMA ORANI VE TAM SIZDIRMAZ GÖVDE",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Belediyeler ve temizlik şirketleri için yüksek sıkıştırma oranına sahip, koku ve pis su sızdırmazlığı sağlayan otomatik konteyner devirme mekanizmalı hidrolik çöp kasası.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "tr-cop-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-CP-15",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-cop-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "ÇEVRE YÖNETİM SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "tr-cop-h0",
+          "text": {
+            "tr": "Hidrolik sıkıştırma ve boşaltma sistemi",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-cop-h1",
+          "text": {
+            "tr": "Farklı çöp konteynerlerine uyumlu aparat",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-cop-h2",
+          "text": {
+            "tr": "Sızdırmaz gövde ve yüksek hacim",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "tr-cop-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "tr-cop-r0",
+              "label": {
+                "tr": "Gövde Hacmi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "7 m³ - 22 m³ Arası Farklı Kamyon Şasilerine Uygun",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-cop-r1",
+              "label": {
+                "tr": "Sıkıştırma Oranı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "1:4 ile 1:6 Arası Yüksek Hidrolik Sıkıştırma",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-cop-r2",
+              "label": {
+                "tr": "Taban Sacı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Aşınmaya ve Asidik Sulara Dirençli Hardox 450 Taban",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-cop-r3",
+              "label": {
+                "tr": "Konteyner Aparatı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "EN 840 Standartlarında 120-1100 Lt Konteyner Kaldırma",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-cop-r4",
+              "label": {
+                "tr": "Otomasyon",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Tek Tuşla Otomatik Sıkıştırma Döngüsü (PLC)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-cop-r5",
+              "label": {
+                "tr": "Atık Su Tankı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Ön ve Arka Sızdırmaz Pis Su Toplama Haznesi",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "tr-itfaiye",
+      "categoryId": "arac",
+      "slug": "red-fr-112",
+      "order": 5,
+      "visible": true,
+      "title": {
+        "tr": "İtfaiye ve İlk Müdahale Aracı Üst Yapısı",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "SANİYELERİN ÖNEMLİ OLDUĞU ANLAR İÇİN YÜKSEK BASINÇLI MÜDAHALE",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Şehir içi, sanayi bölgesi ve orman yangınlarına anında müdahale için alüminyum panjurlu ekipman dolapları, paslanmaz su/köpük tankı ve çift kademeli yangın pompasıyla donatılmış itfaiye aracı.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "tr-itfaiye-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-FR-112",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-itfaiye-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "ACİL MÜDAHALE SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "tr-itfaiye-h0",
+          "text": {
+            "tr": "Yüksek basınçlı su ve köpük pompaları",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-itfaiye-h1",
+          "text": {
+            "tr": "Kurtarma ekipmanı ve merdiven sistemleri",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-itfaiye-h2",
+          "text": {
+            "tr": "Hızlı ve güvenilir acil durum müdahalesi",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "tr-itfaiye-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "tr-itfaiye-r0",
+              "label": {
+                "tr": "Su / Köpük Tankı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "3.000 - 10.000 Lt Paslanmaz Su + 500-1000 Lt Köpük",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-itfaiye-r1",
+              "label": {
+                "tr": "Yangın Pompası",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Normal (10 Bar) ve Yüksek Basınç (40 Bar) Çift Kademeli",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-itfaiye-r2",
+              "label": {
+                "tr": "Çatı Monitörü",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "50-60 Metre Atış Mesafeli Su/Köpük Topu",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-itfaiye-r3",
+              "label": {
+                "tr": "Üst Yapı Dolapları",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Toz ve Su Geçirmez Alüminyum Panjurlu Ekipman Bölmeleri",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-itfaiye-r4",
+              "label": {
+                "tr": "Aydınlatma",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Pnömatik Yükselen Teleskopik Gece Saha Aydınlatma Kulesi",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-itfaiye-r5",
+              "label": {
+                "tr": "Standart",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "TS EN 1846 İtfaiye Araçları Standartlarına Uygun",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "tr-vinc",
+      "categoryId": "arac",
+      "slug": "red-cr-45",
+      "order": 6,
+      "visible": true,
+      "title": {
+        "tr": "Araç Üstü Katlanır Bomlu Hidrolik Vinç",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "YÜKSEK KALDIRMA MONENTİ VE ORANSAL HASSAS KONTROL",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "İnşaat, enerji nakil hatları, konteyner taşımacılığı ve fabrika montajlarında kullanılan yüksek mukavemetli altıgen/sekizgen bom profiline sahip katlanır hidrolik vinç.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "tr-vinc-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-CR-45",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-vinc-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "KALDIRMA EKİPMAN SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "tr-vinc-h0",
+          "text": {
+            "tr": "Katlanır bomlu (teleskopik/hidrolik) vinç",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-vinc-h1",
+          "text": {
+            "tr": "Yüksek tonajlı kaldırma ve taşıma",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-vinc-h2",
+          "text": {
+            "tr": "Destek ayakları ile maksimum denge",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "tr-vinc-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "tr-vinc-r0",
+              "label": {
+                "tr": "Kaldırma Kapasitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "10 Ton/m - 85 Ton/m Arası Geniş Model Gamı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-vinc-r1",
+              "label": {
+                "tr": "Bom Çeliği",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Yüksek Akma Dayanımlı S700MC / Weldox Teleskopik Bom",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-vinc-r2",
+              "label": {
+                "tr": "Destek Ayakları",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Hidrolik Yana Açılır ve Dikey Basar Denge Ayakları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-vinc-r3",
+              "label": {
+                "tr": "Kontrol Sistemi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Oransal Valf + Kablosuz Radyo Frekans Uzaktan Kumanda",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-vinc-r4",
+              "label": {
+                "tr": "Güvenlik",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Aşırı Yük Kesici (Moment Kontrol) ve Emniyet Kilit Valfleri",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-vinc-r5",
+              "label": {
+                "tr": "Kasa Entegrasyonu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Sabit veya Damperli Çelik Kasa ile Anahtar Teslim",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "tr-hooklift",
+      "categoryId": "arac",
+      "slug": "red-hl-25",
+      "order": 7,
+      "visible": true,
+      "title": {
+        "tr": "Kancalı Yükleyici (Hooklift Konteyner Taşıma Sistemi)",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "TEK KAMYON İLE ONLARCA FARKLI KONTEYNERİ TAŞIMA ESNEKLİĞİ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Tek bir kamyon şasisi ile hurda konteynerleri, çamur tanklarını, düz platformları ve atık kasalarını dakikalar içinde indirip yükleyen teleskopik kancalı yükleyici.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "tr-hooklift-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-HL-25",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-hooklift-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "LOJİSTİK & ATIK SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "tr-hooklift-h0",
+          "text": {
+            "tr": "Hidrolik kancalı konteyner yükleme",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-hooklift-h1",
+          "text": {
+            "tr": "Farklı kasa ve konteynerleri taşıma",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-hooklift-h2",
+          "text": {
+            "tr": "Hızlı, pratik ve tek operatörlü çalışma",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "tr-hooklift-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "tr-hooklift-r0",
+              "label": {
+                "tr": "Yükleme Kapasitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "12 Ton - 30 Ton Kaldırma ve Devirme Gücü",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-hooklift-r1",
+              "label": {
+                "tr": "Teleskopik Kol",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Farklı Konteyner Boylarına Uygun Kayar Teleskopik Kol",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-hooklift-r2",
+              "label": {
+                "tr": "Kilitleme",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Hidrolik Arka Konteyner Kilitleri ve Kanca Emniyet Mandalı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-hooklift-r3",
+              "label": {
+                "tr": "Arka Rulo",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Şasi Çökmesini Önleyen Hidrolik Arka Denge Ruloları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-hooklift-r4",
+              "label": {
+                "tr": "Kontrol",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Kabin İçi Pnömatik/Elektrikli Joystick Kumanda",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-hooklift-r5",
+              "label": {
+                "tr": "Standart",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "DIN 30722 Konteyner Normlarına Tam Uyumlu",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "tr-kurtarici",
+      "categoryId": "arac",
+      "slug": "red-tw-10",
+      "order": 8,
+      "visible": true,
+      "title": {
+        "tr": "Hidrolik Kayar Kasalı Oto Kurtarıcı ve Çekici",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "DÜŞÜK YÜKLEME AÇISI VE YÜKSEK ÇEKME KUVVETLİ TAMBUR",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Binek araçlar, ticari minibüsler, forkliftler ve iş makinelerinin güvenli kurtarılması ve taşınması için hidrolik kayar platform, arka gözlük ve güçlü halatlı vinç tamburu.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "tr-kurtarici-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-TW-10",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-kurtarici-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "YOL YARDIM SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "tr-kurtarici-h0",
+          "text": {
+            "tr": "Hidrolik kayar kasa ve güçlü halat tamburu",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-kurtarici-h1",
+          "text": {
+            "tr": "Arızalı veya kazalı araç taşıma",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "tr-kurtarici-h2",
+          "text": {
+            "tr": "Güvenli sabitleme ve hızlı operasyon",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "tr-kurtarici-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "tr-kurtarici-r0",
+              "label": {
+                "tr": "Platform Kapasitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "3.5 Ton - 18 Ton Taşıma Kapasiteli Kayar Platform",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-kurtarici-r1",
+              "label": {
+                "tr": "Halat Tamburu",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "4.5 Ton - 15 Ton Hidrolik Çekme Tamburu + Çelik Halat",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-kurtarici-r2",
+              "label": {
+                "tr": "Platform Yüzeyi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Kaymaz Gözyaşı Desenli Sac veya Delikli Rampa",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-kurtarici-r3",
+              "label": {
+                "tr": "Arka Gözlük",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "İkinci Bir Aracı Çekmek İçin Hidrolik Arka Çatal (Gözlük)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-kurtarici-r4",
+              "label": {
+                "tr": "Kumanda",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Uzaktan Kumandalı Hidrolik Valf ve LED Tepe Lambası",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "tr-kurtarici-r5",
+              "label": {
+                "tr": "Kaplama",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Kumlama + Epoksi Astar + Akrilik Otomotiv Boyası",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "mb-kan",
+      "categoryId": "mobil",
+      "slug": "red-bd-500",
+      "order": 0,
+      "visible": true,
+      "title": {
+        "tr": "Mobil Kan Bağışı ve Laboratuvar Aracı",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "MOBİL SAĞLIK VE DONÖR HİZMETLERİ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Gezici sağlık hizmetleri, afet durumları ve yaygın kan bağışı kampanyaları için özel olarak tasarlanan Mobil Kan Bağışı ve Laboratuvar Aracımız, donörlerin en yüksek konforda ve en hijyenik şartlarda kan verebilmesi için optimize edilmiştir. Bağımsız jeneratör, gelişmiş iklimlendirme ve son teknoloji laboratuvar altyapısıyla her türlü saha koşulunda kesintisiz hizmet sunar.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "mb-kan-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-BD-500",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-kan-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "MOBİL SAĞLIK ÇÖZÜMLERİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "mb-kan-h0",
+          "text": {
+            "tr": "4-6 kişilik kan alma sedyesi ve dinlenme alanı",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-kan-h1",
+          "text": {
+            "tr": "Güvenli kan saklama ve soğutma dolapları",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-kan-h2",
+          "text": {
+            "tr": "Konforlu iklimlendirme ve bekleme salonu",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "mb-kan-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "mb-kan-r0",
+              "label": {
+                "tr": "Donör Ünitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "4-6 Kişilik Kan Alma Ünitesi (Özel konforlu, hareketli sedyeler)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-kan-r1",
+              "label": {
+                "tr": "Laboratuvar Altyapısı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Tam donanımlı laboratuvar, santrifüj ve test alanları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-kan-r2",
+              "label": {
+                "tr": "Kan Saklama",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Güvenli, kesintisiz enerjili Kan Saklama Dolapları (+4°C/-20°C)",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-kan-r3",
+              "label": {
+                "tr": "Güç ve Enerji",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Yedekli Jeneratör, UPS ve harici şebeke bağlantısı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-kan-r4",
+              "label": {
+                "tr": "İklimlendirme",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Antibakteriyel Hepa filtreli, bağımsız klima ve ısıtma sistemleri",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-kan-r5",
+              "label": {
+                "tr": "Su ve Atık",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Geniş hacimli temiz ve atık su tankları, hijyenik lavabolar",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-kan-r6",
+              "label": {
+                "tr": "Aksesuar ve Donanım",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Donör bekleme alanı, engelli biniş asansörü, özel aydınlatmalar",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-kan-r7",
+              "label": {
+                "tr": "Sertifikasyon",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Sağlık Bakanlığı yönetmeliklerine ve mobil tıbbi standartlara tam uyum",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "mb-dis",
+      "categoryId": "mobil",
+      "slug": "red-dn-200",
+      "order": 1,
+      "visible": true,
+      "title": {
+        "tr": "Mobil Diş Kliniği ve Ağız Sağlığı Treyleri",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "TAM DONANIMLI GEZİCİ DİŞ ÜNİTİ, RÖNTGEN VE STERİLİZASYON",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Okul taramaları, kırsal bölgeler ve belediye sağlık hizmetleri için içerisinde modern diş üniti, sessiz medikal kompresör, cerrahi aspiratör, otoklav sterilizasyon ve panoramik/periapikal röntgen altyapısı bulunan mobil diş kliniği.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "mb-dis-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-DN-200",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-dis-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "MOBİL SAĞLIK ÇÖZÜMLERİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "mb-dis-h0",
+          "text": {
+            "tr": "Tam donanımlı diş hekimi koltuğu ve sterilizasyon",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-dis-h1",
+          "text": {
+            "tr": "Kesintisiz su, hava ve elektrik altyapısı",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-dis-h2",
+          "text": {
+            "tr": "Gezici sağlık taramaları ve acil müdahale",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "mb-dis-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "mb-dis-r0",
+              "label": {
+                "tr": "Klinik Kapasitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "1 veya 2 Adet Tam Donanımlı Diş Hekimi Üniti ve Koltuğu",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-dis-r1",
+              "label": {
+                "tr": "Medikal Altyapı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Yağsız Sessiz Medikal Kompresör ve Cerrahi Vakum Sistemi",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-dis-r2",
+              "label": {
+                "tr": "Sterilizasyon",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "B Sınıfı Otoklav, Paketleme Cihazı ve UV Steril Dolaplar",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-dis-r3",
+              "label": {
+                "tr": "Görüntüleme",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Kurşun Yalıtımlı Panoramik / Dijital Röntgen Bölmesi",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-dis-r4",
+              "label": {
+                "tr": "İç Kaplama",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Antibakteriyel, Eksiz Yıkanabilir CTP/FRP Duvar ve Epoksi Zemin",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-dis-r5",
+              "label": {
+                "tr": "Enerji & Su",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Ses Yalıtımlı Marin Jeneratör + Saf Su Arıtma Sistemi",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "mb-mamografi",
+      "categoryId": "mobil",
+      "slug": "red-mm-300",
+      "order": 2,
+      "visible": true,
+      "title": {
+        "tr": "Mobil Mamografi ve Kanser Tarama Tırı",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "ERKEN TEŞHİS İÇİN KURŞUN YALITIMLI VE SARSINTISIZ ÖZEL ŞASİ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Hassas dijital mamografi ve X-Ray cihazlarının saha şartlarında güvenle taşınması için havalı süspansiyonlu şasi, TAEK standartlarında kurşun zırhlama, hasta soyunma kabinleri ve doktor değerlendirme odasından oluşan tarama tırı.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "mb-mamografi-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-MM-300",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-mamografi-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "MOBİL TARAMA SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "mb-mamografi-h0",
+          "text": {
+            "tr": "X-Ray ve mamografi cihazları için yalıtımlı oda",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-mamografi-h1",
+          "text": {
+            "tr": "Özel hasta kabul ve muayene alanları",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-mamografi-h2",
+          "text": {
+            "tr": "Genişletilebilir gövde ve jeneratör desteği",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "mb-mamografi-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "mb-mamografi-r0",
+              "label": {
+                "tr": "Radyasyon Güvenliği",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "TAEK / NDK Standartlarında 2-3 mm Kurşun Zırhlı Oda",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-mamografi-r1",
+              "label": {
+                "tr": "Gövde Sistemi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Sabit veya Hidrolik Yana Açılır (Expandable) Geniş Gövde",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-mamografi-r2",
+              "label": {
+                "tr": "Bölmeler",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Kayıt/Bekleme, Soyunma Kabinleri, Çekim Odası, Doktor Odası",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-mamografi-r3",
+              "label": {
+                "tr": "Güç Kalitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Hassas Tıbbi Cihazlar İçin Online UPS ve Regülatör Altyapısı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-mamografi-r4",
+              "label": {
+                "tr": "Erişilebilirlik",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Hidrolik Engelli Platform Asansörü ve Kaymaz Giriş Merdiveni",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-mamografi-r5",
+              "label": {
+                "tr": "İklimlendirme",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Cihaz Odası İçin 7/24 Sabit Sıcaklık ve Nem Kontrolü",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "mb-klinik",
+      "categoryId": "mobil",
+      "slug": "red-mc-600",
+      "order": 3,
+      "visible": true,
+      "title": {
+        "tr": "Mobil Poliklinik, Acil Müdahale ve Sağlık Tarama Treyleri",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "ÇOK ODALI MUAYENE, İŞİTME/GÖRME TARAMA VE ACİL MÜDAHALE",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "İş sağlığı ve güvenliği (OSGB) taramaları, afet bölgeleri ve gezici poliklinik hizmetleri için odyometri kabini, röntgen, laboratuvar ve muayene odalarını tek bir dorsede birleştiren mobil sağlık merkezi.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "mb-klinik-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-MC-600",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-klinik-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "SAHA HASTANESİ SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "mb-klinik-h0",
+          "text": {
+            "tr": "Çok amaçlı doktor muayene ve müdahale odası",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-klinik-h1",
+          "text": {
+            "tr": "Engelli biniş asansörü ve özel giriş kapıları",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-klinik-h2",
+          "text": {
+            "tr": "Temiz ve atık su tankları, kesintisiz enerji",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "mb-klinik-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "mb-klinik-r0",
+              "label": {
+                "tr": "Oda Planı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "2 Muayene Odası + Laboratuvar + Odyometri + Röntgen",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-klinik-r1",
+              "label": {
+                "tr": "Medikal Gaz",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Merkezi Oksijen ve Vakum Priz Tesisatı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-klinik-r2",
+              "label": {
+                "tr": "Denge Ayakları",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Sahada Tam Teraziye Alan 4 Adet Hidrolik Stabilizatör Ayak",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-klinik-r3",
+              "label": {
+                "tr": "Engelli Erişimi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "350 kg Kapasiteli Hidrolik Engelli Hasta Lifti",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-klinik-r4",
+              "label": {
+                "tr": "Su Kapasitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "500 Lt Paslanmaz Temiz Su + 500 Lt Gri/Atık Su Tankı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-klinik-r5",
+              "label": {
+                "tr": "Bağımsız Çalışma",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "25-40 kVA Süper Sessiz Kabinli Dizel Jeneratör",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "mb-mutfak",
+      "categoryId": "mobil",
+      "slug": "red-kt-400",
+      "order": 4,
+      "visible": true,
+      "title": {
+        "tr": "Mobil Mutfak, Fırın ve Toplu İkram Treyleri",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "GÜNLÜK 5.000 KİŞİLİK SICAK YEMEK KAPASİTELİ ENDÜSTRİYEL MOBİL MUTFAK",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Afet bölgeleri, askeri operasyonlar, büyük şantiyeler ve belediye ikram organizasyonları için AISI 304 paslanmaz çelik pişirme kazanları, konveksiyonlu fırınlar, soğuk hava deposu ve servis bankolarıyla donatılmış mobil mutfak.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "mb-mutfak-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-KT-400",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-mutfak-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "SAHA LOJİSTİK SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "mb-mutfak-h0",
+          "text": {
+            "tr": "Endüstriyel pişirme ve saklama ekipmanları",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-mutfak-h1",
+          "text": {
+            "tr": "Yüksek kapasiteli su tankları ve jeneratörler",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-mutfak-h2",
+          "text": {
+            "tr": "Afet ve toplu organizasyonlar için hızlı hizmet",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "mb-mutfak-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "mb-mutfak-r0",
+              "label": {
+                "tr": "Üretim Kapasitesi",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Öğünde 2.000 - 5.000 Kişilik Sıcak Yemek Çıkarma Gücü",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-mutfak-r1",
+              "label": {
+                "tr": "Mutfak Ekipmanı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "AISI 304 Paslanmaz Kaynatma Kazanları, Kuzine, Konveksiyonlu Fırın",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-mutfak-r2",
+              "label": {
+                "tr": "Soğuk Oda",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Dorse Ön Bölmesinde Entegre +4°C / -18°C Soğuk Hava Deposu",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-mutfak-r3",
+              "label": {
+                "tr": "Havalandırma",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Endüstriyel Davlumbaz, Yağ Filtresi ve Güçlü Egzoz Fanları",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-mutfak-r4",
+              "label": {
+                "tr": "Yakıt & Enerji",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "LPG/Doğalgaz Kollektör Hattı + Dahili Jeneratör + Su Tankı",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-mutfak-r5",
+              "label": {
+                "tr": "Servis Alanı",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Hidrolik Açılır Yan Servis Pencereleri ve Gölgelik Tente",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    },
+    {
+      "id": "mb-afet",
+      "categoryId": "mobil",
+      "slug": "red-cc-900",
+      "order": 5,
+      "visible": true,
+      "title": {
+        "tr": "Mobil Afet Koordinasyon ve Kriz Komuta Merkezi",
+        "en": "",
+        "ar": ""
+      },
+      "summary": {
+        "tr": "KESİNTİSİZ UYDU HABERLEŞME VE KRİZ YÖNETİM MERKEZİ",
+        "en": "",
+        "ar": ""
+      },
+      "overview": {
+        "tr": "Deprem, yangın ve kriz anlarında saha yönetimini üstlenen; genişleyebilir toplantı salonu, Video-Wall izleme ekranları, uydu internet anteni, drone istasyonu ve kesintisiz güç kaynaklarıyla donatılmış komuta merkezi.",
+        "en": "",
+        "ar": ""
+      },
+      "brochure": "",
+      "images": [],
+      "stats": [
+        {
+          "id": "mb-afet-kod",
+          "label": {
+            "tr": "Kod",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "RED-CC-900",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-afet-seri",
+          "label": {
+            "tr": "Seri",
+            "en": "",
+            "ar": ""
+          },
+          "value": {
+            "tr": "KRİZ & KOMUTA SERİSİ",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "id": "mb-afet-h0",
+          "text": {
+            "tr": "Uydu haberleşme, telsiz ve veri merkezleri",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-afet-h1",
+          "text": {
+            "tr": "Kriz yönetim odası ve çoklu ekran sistemleri",
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "id": "mb-afet-h2",
+          "text": {
+            "tr": "Zorlu saha şartları için bağımsız enerji kaynağı",
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "specs": [
+        {
+          "id": "mb-afet-specs",
+          "title": {
+            "tr": "Teknik özellikler",
+            "en": "",
+            "ar": ""
+          },
+          "rows": [
+            {
+              "id": "mb-afet-r0",
+              "label": {
+                "tr": "Kriz Toplantı Odası",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Çift Yöne Hidrolik Açılır 12-16 Kişilik Brifing Salonu",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-afet-r1",
+              "label": {
+                "tr": "Haberleşme",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Otomatik Uydu Anteni (VSAT), VHF/UHF Telsiz Röle ve 5G Router",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-afet-r2",
+              "label": {
+                "tr": "Görüntüleme",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Video-Wall Ekranlar ve 360° Teleskopik PTZ Saha Kamerası",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-afet-r3",
+              "label": {
+                "tr": "Saha Aydınlatma",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "6 Metre Pnömatik Yükselen Projektör Kulesi",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-afet-r4",
+              "label": {
+                "tr": "Enerji Güvenliği",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "Çift Jeneratör + Güneş Paneli + Lityum Akü / UPS Sistemi",
+                "en": "",
+                "ar": ""
+              }
+            },
+            {
+              "id": "mb-afet-r5",
+              "label": {
+                "tr": "İzolasyon",
+                "en": "",
+                "ar": ""
+              },
+              "value": {
+                "tr": "-30°C / +55°C Ağır İklim Şartlarına Dayanıklı Zırhlı İzolasyon",
+                "en": "",
+                "ar": ""
+              }
+            }
+          ]
+        }
+      ],
+      "applications": []
+    }
+  ]
+}

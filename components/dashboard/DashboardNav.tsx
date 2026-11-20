@@ -19,6 +19,11 @@ const items = [
     icon: "M6 4.5h8.2L18 8.2V19.5H6zM14 4.8V8.4h3.4",
   },
   {
+    href: "/dashboard/urunler",
+    label: "Ürünler",
+    icon: "M5 7h6v6H5zM13 7h6v6h-6zM5 15h6v4H5zM13 15h6v4h-6z",
+  },
+  {
     href: "/dashboard",
     label: "Gri bant",
     icon: "M4 5h7v6H4zM13 5h7v6h-7zM4 13h7v6H4zM13 13h7v6h-7z",
