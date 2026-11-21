@@ -53,6 +53,12 @@ export function NavEditor({ initial }: { initial: NavConfig }) {
     }));
   }
 
+  function removeItem(id: string) {
+    setNav((current) => ({ items: current.items.filter((row) => row.id !== id) }));
+    setPreview((current) => (current === id ? null : current));
+    setMessage(null);
+  }
+
   function addItem() {
     if (nav.items.length >= 8) return;
     const id = crypto.randomUUID();
@@ -181,11 +187,6 @@ export function NavEditor({ initial }: { initial: NavConfig }) {
                   <Mini onClick={() => move(index, 1)} disabled={index === nav.items.length - 1}>
                     Aşağı
                   </Mini>
-                  <Mini
-                    onClick={() => setNav((current) => ({ items: current.items.filter((row) => row.id !== item.id) }))}
-                  >
-                    Kaldır
-                  </Mini>
                 </div>
               </div>
 
@@ -209,6 +210,13 @@ export function NavEditor({ initial }: { initial: NavConfig }) {
                   <Choice pressed={!item.visible} onClick={() => patchItem(item.id, { visible: false })}>
                     Gizli
                   </Choice>
+                  <button
+                    type="button"
+                    onClick={() => removeItem(item.id)}
+                    className="h-10 cursor-pointer rounded-full border border-[#d5d5d8] bg-white px-4 text-sm font-semibold text-brand shadow-[0_1px_2px_rgba(26,26,26,0.06)] hover:border-brand/45 hover:bg-[#fafafa]"
+                  >
+                    Sil
+                  </button>
                 </div>
               </div>
 
@@ -258,7 +266,7 @@ export function NavEditor({ initial }: { initial: NavConfig }) {
                               patchItem(item.id, { children: item.children.filter((row) => row.id !== child.id) })
                             }
                           >
-                            Kaldır
+                            Sil
                           </Mini>
                         </div>
                       </div>

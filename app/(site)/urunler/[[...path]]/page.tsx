@@ -17,10 +17,10 @@ export async function generateMetadata({ params }: { params: Promise<{ path?: st
   const { segments, listing } = readPath(path);
   const catalog = await readCatalog();
   const match = resolveCatalog(catalog, segments);
-  if (!match || (listing && match.kind !== "category")) return { title: "Ürünler | REDASY" };
+  if (!match || (listing && match.kind !== "category")) return { title: "Faaliyet Alanları | REDASY" };
   if (match.kind === "product") return { title: `${match.product.title.tr} | REDASY` };
   if (match.kind === "category") return { title: `${match.category.title.tr} | REDASY` };
-  return { title: "Ürünler | REDASY" };
+  return { title: "Faaliyet Alanları | REDASY" };
 }
 
 export default async function CatalogPage({ params }: { params: Promise<{ path?: string[] }> }) {

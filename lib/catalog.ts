@@ -1,3 +1,5 @@
+import { categoryIconId } from "@/lib/categoryIcons";
+
 export const catalogLangs = ["tr", "en", "ar"] as const;
 
 export type CatalogLang = (typeof catalogLangs)[number];
@@ -12,6 +14,8 @@ export type Category = {
   visible: boolean;
   title: Copy;
   lead: Copy;
+  icon: string;
+  image: string;
 };
 
 export type SpecRow = {
@@ -295,6 +299,8 @@ export function normalizeCatalog(value: unknown): Catalog {
       visible: row.visible !== false,
       title: copyOf(row.title, 120),
       lead: copyOf(row.lead, 400),
+      icon: categoryIconId(row.icon),
+      image: imageOf(row.image),
     });
   });
 

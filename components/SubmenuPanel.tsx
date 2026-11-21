@@ -18,7 +18,7 @@ export function SubmenuPanel({ label, items, onNavigate }: { label: string; item
                     <path d="M3.5 8h9M8.5 4.5 12 8l-3.5 3.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
-                <span data-theme="ink" className="min-w-0 text-[13px] font-semibold uppercase leading-5 tracking-[0.08em] text-ink transition group-hover/item:text-brand">
+                <span data-theme="ink" className="min-w-0 text-[14px] font-semibold leading-5 text-ink transition group-hover/item:text-brand">
                   {item.label}
                 </span>
               </a>

@@ -4,10 +4,10 @@ import { usePathname } from "next/navigation";
 
 const items = [
   { href: "/dashboard/sosyal", label: "Sosyal medya", icon: "share" },
-  { href: "/dashboard/menu", label: "Menü", icon: "menu" },
-  { href: "/dashboard/sayfalar", label: "Sayfalar", icon: "pages" },
-  { href: "/dashboard/urunler", label: "Ürünler", icon: "products" },
-  { href: "/dashboard", label: "Gri bant", icon: "band" },
+  { href: "/dashboard/menu", label: "Navbar Üst Menü", icon: "menu" },
+  { href: "/dashboard/sayfalar", label: "Statik Alt Sayfalar", icon: "pages" },
+  { href: "/dashboard/urunler", label: "Kategoriler ve Ürünler", icon: "products" },
+  { href: "/dashboard", label: "Slayt Alanı", icon: "band" },
   { href: "/dashboard/asamalar", label: "Aşamalar", icon: "steps" },
   { href: "/dashboard/anasayfa", label: "Anasayfa", icon: "home" },
   { href: "/dashboard/iletisim", label: "İletişim", icon: "phone" },

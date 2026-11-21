@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { CategoryGlyph } from "@/components/CategoryGlyph";
+import { categoryIcons } from "@/lib/categoryIcons";
 import {
   MAX_CATEGORIES,
   MAX_DEPTH,
@@ -150,6 +152,8 @@ export function CatalogStudio({ initial }: { initial: Catalog }) {
       visible: true,
       title: emptyCopy(),
       lead: emptyCopy(),
+      icon: "",
+      image: "",
     };
     setCatalog((current) => ({ ...current, categories: [...current.categories, created] }));
     setCategoryId(created.id);
@@ -281,6 +285,26 @@ export function CatalogStudio({ initial }: { initial: Catalog }) {
       if (uploaded.length) {
         patchProduct(product.id, { images: [...product.images, ...uploaded] });
       }
+    } catch {
+      setMessage({ tone: "error", text: "Görsel yüklenemedi." });
+    } finally {
+      setUploading(false);
+    }
+  }
+
+  async function uploadCategoryImage(id: string, file: File) {
+    setUploading(true);
+    setMessage(null);
+    try {
+      const form = new FormData();
+      form.set("file", file);
+      const response = await fetch("/api/catalog/image", { method: "POST", body: form });
+      const body = await response.json().catch(() => null);
+      if (!response.ok || !body?.image) {
+        setMessage({ tone: "error", text: body?.error || "Görsel yüklenemedi." });
+        return;
+      }
+      patchCategory(id, { image: body.image });
     } catch {
       setMessage({ tone: "error", text: "Görsel yüklenemedi." });
     } finally {
@@ -468,6 +492,7 @@ export function CatalogStudio({ initial }: { initial: Catalog }) {
               onDelete={() => setPendingDelete({ kind: "category", id: category.id })}
               onChangeProduct={(id, patch, title) => patchProduct(id, patch, title)}
               onUpload={uploadImages}
+              onUploadCover={(file) => uploadCategoryImage(category.id, file)}
               onDeleteProduct={(id) => setPendingDelete({ kind: "product", id })}
             />
           ) : (
@@ -583,6 +608,7 @@ function CategoryEditor({
   onDelete,
   onChangeProduct,
   onUpload,
+  onUploadCover,
   onDeleteProduct,
 }: {
   catalog: Catalog;
@@ -599,10 +625,13 @@ function CategoryEditor({
   onDelete: () => void;
   onChangeProduct: (id: string, patch: Partial<Product>, title?: string) => void;
   onUpload: (files: FileList | null) => void;
+  onUploadCover: (file: File) => void;
   onDeleteProduct: (id: string) => void;
 }) {
   const products = productsOf(catalog.products, category.id);
   const crumbs = publicHref(catalog.categories, category);
+  const parent = catalog.categories.find((item) => item.id === category.parentId);
+  const secondLevel = Boolean(parent && parent.parentId === null);
 
   return (
     <div className="space-y-4">
@@ -640,6 +669,57 @@ function CategoryEditor({
               onChange={(event) => onChange({ lead: { ...category.lead, [lang]: event.target.value } })}
             />
           </Field>
+          {secondLevel ? (
+            <div>
+              <p className="text-[12px] font-semibold text-ink">Sekme ikonu</p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {categoryIcons.map((item) => {
+                  const selected = (category.icon || "gear") === item.id;
+                  return (
+                    <button
+                      key={item.id}
+                      type="button"
+                      aria-pressed={selected}
+                      title={item.label}
+                      onClick={() => onChange({ icon: item.id })}
+                      className={`grid h-11 w-11 place-items-center rounded-xl border ${selected ? "border-brand bg-brand text-white" : "border-line bg-white text-ink hover:border-brand/40"}`}
+                    >
+                      <CategoryGlyph id={item.id} className="h-5 w-5" />
+                      <span className="sr-only">{item.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ) : null}
+          {secondLevel ? (
+            <div>
+              <p className="text-[12px] font-semibold text-ink">Sekme görseli</p>
+              <p className="mt-1 text-sm text-muted">Üst şeritte bu sekmenin yarısında görünür.</p>
+              <div className="mt-2 flex items-center gap-3">
+                {category.image ? <img src={category.image} alt="" className="h-16 w-28 rounded-xl object-cover" /> : <span className="grid h-16 w-28 place-items-center rounded-xl bg-[#ececee] text-[11px] font-semibold text-muted">Görsel yok</span>}
+                <label className="cursor-pointer rounded-full bg-[#ececee] px-4 py-2 text-sm font-semibold text-ink">
+                  {uploading ? "Yükleniyor" : category.image ? "Değiştir" : "Görsel seç"}
+                  <input
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp"
+                    className="sr-only"
+                    disabled={uploading}
+                    onChange={(event) => {
+                      const file = event.target.files?.[0];
+                      if (file) onUploadCover(file);
+                      event.target.value = "";
+                    }}
+                  />
+                </label>
+                {category.image ? (
+                  <button type="button" onClick={() => onChange({ image: "" })} className="text-sm font-semibold text-brand">
+                    Kaldır
+                  </button>
+                ) : null}
+              </div>
+            </div>
+          ) : null}
         </div>
         <Field label="Adres">
           <input className="field mt-1.5 h-12 w-full rounded-xl px-4 text-sm" value={category.slug} onChange={(event) => onChange({ slug: event.target.value })} />
@@ -735,6 +815,23 @@ function ProductEditor({
   onUpload: (files: FileList | null) => void;
   onDelete: () => void;
 }) {
+  function namedStat(label: string) {
+    return product.stats.find((item) => item.label.tr === label)?.value[lang] || "";
+  }
+
+  function writeNamedStat(label: string, value: string) {
+    const current = product.stats.find((item) => item.label.tr === label);
+    if (!current) {
+      onChange({
+        stats: [...product.stats, { id: uid(), label: { tr: label, en: "", ar: "" }, value: { ...emptyCopy(), [lang]: value } }],
+      });
+      return;
+    }
+    onChange({
+      stats: product.stats.map((item) => (item.id === current.id ? { ...item, value: { ...item.value, [lang]: value } } : item)),
+    });
+  }
+
   function moveImage(index: number, direction: -1 | 1) {
     const target = index + direction;
     if (target < 0 || target >= product.images.length) return;
@@ -776,14 +873,23 @@ function ProductEditor({
               onChange={(event) => onChange({ title: { ...product.title, [lang]: event.target.value } }, lang === "tr" ? event.target.value : undefined)}
             />
           </Field>
-          <Field label="Tek cümlelik özet">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Field label="Seri rozeti">
+              <input className="field mt-1.5 h-12 w-full rounded-xl px-4 text-sm" value={namedStat("Seri")} onChange={(event) => writeNamedStat("Seri", event.target.value)} />
+            </Field>
+            <Field label="Kod rozeti">
+              <input className="field mt-1.5 h-12 w-full rounded-xl px-4 text-sm" value={namedStat("Kod")} onChange={(event) => writeNamedStat("Kod", event.target.value)} />
+            </Field>
+          </div>
+          <Field label="Vurgu satırı">
             <input
               className="field mt-1.5 h-12 w-full rounded-xl px-4 text-sm"
               value={product.summary[lang]}
+              placeholder="Detay panelinin üstündeki kısa başlık"
               onChange={(event) => onChange({ summary: { ...product.summary, [lang]: event.target.value } })}
             />
           </Field>
-          <Field label="Genel bakış">
+          <Field label="Açıklama">
             <textarea
               className="field mt-1.5 min-h-36 w-full rounded-xl px-4 py-3 text-sm leading-6"
               value={product.overview[lang]}
@@ -795,7 +901,7 @@ function ProductEditor({
           <Field label="Adres">
             <input className="field mt-1.5 h-12 w-full rounded-xl px-4 text-sm" value={product.slug} onChange={(event) => onChange({ slug: event.target.value })} />
           </Field>
-          <Field label="Broşür bağlantısı">
+          <Field label="Teknik katalog">
             <input
               className="field mt-1.5 h-12 w-full rounded-xl px-4 text-sm"
               value={product.brochure}
@@ -814,7 +920,7 @@ function ProductEditor({
             <input type="file" accept="image/jpeg,image/png,image/webp" multiple className="sr-only" disabled={uploading} onChange={(event) => { onUpload(event.target.files); event.target.value = ""; }} />
           </label>
         </div>
-        <p className="mt-2 text-sm text-muted">İlk görsel kapak olur. En fazla 8 görsel, her biri 8 MB.</p>
+        <p className="mt-2 text-sm text-muted">Detay sayfasının solunda bu sırayla galeri olur. İlk görsel açılış karesidir. En fazla 8 görsel.</p>
         {product.images.length ? (
           <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {product.images.map((src, index) => (
@@ -834,19 +940,19 @@ function ProductEditor({
         ) : null}
       </section>
 
+      <SpecEditor product={product} lang={lang} rtl={rtl} onChange={(specs) => onChange({ specs })} />
+      <NoteList title="Kart maddeleri" hint="Faaliyet kartında başlığın altında madde olarak görünür." lang={lang} rtl={rtl} notes={product.highlights} onChange={(highlights) => onChange({ highlights })} />
       <PairList
-        title="Öne çıkan rakamlar"
-        hint="Kapasite, ağırlık, ölçü gibi en fazla 6 değer."
+        title="Ek rozetler"
+        hint="Kod ve Seri yukarıdadır. Buradaki satırlar detay sayfasında görünmez."
         lang={lang}
         rtl={rtl}
-        rows={product.stats}
+        rows={product.stats.filter((item) => item.label.tr !== "Kod" && item.label.tr !== "Seri")}
         left="Etiket"
         right="Değer"
-        onChange={(stats) => onChange({ stats: stats.slice(0, 6) })}
+        onChange={(rows) => onChange({ stats: [...product.stats.filter((item) => item.label.tr === "Kod" || item.label.tr === "Seri"), ...rows].slice(0, 8) })}
         create={(id): CatalogStat => ({ id, label: emptyCopy(), value: emptyCopy() })}
       />
-      <NoteList title="Öne çıkanlar" hint="Kısa maddeler. Boş satırlar kayda girmez." lang={lang} rtl={rtl} notes={product.highlights} onChange={(highlights) => onChange({ highlights })} />
-      <SpecEditor product={product} lang={lang} rtl={rtl} onChange={(specs) => onChange({ specs })} />
       <NoteList title="Kullanım alanları" hint="Kısa etiketler halinde." lang={lang} rtl={rtl} notes={product.applications} onChange={(applications) => onChange({ applications })} />
     </div>
   );
@@ -936,12 +1042,12 @@ function SpecEditor({ product, lang, rtl, onChange }: { product: Product; lang: 
   return (
     <section className="rounded-2xl bg-white p-5 shadow-[0_10px_30px_rgba(26,26,26,0.04)]">
       <div className="flex items-center justify-between gap-3">
-        <h3 className="font-display text-xl font-bold text-ink">Teknik tablo</h3>
+        <h3 className="font-display text-xl font-bold text-ink">Teknik özellikler</h3>
         <button type="button" onClick={() => onChange([...product.specs, { id: uid(), title: emptyCopy(), rows: [] }])} className="rounded-full bg-[#ececee] px-4 py-2 text-sm font-semibold text-ink">
           Grup ekle
         </button>
       </div>
-      <p className="mt-2 text-sm text-muted">Genel, hazne, konveyör gibi gruplar. Her grubun kendi satırları olur.</p>
+      <p className="mt-2 text-sm text-muted">Detay sayfasında iki sütun kutu olarak görünür. Özellik solda, değer altındadır.</p>
       <div className="mt-4 space-y-4">
         {product.specs.map((group) => (
           <div key={group.id} className="rounded-xl border border-line p-4">

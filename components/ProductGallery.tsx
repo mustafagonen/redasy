@@ -1,36 +1,196 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState, type PointerEvent } from "react";
+
+function pad(value: number) {
+  return String(value).padStart(2, "0");
+}
 
 export function ProductGallery({ images, alt, framed = false }: { images: string[]; alt: string; framed?: boolean }) {
+  const shots = images.filter(Boolean);
   const [index, setIndex] = useState(0);
-  const current = images[index] ?? images[0];
-  const many = images.length > 1;
+  const [open, setOpen] = useState(false);
+  const drag = useRef<{ x: number; y: number } | null>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const currentIndex = shots.length ? ((index % shots.length) + shots.length) % shots.length : 0;
+  const current = shots[currentIndex];
+  const many = shots.length > 1;
 
   function step(direction: -1 | 1) {
-    setIndex((value) => (value + direction + images.length) % images.length);
+    if (shots.length < 2) return;
+    setIndex((value) => (value + direction + shots.length) % shots.length);
+  }
+
+  useEffect(() => {
+    const node = dialogRef.current;
+    if (!node) return;
+    if (open && !node.open) node.showModal();
+    if (!open && node.open) node.close();
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    function onKey(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+      if (event.key === "ArrowRight") setIndex((value) => (value + 1) % shots.length);
+      if (event.key === "ArrowLeft") setIndex((value) => (value - 1 + shots.length) % shots.length);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, shots.length]);
+
+  function onPointerDown(event: PointerEvent<HTMLDivElement>) {
+    if (event.button !== 0) return;
+    drag.current = { x: event.clientX, y: event.clientY };
+  }
+
+  function onPointerUp(event: PointerEvent<HTMLDivElement>) {
+    const start = drag.current;
+    drag.current = null;
+    if (!start) return;
+    const dx = event.clientX - start.x;
+    const dy = event.clientY - start.y;
+    if (many && Math.abs(dx) > 42 && Math.abs(dx) > Math.abs(dy)) {
+      step(dx > 0 ? -1 : 1);
+      return;
+    }
+    if (Math.abs(dx) < 8 && Math.abs(dy) < 8) setOpen(true);
   }
 
   if (!current) {
     return <div className="min-h-[320px] bg-stage lg:min-h-full" />;
   }
 
+  if (framed) {
+    const columns = shots.length > 5 ? 4 : shots.length;
+    return (
+      <div>
+        <div
+          className="relative aspect-[4/3] cursor-zoom-in overflow-hidden border border-line bg-paper"
+          onPointerDown={onPointerDown}
+          onPointerUp={onPointerUp}
+        >
+          <img key={current} src={current} alt={`${alt}, görsel ${currentIndex + 1}`} draggable={false} className="absolute inset-0 h-full w-full object-cover" />
+          {many ? (
+            <>
+              <button
+                type="button"
+                aria-label="Önceki görsel"
+                onPointerDown={(event) => event.stopPropagation()}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  step(-1);
+                }}
+                className="absolute top-1/2 left-3 grid h-9 w-9 -translate-y-1/2 place-items-center bg-ink text-lg leading-none text-on-brand"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                aria-label="Sonraki görsel"
+                onPointerDown={(event) => event.stopPropagation()}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  step(1);
+                }}
+                className="absolute top-1/2 right-3 grid h-9 w-9 -translate-y-1/2 place-items-center bg-ink text-lg leading-none text-on-brand"
+              >
+                ›
+              </button>
+            </>
+          ) : null}
+          <span className="pointer-events-none absolute right-3 bottom-3 bg-ink px-2 py-1 text-[11px] font-semibold tracking-[0.14em] text-on-brand">
+            {pad(currentIndex + 1)}/{pad(shots.length)}
+          </span>
+        </div>
+
+        <div className="mt-3 grid gap-2" style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}>
+          {shots.map((src, imageIndex) => {
+            const active = imageIndex === currentIndex;
+            return (
+              <button
+                key={`${src}-${imageIndex}`}
+                type="button"
+                aria-label={`Görsel ${imageIndex + 1}`}
+                aria-current={active ? "true" : undefined}
+                onClick={() => setIndex(imageIndex)}
+                className="min-w-0 text-left"
+              >
+                <span className={`block aspect-[5/4] overflow-hidden border-2 bg-paper ${active ? "border-brand" : "border-line"}`}>
+                  <img src={src} alt="" draggable={false} className="h-full w-full object-cover" />
+                </span>
+                <span className={`mt-1.5 block text-[11px] leading-none ${active ? "font-semibold text-ink" : "text-muted"}`}>Görsel {imageIndex + 1}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        <dialog
+          ref={dialogRef}
+          aria-label={`${alt} görselleri`}
+          className="m-0 h-full max-h-none w-full max-w-none border-0 bg-[#141618]/95 p-0 text-on-brand backdrop:bg-[#141618]/95"
+          onClose={() => setOpen(false)}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) setOpen(false);
+          }}
+        >
+          <div className="mx-auto flex h-full w-full max-w-5xl flex-col px-4 py-5 sm:px-8">
+            <div className="flex items-center justify-between gap-4">
+              <p className="min-w-0 truncate text-sm font-semibold">{alt}</p>
+              <p className="shrink-0 text-[12px] font-semibold tracking-[0.14em]">
+                {pad(currentIndex + 1)}/{pad(shots.length)}
+              </p>
+              <button type="button" autoFocus aria-label="Galeriyi kapat" onClick={() => setOpen(false)} className="grid h-9 w-9 shrink-0 place-items-center bg-white/10 text-lg leading-none">
+                ×
+              </button>
+            </div>
+            <div className="relative mt-4 min-h-0 flex-1">
+              <img src={current} alt={`${alt}, görsel ${currentIndex + 1}`} className="h-full w-full object-contain" />
+              {many ? (
+                <>
+                  <button type="button" aria-label="Önceki görsel" onClick={() => step(-1)} className="absolute top-1/2 left-0 grid h-10 w-10 -translate-y-1/2 place-items-center bg-white/10 text-xl leading-none">
+                    ‹
+                  </button>
+                  <button type="button" aria-label="Sonraki görsel" onClick={() => step(1)} className="absolute top-1/2 right-0 grid h-10 w-10 -translate-y-1/2 place-items-center bg-white/10 text-xl leading-none">
+                    ›
+                  </button>
+                </>
+              ) : null}
+            </div>
+            <div className="mt-4 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none]">
+              {shots.map((src, imageIndex) => {
+                const active = imageIndex === currentIndex;
+                return (
+                  <button key={`lightbox-${src}-${imageIndex}`} type="button" aria-label={`Görsel ${imageIndex + 1}`} aria-current={active ? "true" : undefined} onClick={() => setIndex(imageIndex)} className="w-16 shrink-0">
+                    <span className={`block h-12 overflow-hidden border-2 ${active ? "border-white" : "border-transparent opacity-60"}`}>
+                      <img src={src} alt="" className="h-full w-full object-cover" />
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </dialog>
+      </div>
+    );
+  }
+
   return (
-    <div className={`flex min-h-[420px] flex-col bg-stage sm:min-h-[520px] lg:min-h-full ${framed ? "border border-line lg:min-h-[560px]" : ""}`}>
+    <div className="flex min-h-[420px] flex-col bg-stage sm:min-h-[520px] lg:min-h-full">
       <div className="relative min-h-[300px] flex-1">
         <img
           key={`${current}-m`}
           src={current}
           alt={alt}
           className="absolute inset-0 h-full w-full object-cover lg:hidden"
-          style={framed ? undefined : { clipPath: "polygon(0 8%, 100% 0, 100% 100%, 0 100%)" }}
+          style={{ clipPath: "polygon(0 8%, 100% 0, 100% 100%, 0 100%)" }}
         />
         <img
           key={`${current}-d`}
           src={current}
           alt=""
           className="absolute inset-0 hidden h-full w-full object-cover lg:block"
-          style={framed ? undefined : { clipPath: "polygon(12% 0, 100% 0, 100% 100%, 0 100%)" }}
+          style={{ clipPath: "polygon(12% 0, 100% 0, 100% 100%, 0 100%)" }}
         />
         {many ? (
           <div className="absolute inset-x-0 bottom-5 z-10 flex justify-between px-4 sm:px-6">
@@ -45,14 +205,14 @@ export function ProductGallery({ images, alt, framed = false }: { images: string
       </div>
       {many ? (
         <div className="flex gap-2 overflow-x-auto bg-caption px-4 py-3 [scrollbar-width:none]">
-          {images.map((src, imageIndex) => (
+          {shots.map((src, imageIndex) => (
             <button
               key={`${src}-${imageIndex}`}
               type="button"
               aria-label={`${imageIndex + 1}. görsel`}
-              aria-current={imageIndex === index}
+              aria-current={imageIndex === currentIndex}
               onClick={() => setIndex(imageIndex)}
-              className={`h-16 w-[4.75rem] shrink-0 overflow-hidden border-2 bg-surface ${imageIndex === index ? "border-brand" : "border-transparent"}`}
+              className={`h-16 w-[4.75rem] shrink-0 overflow-hidden border-2 bg-surface ${imageIndex === currentIndex ? "border-brand" : "border-transparent"}`}
             >
               <img src={src} alt="" className="h-full w-full object-cover" />
             </button>

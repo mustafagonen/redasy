@@ -156,7 +156,7 @@ export function Header({ contact, social, nav }: { contact: ContactInfo; social:
                           <div className="min-h-0 overflow-hidden">
                             <div className="pb-4 pl-10">
                               {children.map((child) => (
-                                <a key={child.id} href={child.href} data-theme="header" onClick={() => setPhase("closing")} className="flex items-center gap-3 py-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-header">
+                                <a key={child.id} href={child.href} data-theme="header" onClick={() => setPhase("closing")} className="flex items-center gap-3 py-2 text-[15px] font-semibold text-header">
                                   <span data-theme="brand" className="h-px w-4 shrink-0 bg-brand" />
                                   {child.label}
                                 </a>
