@@ -23,15 +23,15 @@ export function Footer({ contact, social, nav, locale }: { contact: ContactInfo;
 
   return (
     <footer data-theme="footer" className="border-t border-brand bg-footer text-on-brand">
-      <div className="mx-auto grid max-w-[1200px] gap-12 px-5 py-14 sm:px-8 lg:grid-cols-[minmax(240px,1.15fr)_minmax(0,1.7fr)] lg:py-16">
+      <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-12 sm:px-8 lg:grid-cols-[minmax(220px,0.85fr)_minmax(0,1.7fr)] lg:items-start lg:gap-16 lg:py-14">
         <div>
           <Logo tone="light" />
           <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.22em] text-on-brand/45">Engineering & Industrial Group</p>
-          <p data-theme="on-brand" className="mt-4 max-w-[34ch] text-[15px] leading-7 text-on-brand/72">
+          <p data-theme="on-brand" className="mt-4 max-w-[32ch] text-[14px] leading-6 text-on-brand/72">
             {copy.footerBlurb}
           </p>
           {socials.length ? (
-            <ul className="mt-7 flex flex-wrap gap-2.5">
+            <ul className="mt-6 flex flex-wrap gap-2">
               {socials.map((item) => {
                 const icon = socialIcon(item.id);
                 return (
@@ -54,16 +54,16 @@ export function Footer({ contact, social, nav, locale }: { contact: ContactInfo;
           ) : null}
         </div>
 
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-x-8 gap-y-8 sm:grid-cols-3">
           {groups.map(({ item, children }) => (
             <nav key={item.id} aria-label={item.label}>
-              <a href={item.href} className="text-[11px] font-semibold uppercase tracking-[0.22em] text-on-brand/45 transition hover:text-on-brand">
+              <a href={item.href} className="text-[11px] font-semibold uppercase tracking-[0.18em] text-on-brand/45 transition hover:text-on-brand">
                 {item.label}
               </a>
-              <ul className="mt-4 space-y-2.5">
+              <ul className="mt-3.5 space-y-2">
                 {children.map((child) => (
                   <li key={child.id}>
-                    <a href={child.href} className="text-[13px] font-semibold uppercase tracking-[0.12em] text-on-brand/78 transition hover:text-on-brand">
+                    <a href={child.href} className="text-[13.5px] font-medium leading-5 text-on-brand/82 transition hover:text-on-brand">
                       {child.label}
                     </a>
                   </li>
@@ -72,61 +72,46 @@ export function Footer({ contact, social, nav, locale }: { contact: ContactInfo;
             </nav>
           ))}
 
-          {links.length ? (
-            <nav aria-label={copy.mainMenu}>
-              <ul className="space-y-3">
-                {links.map((item) => (
-                  <li key={item.id}>
-                    <a href={item.href} className="text-[13px] font-semibold uppercase tracking-[0.14em] text-on-brand/82 transition hover:text-on-brand">
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ) : null}
-
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-on-brand/45">{copy.contact}</p>
-            <ul className="mt-4 space-y-4">
-              <li>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-on-brand/38">{copy.address}</p>
-                <p className="mt-1 text-[14px] leading-6 text-on-brand/78">{contact.address}</p>
-              </li>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-on-brand/45">{copy.contact}</p>
+            <p className="mt-3.5 text-[13.5px] leading-5 text-on-brand/82">{contact.address}</p>
+            <ul className="mt-3 space-y-1.5">
               {contact.phones.map((phone) => (
                 <li key={phone.id}>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-on-brand/38">{phone.whatsapp ? "WhatsApp" : copy.phoneN(contact.phones.indexOf(phone) + 1)}</p>
                   <a
                     href={phone.whatsapp ? whatsappHref(phone.number) : telHref(phone.number)}
                     dir="ltr"
-                    className="mt-1 block text-[14px] text-on-brand/78 transition hover:text-on-brand"
+                    className="inline-flex items-baseline gap-2 text-[13.5px] text-on-brand/82 transition hover:text-on-brand"
                   >
-                    {phone.number}
+                    <span>{phone.number}</span>
+                    {phone.whatsapp ? <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-on-brand/40">WhatsApp</span> : null}
                   </a>
                 </li>
               ))}
-              <li>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-on-brand/38">{copy.email}</p>
-                <a href={`mailto:${contact.email}`} className="mt-1 block break-all text-[14px] text-on-brand/78 transition hover:text-on-brand">
-                  {contact.email}
-                </a>
-              </li>
             </ul>
+            <a href={`mailto:${contact.email}`} className="mt-3 block text-[13.5px] text-on-brand/82 transition hover:text-on-brand">
+              {contact.email}
+            </a>
           </div>
         </div>
       </div>
 
       <div className="border-t border-on-brand/10">
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-3 px-5 pt-5 pb-24 text-[12px] text-on-brand/50 sm:px-8 md:flex-row md:items-center md:gap-6 md:py-5">
+        <div className="mx-auto flex max-w-[1200px] flex-col gap-3 px-5 pt-4 pb-24 text-[12px] text-on-brand/50 sm:px-8 md:flex-row md:items-center md:justify-between md:py-4">
           <p>© {year} REDASY. {copy.rights}</p>
-          <p className="flex flex-wrap gap-x-5 gap-y-2">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            {links.map((item) => (
+              <a key={item.id} href={item.href} className="transition hover:text-on-brand">
+                {item.label}
+              </a>
+            ))}
             <a href="/gizlilik" className="transition hover:text-on-brand">
               {copy.privacy}
             </a>
             <a href="/kullanim-kosullari" className="transition hover:text-on-brand">
               {copy.terms}
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </footer>
