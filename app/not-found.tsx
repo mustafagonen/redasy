@@ -1,17 +1,20 @@
 import { SiteFrame } from "@/components/SiteFrame";
+import { getLocale } from "@/lib/getLocale";
+import { ui } from "@/lib/messages";
 
-export default function NotFound() {
+export default async function NotFound() {
+  const copy = ui(await getLocale());
   return (
     <SiteFrame>
       <div className="mx-auto max-w-3xl px-5 py-24 text-center">
         <h1 data-theme="ink" className="font-display text-3xl font-extrabold uppercase">
-          Sayfa bulunamadı
+          {copy.notFound}
         </h1>
         <p data-theme="muted" className="mt-3 text-sm text-muted">
-          Aradığınız sayfa bu sitede yok.
+          {copy.notFoundBody}
         </p>
         <a data-theme="brand" href="/" className="mt-6 inline-flex rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-on-brand">
-          Anasayfa
+          {copy.home}
         </a>
       </div>
     </SiteFrame>

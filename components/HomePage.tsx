@@ -5,8 +5,10 @@ import { Logo } from "@/components/Logo";
 import { publicPhones, telHref, type ContactInfo } from "@/lib/contact";
 import { blockColorStyle, type HomeBlock } from "@/lib/homeBlocks";
 import { type HeroPanelContent } from "@/lib/heroBand";
+import { localized, type Locale } from "@/lib/locale";
+import { phrase, ui } from "@/lib/messages";
 import { type StageStep } from "@/lib/stageSteps";
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { MotionConfig, animate, motion, useInView, useMotionValue, useTransform, type Transition } from "motion/react";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 
@@ -44,31 +46,6 @@ function enter(mode: MotionMode, from: Shift, delay = 0, duration = 0.72) {
   };
 }
 
-const stats = [
-  { value: "25+", label: "Yıllık Deneyim" },
-  { value: "150+", label: "Tamamlanan Proje" },
-  { value: "45+", label: "İhracat Yapılan Ülke" },
-  { value: "500+", label: "Uzman Personel" },
-];
-
-const reasons = [
-  {
-    title: "Üstün Mühendislik",
-    text: "Güçlü Ar-Ge ve mühendislik kadromuzla her türlü ihtiyaca çözüm sunarız...",
-    icon: "compass",
-  },
-  {
-    title: "Yüksek Kalite & Güven",
-    text: "Uluslararası standartlarda üretilen kaliteli ürünlerimizle dünya çapında...",
-    icon: "medal",
-  },
-  {
-    title: "Global Erişim",
-    text: "Dünya çapındaki imalat ağımız ve uluslararası konnektörlerimiz...",
-    icon: "globe",
-  },
-] as const;
-
 const seen = { once: true, margin: "0px 0px -8% 0px" } as const;
 
 const cut = "min(14cqw, 24cqh)";
@@ -88,21 +65,28 @@ export function HomePage({
   contact,
   steps,
   blocks,
+  locale = "tr",
   selectedId = null,
 }: {
   heroPanels: HeroPanelContent[];
   contact: ContactInfo;
   steps: StageStep[];
   blocks: HomeBlock[];
+  locale?: Locale;
   selectedId?: string | null;
 }) {
   const mode = useMotionMode();
-  const panels = heroPanels.map((panel) => ({
-    ...panel,
-    title: panel.tr.title,
-    text: panel.tr.text,
-    alt: panel.tr.title,
-  }));
+  const copy = ui(locale);
+  const panels = heroPanels.map((panel) => {
+    const text = localized(panel, locale);
+    return {
+      ...panel,
+      title: text.title,
+      text: text.text,
+      alt: text.title,
+    };
+  });
+  const shownSteps = steps.map((step) => ({ ...step, tr: localized(step, locale) }));
   const phones = publicPhones(contact);
 
   return (
@@ -117,7 +101,8 @@ export function HomePage({
           panels={panels}
           phones={phones}
           contact={contact}
-          steps={steps}
+          steps={shownSteps}
+          locale={locale}
         />
       ))}
     </MotionModeContext.Provider>
@@ -133,27 +118,32 @@ function BlockSection({
   phones,
   contact,
   steps,
+  locale,
 }: {
   block: HomeBlock;
   primary: boolean;
   selected: boolean;
-  panels: { id: string; image: string; alt: string; title: string; text: string }[];
+  panels: { id: string; image: string; href: string; alt: string; title: string; text: string }[];
   phones: ReturnType<typeof publicPhones>;
   contact: ContactInfo;
   steps: StageStep[];
+  locale: Locale;
 }) {
   const mode = useContext(MotionModeContext);
+  const copy = ui(locale);
   const style = blockColorStyle(block.colors) as CSSProperties;
   const mark = selected ? "outline outline-2 outline-[#2563eb] outline-offset-[-2px]" : "";
   if (block.kind === "film") {
     return (
       <section id={primary ? "faaliyet" : undefined} data-block={block.id} data-theme="surface" style={style} className={`motion-root bg-surface lg:flex lg:h-[calc(100dvh-6.5rem-1px+8rem-15.75rem)] lg:flex-col lg:overflow-hidden ${mark}`}>
-        <FilmTouch panels={panels} columns={1} />
-        <FilmTouch panels={panels} columns={2} />
+        <FilmTouch panels={panels} columns={1} label={copy.film} locale={locale} />
+        <FilmTouch panels={panels} columns={2} label={copy.film} locale={locale} />
         <div className="hidden min-h-0 flex-1 [container-type:size] lg:flex">
           {panels.map((panel, index) => (
-            <div
+            <FilmLink
               key={panel.id}
+              href={panel.href}
+              label={panel.alt || panel.title}
               className="group relative min-w-0 flex-[1_1_0%] transition-[flex-grow] duration-700 ease-[cubic-bezier(0.215,0.61,0.355,1)] hover:z-10 hover:grow-[1.72]"
               style={index < panels.length - 1 ? { marginRight: `calc(0.65vw - ${cut})` } : undefined}
             >
@@ -177,7 +167,7 @@ function BlockSection({
                   />
                 </div>
               </div>
-            </div>
+            </FilmLink>
           ))}
         </div>
         <div data-theme="caption" className="hidden h-[5.25rem] shrink-0 bg-caption lg:block">
@@ -220,28 +210,28 @@ function BlockSection({
               className="text-[12px] font-semibold uppercase tracking-[0.22em] text-soft"
               {...enter(mode, { opacity: 0, y: 12 })}
             >
-              Hakkımızda Bölümü
+              {copy.aboutKicker}
             </motion.p>
             <motion.h1
               data-theme="ink"
               className="mt-3 max-w-[24ch] font-display text-[1.55rem] font-bold uppercase leading-[1.2] tracking-tight text-ink sm:text-[1.85rem]"
               {...enter(mode, { opacity: 0, y: 18 }, 0.08, 0.8)}
             >
-              Geleceğin mühendislik çözümlerini bugünden inşa ediyoruz.
+              {copy.aboutTitle}
             </motion.h1>
             <motion.h2
               data-theme="brand"
               className="mt-8 font-display text-lg font-bold text-brand"
               {...enter(mode, { opacity: 0, y: 12 }, 0.16)}
             >
-              Biz Kimiz?
+              {copy.who}
             </motion.h2>
             <div data-theme="body" className="mt-3 max-w-[62ch] space-y-4 text-[15px] leading-7 text-body">
               <motion.p {...enter(mode, { opacity: 0, y: 14 }, 0.22)}>
-                REDASY olarak, mobil kırma eleme sistemlerinden özel araç üstü ekipmanlara kadar, imalat ve mühendislik gücünü geniş sanayi fabrikamız sayesinde ortaya koyuyoruz.
+                {copy.aboutP1}
               </motion.p>
               <motion.p {...enter(mode, { opacity: 0, y: 14 }, 0.3)}>
-                REDASY&apos;nin mobil kırma eleme sistemlerindeki gücünü, araç üstü ekipmanlara taşıyan mühendislik anlayışıyla sağlam zemine oturtuyoruz.
+                {copy.aboutP2}
               </motion.p>
             </div>
             <motion.a
@@ -252,7 +242,7 @@ function BlockSection({
               whileHover={mode === "run" ? { y: -2 } : undefined}
               whileTap={mode === "run" ? { scale: 0.98 } : undefined}
             >
-              Daha Fazlası <span aria-hidden>→</span>
+              {copy.more} <span aria-hidden>→</span>
             </motion.a>
           </div>
           <motion.div
@@ -261,7 +251,7 @@ function BlockSection({
           >
             <motion.img
               src="/images/home/atolye.jpg"
-              alt="Atölyede kaynak yapan iki çalışan"
+              alt={phrase("Atölyede kaynak yapan iki çalışan", locale)}
               className="aspect-[16/11] w-full object-cover"
               {...enter(mode, { scale: 1.06 }, 0.12, 1.25)}
             />
@@ -272,13 +262,13 @@ function BlockSection({
   }
   if (block.kind === "stats") {
     return (
-      <section data-block={block.id} data-theme="brand" style={style} className={`motion-root bg-brand text-on-brand ${mark}`} aria-label="Rakamlar">
+      <section data-block={block.id} data-theme="brand" style={style} className={`motion-root bg-brand text-on-brand ${mark}`} aria-label={copy.figures}>
         <div className="mx-auto flex max-w-[1200px] flex-col gap-8 px-5 py-8 sm:px-8 lg:flex-row lg:items-center lg:justify-between">
           <motion.div {...enter(mode, { opacity: 0, x: -12 })}>
             <Logo tone="light" />
           </motion.div>
           <div className="grid flex-1 grid-cols-2 gap-6 sm:grid-cols-4 lg:max-w-[820px]">
-            {stats.map((item, index) => (
+            {copy.stats.map((item, index) => (
               <div key={item.label}>
                 <p data-theme="on-brand" className="font-display text-[2rem] font-bold leading-none text-on-brand" aria-label={item.value}>
                   <CountUp value={item.value} delay={index * 0.1} />
@@ -302,10 +292,10 @@ function BlockSection({
             data-theme="ink"
             {...enter(mode, { opacity: 0, y: 16 })}
           >
-            Neden Biz?
+            {copy.why}
           </motion.h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {reasons.map((item, index) => (
+            {copy.reasons.map((item, index) => (
               <motion.article
                 key={item.title}
                 className="rounded-2xl border border-line bg-surface px-6 py-8 text-center shadow-[0_8px_24px_rgba(0,0,0,0.03)]"
@@ -336,26 +326,26 @@ function BlockSection({
                 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-on-brand/55"
                 {...enter(mode, { opacity: 0, y: 10 }, 0.08)}
               >
-                İletişim
+                {copy.contact}
               </motion.p>
               <motion.h2
                 className="mt-3 max-w-[12ch] font-display text-[1.7rem] font-bold uppercase leading-[1.15] tracking-tight sm:text-[1.9rem]"
                 {...enter(mode, { opacity: 0, y: 14 }, 0.14, 0.75)}
               >
-                Bizimle iletişime geçin
+                {copy.contactTitle}
               </motion.h2>
               <motion.p
                 className="mt-4 max-w-[34ch] text-sm leading-6 text-on-brand/75"
                 {...enter(mode, { opacity: 0, y: 12 }, 0.2)}
               >
-                Projeleriniz için profesyonel çözümler sunmaya hazırız.
+                {copy.contactLead}
               </motion.p>
               <ul className="mt-9 space-y-3">
                 <motion.li {...enter(mode, { opacity: 0, x: -14 }, 0.24, 0.55)}>
                   <div className="flex items-center gap-4 rounded-2xl bg-on-brand/10 px-4 py-3.5 ring-1 ring-on-brand/15">
                     <ContactGlyph name="pin" />
                     <span>
-                      <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-on-brand/50">Adres</span>
+                      <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-on-brand/50">{copy.address}</span>
                       <span className="mt-0.5 block text-sm font-semibold">{contact.address}</span>
                     </span>
                   </div>
@@ -368,7 +358,7 @@ function BlockSection({
                     <a href={telHref(phone.number)} className="flex items-center gap-4 rounded-2xl bg-on-brand/10 px-4 py-3.5 ring-1 ring-on-brand/15 transition hover:bg-on-brand/15">
                       <ContactGlyph name="phone" />
                       <span>
-                        <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-on-brand/50">Telefon {index + 1}</span>
+                        <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-on-brand/50">{copy.phoneN(index + 1)}</span>
                         <span className="mt-0.5 block text-sm font-semibold">{phone.number}</span>
                       </span>
                     </a>
@@ -380,7 +370,7 @@ function BlockSection({
                   <a href={`mailto:${contact.email}`} className="flex items-center gap-4 rounded-2xl bg-on-brand/10 px-4 py-3.5 ring-1 ring-on-brand/15 transition hover:bg-on-brand/15">
                     <ContactGlyph name="mail" />
                     <span>
-                      <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-on-brand/50">E-posta</span>
+                      <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-on-brand/50">{copy.email}</span>
                       <span className="mt-0.5 block break-all text-sm font-semibold">{contact.email}</span>
                     </span>
                   </a>
@@ -392,7 +382,7 @@ function BlockSection({
               data-theme="form"
               {...enter(mode, { opacity: 0, x: 18 }, 0.16, 0.75)}
             >
-              <ContactForm />
+              <ContactForm locale={locale} />
             </motion.div>
           </motion.div>
         </div>
@@ -400,9 +390,38 @@ function BlockSection({
   );
 }
 
-type FilmPanel = { id: string; image: string; alt: string; title: string; text: string };
+type FilmPanel = { id: string; image: string; href: string; alt: string; title: string; text: string };
 
-function FilmTouch({ panels, columns }: { panels: FilmPanel[]; columns: 1 | 2 }) {
+function FilmLink({
+  href,
+  label,
+  className,
+  style,
+  children,
+}: {
+  href: string;
+  label: string;
+  className?: string;
+  style?: CSSProperties;
+  children: ReactNode;
+}) {
+  if (!href) {
+    return (
+      <div className={className} style={style}>
+        {children}
+      </div>
+    );
+  }
+  const external = /^https?:\/\//i.test(href);
+  return (
+    <a href={href} aria-label={label} className={className} style={style} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>
+      {children}
+    </a>
+  );
+}
+
+function FilmTouch({ panels, columns, label, locale }: { panels: FilmPanel[]; columns: 1 | 2; label: string; locale: Locale }) {
+  const copy = ui(locale);
   const scroller = useRef<HTMLDivElement>(null);
   const [page, setPage] = useState(0);
   const [hint, setHint] = useState(true);
@@ -435,7 +454,7 @@ function FilmTouch({ panels, columns }: { panels: FilmPanel[]; columns: 1 | 2 })
         tabIndex={0}
         role="region"
         aria-roledescription="carousel"
-        aria-label="Faaliyet görselleri"
+        aria-label={label}
         onKeyDown={(event) => {
           if (event.key === "ArrowRight") {
             event.preventDefault();
@@ -467,7 +486,7 @@ function FilmTouch({ panels, columns }: { panels: FilmPanel[]; columns: 1 | 2 })
               {columns === 1 ? <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-caption" style={{ clipPath: "polygon(0 100%, 100% 0, 100% 100%)" }} /> : null}
               {columns === 1 && hint && pageIndex === 0 ? (
                 <div className="pointer-events-none absolute top-4 right-4 z-20 flex items-center gap-2 rounded-full bg-ink/75 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-on-brand">
-                  Kaydır <span className="nudge">→</span>
+                  {locale === "ar" ? "اسحب" : locale === "en" ? "Swipe" : "Kaydır"} <span className="nudge">→</span>
                 </div>
               ) : null}
             </div>
@@ -491,15 +510,15 @@ function FilmTouch({ panels, columns }: { panels: FilmPanel[]; columns: 1 | 2 })
       </div>
       {columns === 1 ? (
         <div className="absolute left-4 z-20 flex items-center gap-1 rounded-full bg-ink/75 py-1 pr-2 pl-1 text-on-brand" style={{ top: "calc(max(300px, min(62vh, 520px)) - 5.75rem)" }}>
-          <button type="button" aria-label="Önceki görsel" disabled={page === 0} onClick={() => go(page - 1)} className="grid h-10 w-10 place-items-center rounded-full text-lg leading-none disabled:opacity-30">
+          <button type="button" aria-label={copy.previousImage} disabled={page === 0} onClick={() => go(page - 1)} className="grid h-10 w-10 place-items-center rounded-full text-lg leading-none disabled:opacity-30">
             <span aria-hidden>←</span>
           </button>
-          <button type="button" aria-label="Sonraki görsel" disabled={page === pages.length - 1} onClick={() => go(page + 1)} className="grid h-10 w-10 place-items-center rounded-full text-lg leading-none disabled:opacity-30">
+          <button type="button" aria-label={copy.nextImage} disabled={page === pages.length - 1} onClick={() => go(page + 1)} className="grid h-10 w-10 place-items-center rounded-full text-lg leading-none disabled:opacity-30">
             <span aria-hidden>→</span>
           </button>
-          <div className="flex items-center pl-1" role="tablist" aria-label="Görsel sayfaları">
+          <div className="flex items-center pl-1" role="tablist" aria-label={copy.film}>
             {pages.map((group, index) => (
-              <button key={group[0].id} type="button" role="tab" aria-selected={index === page} aria-label={`${index + 1}. görsel`} onClick={() => go(index)} className="grid h-10 w-6 place-items-center">
+              <button key={group[0].id} type="button" role="tab" aria-selected={index === page} aria-label={copy.imageN(index + 1)} onClick={() => go(index)} className="grid h-10 w-6 place-items-center">
                 <span className={`block h-2 rounded-full transition-all duration-300 ${index === page ? "w-5 bg-on-brand" : "w-2 bg-on-brand/40"}`} />
               </button>
             ))}
@@ -507,14 +526,14 @@ function FilmTouch({ panels, columns }: { panels: FilmPanel[]; columns: 1 | 2 })
         </div>
       ) : null}
       <div data-theme="caption" className={`items-center justify-between gap-4 bg-caption px-8 pt-3 pb-5 ${columns === 1 ? "hidden" : "flex"}`}>
-        <div className="flex items-center gap-2" role="tablist" aria-label="Görsel sayfaları">
+        <div className="flex items-center gap-2" role="tablist" aria-label={copy.film}>
           {pages.map((group, index) => (
             <button
               key={group[0].id}
               type="button"
               role="tab"
               aria-selected={index === page}
-              aria-label={`${index + 1}. görsel`}
+              aria-label={copy.imageN(index + 1)}
               onClick={() => go(index)}
               className="grid h-11 w-11 place-items-center"
             >
@@ -523,10 +542,10 @@ function FilmTouch({ panels, columns }: { panels: FilmPanel[]; columns: 1 | 2 })
           ))}
         </div>
         <div className="flex gap-2">
-          <button type="button" aria-label="Önceki görsel" disabled={page === 0} onClick={() => go(page - 1)} className="grid h-11 w-11 place-items-center rounded-full border border-line bg-surface text-lg leading-none text-ink disabled:opacity-30">
+          <button type="button" aria-label={copy.previousImage} disabled={page === 0} onClick={() => go(page - 1)} className="grid h-11 w-11 place-items-center rounded-full border border-line bg-surface text-lg leading-none text-ink disabled:opacity-30">
             <span aria-hidden>←</span>
           </button>
-          <button type="button" aria-label="Sonraki görsel" disabled={page === pages.length - 1} onClick={() => go(page + 1)} className="grid h-11 w-11 place-items-center rounded-full border border-line bg-surface text-lg leading-none text-ink disabled:opacity-30">
+          <button type="button" aria-label={copy.nextImage} disabled={page === pages.length - 1} onClick={() => go(page + 1)} className="grid h-11 w-11 place-items-center rounded-full border border-line bg-surface text-lg leading-none text-ink disabled:opacity-30">
             <span aria-hidden>→</span>
           </button>
         </div>
@@ -538,13 +557,15 @@ function FilmTouch({ panels, columns }: { panels: FilmPanel[]; columns: 1 | 2 })
 function FilmFrame({ panel, active, clip }: { panel: FilmPanel; active: boolean; clip: string }) {
   return (
     <div className="absolute inset-0 overflow-hidden" style={{ clipPath: clip }}>
-      <img src={panel.image} alt="" aria-hidden draggable={false} className="absolute inset-0 h-full w-full object-cover grayscale" />
-      <img
-        src={panel.image}
-        alt={panel.alt}
-        draggable={false}
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-[cubic-bezier(0.215,0.61,0.355,1)] ${active ? "opacity-100" : "opacity-0"}`}
-      />
+      <FilmLink href={panel.href} label={panel.alt || panel.title} className="absolute inset-0 block">
+        <img src={panel.image} alt="" aria-hidden draggable={false} className="absolute inset-0 h-full w-full object-cover grayscale" />
+        <img
+          src={panel.image}
+          alt=""
+          draggable={false}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-[cubic-bezier(0.215,0.61,0.355,1)] ${active ? "opacity-100" : "opacity-0"}`}
+        />
+      </FilmLink>
     </div>
   );
 }

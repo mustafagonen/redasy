@@ -16,6 +16,11 @@ export function HeroBandEditor({ initialPanels }: { initialPanels: HeroPanelCont
   const [message, setMessage] = useState<{ tone: "ok" | "warn" | "error"; text: string } | null>(null);
   const files = useRef<Record<string, HTMLInputElement | null>>({});
 
+  function setHref(id: HeroPanelContent["id"], href: string) {
+    setPanels((current) => current.map((panel) => (panel.id === id ? { ...panel, href } : panel)));
+    setMessage(null);
+  }
+
   function update(id: HeroPanelContent["id"], lang: "tr" | "en" | "ar", field: keyof HeroCopy, value: string) {
     setPanels((current) =>
       current.map((panel) => (panel.id === id ? { ...panel, [lang]: { ...panel[lang], [field]: value } } : panel)),
@@ -103,8 +108,8 @@ export function HeroBandEditor({ initialPanels }: { initialPanels: HeroPanelCont
 
       <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8">
         <p className="max-w-3xl text-sm leading-6 text-muted">
-          Dört görsel ve altlarındaki gri şerit buradan yönetilir. Yeni görsel yüklendiğinde eskisi silinir.
-          Sitede görsel dururken CSS filtresiyle renksizdir, üzerine gelince kendi rengine döner. Türkçe metin sitede görünür.
+          Dört görsel ve altlarındaki gri şerit buradan yönetilir. Anasayfada bir görsele tıklanınca buradaki adrese gidilir.
+          Adres boşsa o görsel tıklanmaz. Yeni görsel yüklendiğinde eskisi silinir. Sitede görsel dururken renksizdir, üzerine gelince kendi rengine döner.
         </p>
 
         {message ? (
@@ -170,6 +175,18 @@ export function HeroBandEditor({ initialPanels }: { initialPanels: HeroPanelCont
                     {uploading === panel.id ? "Yükleniyor" : "Görseli değiştir"}
                   </button>
                 </div>
+
+                <label className="mt-5 block text-[12px] font-semibold text-muted" htmlFor={`${panel.id}-href`}>
+                  Tıklanınca gidilecek adres
+                  <input
+                    id={`${panel.id}-href`}
+                    value={panel.href}
+                    onChange={(event) => setHref(panel.id, event.target.value)}
+                    placeholder="/urunler/..."
+                    className="field mt-1 w-full rounded-xl px-3 py-2.5 text-sm font-medium"
+                  />
+                </label>
+                <p className="mt-2 text-[12px] leading-5 text-muted">Site içi adres / ile başlar. Dış adres için https:// yaz. Boş bırakılırsa görsel tıklanmaz.</p>
 
                 <div className="mt-5 grid gap-4 lg:grid-cols-3">
                   {languages.map((language) => {

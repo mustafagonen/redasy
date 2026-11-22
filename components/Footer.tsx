@@ -1,10 +1,19 @@
 import { Logo } from "@/components/Logo";
 import { telHref, whatsappHref, type ContactInfo } from "@/lib/contact";
+import type { Locale } from "@/lib/locale";
+import { phrase, ui } from "@/lib/messages";
 import { visibleChildren, type NavConfig } from "@/lib/nav";
 import { socialIcon, type SocialConfig } from "@/lib/social";
 
-export function Footer({ contact, social, nav }: { contact: ContactInfo; social: SocialConfig; nav: NavConfig }) {
-  const items = nav.items.filter((item) => item.visible && item.label);
+export function Footer({ contact, social, nav, locale }: { contact: ContactInfo; social: SocialConfig; nav: NavConfig; locale: Locale }) {
+  const copy = ui(locale);
+  const items = nav.items
+    .filter((item) => item.visible && item.label)
+    .map((item) => ({
+      ...item,
+      label: phrase(item.label, locale),
+      children: item.children.map((child) => ({ ...child, label: phrase(child.label, locale) })),
+    }));
   const groups = items
     .map((item) => ({ item, children: visibleChildren(item) }))
     .filter((group) => group.children.length);
@@ -19,7 +28,7 @@ export function Footer({ contact, social, nav }: { contact: ContactInfo; social:
           <Logo tone="light" />
           <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.22em] text-on-brand/45">Engineering & Industrial Group</p>
           <p data-theme="on-brand" className="mt-4 max-w-[34ch] text-[15px] leading-7 text-on-brand/72">
-            Mobil kırma ve eleme sistemleri, iş makinesi ataşmanları, araç üstü ekipmanlar ve mobil çözümler.
+            {copy.footerBlurb}
           </p>
           {socials.length ? (
             <ul className="mt-7 flex flex-wrap gap-2.5">
@@ -64,7 +73,7 @@ export function Footer({ contact, social, nav }: { contact: ContactInfo; social:
           ))}
 
           {links.length ? (
-            <nav aria-label="Ana menü">
+            <nav aria-label={copy.mainMenu}>
               <ul className="space-y-3">
                 {links.map((item) => (
                   <li key={item.id}>
@@ -78,17 +87,18 @@ export function Footer({ contact, social, nav }: { contact: ContactInfo; social:
           ) : null}
 
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-on-brand/45">İletişim</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-on-brand/45">{copy.contact}</p>
             <ul className="mt-4 space-y-4">
               <li>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-on-brand/38">Adres</p>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-on-brand/38">{copy.address}</p>
                 <p className="mt-1 text-[14px] leading-6 text-on-brand/78">{contact.address}</p>
               </li>
               {contact.phones.map((phone) => (
                 <li key={phone.id}>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-on-brand/38">{phone.whatsapp ? "WhatsApp" : phone.label}</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-on-brand/38">{phone.whatsapp ? "WhatsApp" : copy.phoneN(contact.phones.indexOf(phone) + 1)}</p>
                   <a
                     href={phone.whatsapp ? whatsappHref(phone.number) : telHref(phone.number)}
+                    dir="ltr"
                     className="mt-1 block text-[14px] text-on-brand/78 transition hover:text-on-brand"
                   >
                     {phone.number}
@@ -96,7 +106,7 @@ export function Footer({ contact, social, nav }: { contact: ContactInfo; social:
                 </li>
               ))}
               <li>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-on-brand/38">E-posta</p>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-on-brand/38">{copy.email}</p>
                 <a href={`mailto:${contact.email}`} className="mt-1 block break-all text-[14px] text-on-brand/78 transition hover:text-on-brand">
                   {contact.email}
                 </a>
@@ -108,13 +118,13 @@ export function Footer({ contact, social, nav }: { contact: ContactInfo; social:
 
       <div className="border-t border-on-brand/10">
         <div className="mx-auto flex max-w-[1200px] flex-col gap-3 px-5 pt-5 pb-24 text-[12px] text-on-brand/50 sm:px-8 md:flex-row md:items-center md:gap-6 md:py-5">
-          <p>© {year} REDASY. Tüm Hakları Saklıdır.</p>
+          <p>© {year} REDASY. {copy.rights}</p>
           <p className="flex flex-wrap gap-x-5 gap-y-2">
             <a href="/gizlilik" className="transition hover:text-on-brand">
-              Gizlilik Politikası
+              {copy.privacy}
             </a>
             <a href="/kullanim-kosullari" className="transition hover:text-on-brand">
-              Kullanım Koşulları
+              {copy.terms}
             </a>
           </p>
         </div>

@@ -4,6 +4,7 @@ import { HomePage } from "@/components/HomePage";
 import { normalizeHomeBlocks, type HomeBlock } from "@/lib/homeBlocks";
 import type { ContactInfo } from "@/lib/contact";
 import type { HeroPanelContent } from "@/lib/heroBand";
+import type { Locale } from "@/lib/locale";
 import type { StageStep } from "@/lib/stageSteps";
 import { useEffect, useState } from "react";
 
@@ -14,11 +15,13 @@ export function HomeComposer({
   heroPanels,
   contact,
   steps,
+  locale = "tr",
 }: {
   blocks: HomeBlock[];
   heroPanels: HeroPanelContent[];
   contact: ContactInfo;
   steps: StageStep[];
+  locale?: Locale;
 }) {
   const [live, setLive] = useState(blocks);
   const [selected, setSelected] = useState<string | null>(null);
@@ -61,5 +64,5 @@ export function HomeComposer({
     };
   }, []);
 
-  return <HomePage heroPanels={heroPanels} contact={contact} steps={steps} blocks={live} selectedId={selected} />;
+  return <HomePage heroPanels={heroPanels} contact={contact} steps={steps} blocks={live} locale={locale} selectedId={selected} />;
 }

@@ -1,12 +1,14 @@
 "use client";
 
+import type { Locale } from "@/lib/locale";
+import { ui } from "@/lib/messages";
 import { useEffect, useRef, useState, type PointerEvent } from "react";
 
 function pad(value: number) {
   return String(value).padStart(2, "0");
 }
 
-export function ProductGallery({ images, alt, framed = false }: { images: string[]; alt: string; framed?: boolean }) {
+export function ProductGallery({ images, alt, framed = false, locale = "tr" }: { images: string[]; alt: string; framed?: boolean; locale?: Locale }) {
   const shots = images.filter(Boolean);
   const [index, setIndex] = useState(0);
   const [open, setOpen] = useState(false);
@@ -15,6 +17,7 @@ export function ProductGallery({ images, alt, framed = false }: { images: string
   const currentIndex = shots.length ? ((index % shots.length) + shots.length) % shots.length : 0;
   const current = shots[currentIndex];
   const many = shots.length > 1;
+  const copy = ui(locale);
 
   function step(direction: -1 | 1) {
     if (shots.length < 2) return;
@@ -70,12 +73,12 @@ export function ProductGallery({ images, alt, framed = false }: { images: string
           onPointerDown={onPointerDown}
           onPointerUp={onPointerUp}
         >
-          <img key={current} src={current} alt={`${alt}, görsel ${currentIndex + 1}`} draggable={false} className="absolute inset-0 h-full w-full object-cover" />
+          <img key={current} src={current} alt={`${alt}, ${copy.imageN(currentIndex + 1)}`} draggable={false} className="absolute inset-0 h-full w-full object-cover" />
           {many ? (
             <>
               <button
                 type="button"
-                aria-label="Önceki görsel"
+                aria-label={copy.previousImage}
                 onPointerDown={(event) => event.stopPropagation()}
                 onClick={(event) => {
                   event.stopPropagation();
@@ -87,7 +90,7 @@ export function ProductGallery({ images, alt, framed = false }: { images: string
               </button>
               <button
                 type="button"
-                aria-label="Sonraki görsel"
+                aria-label={copy.nextImage}
                 onPointerDown={(event) => event.stopPropagation()}
                 onClick={(event) => {
                   event.stopPropagation();
@@ -111,7 +114,7 @@ export function ProductGallery({ images, alt, framed = false }: { images: string
               <button
                 key={`${src}-${imageIndex}`}
                 type="button"
-                aria-label={`Görsel ${imageIndex + 1}`}
+                aria-label={copy.imageN(imageIndex + 1)}
                 aria-current={active ? "true" : undefined}
                 onClick={() => setIndex(imageIndex)}
                 className="min-w-0 text-left"
@@ -119,7 +122,7 @@ export function ProductGallery({ images, alt, framed = false }: { images: string
                 <span className={`block aspect-[5/4] overflow-hidden border-2 bg-paper ${active ? "border-brand" : "border-line"}`}>
                   <img src={src} alt="" draggable={false} className="h-full w-full object-cover" />
                 </span>
-                <span className={`mt-1.5 block text-[11px] leading-none ${active ? "font-semibold text-ink" : "text-muted"}`}>Görsel {imageIndex + 1}</span>
+                <span className={`mt-1.5 block text-[11px] leading-none ${active ? "font-semibold text-ink" : "text-muted"}`}>{copy.imageN(imageIndex + 1)}</span>
               </button>
             );
           })}
@@ -127,7 +130,7 @@ export function ProductGallery({ images, alt, framed = false }: { images: string
 
         <dialog
           ref={dialogRef}
-          aria-label={`${alt} görselleri`}
+          aria-label={copy.galleryOf(alt)}
           className="m-0 h-full max-h-none w-full max-w-none border-0 bg-[#141618]/95 p-0 text-on-brand backdrop:bg-[#141618]/95"
           onClose={() => setOpen(false)}
           onClick={(event) => {
@@ -140,18 +143,18 @@ export function ProductGallery({ images, alt, framed = false }: { images: string
               <p className="shrink-0 text-[12px] font-semibold tracking-[0.14em]">
                 {pad(currentIndex + 1)}/{pad(shots.length)}
               </p>
-              <button type="button" autoFocus aria-label="Galeriyi kapat" onClick={() => setOpen(false)} className="grid h-9 w-9 shrink-0 place-items-center bg-white/10 text-lg leading-none">
+              <button type="button" autoFocus aria-label={copy.closeGallery} onClick={() => setOpen(false)} className="grid h-9 w-9 shrink-0 place-items-center bg-white/10 text-lg leading-none">
                 ×
               </button>
             </div>
             <div className="relative mt-4 min-h-0 flex-1">
-              <img src={current} alt={`${alt}, görsel ${currentIndex + 1}`} className="h-full w-full object-contain" />
+              <img src={current} alt={`${alt}, ${copy.imageN(currentIndex + 1)}`} className="h-full w-full object-contain" />
               {many ? (
                 <>
-                  <button type="button" aria-label="Önceki görsel" onClick={() => step(-1)} className="absolute top-1/2 left-0 grid h-10 w-10 -translate-y-1/2 place-items-center bg-white/10 text-xl leading-none">
+                  <button type="button" aria-label={copy.previousImage} onClick={() => step(-1)} className="absolute top-1/2 left-0 grid h-10 w-10 -translate-y-1/2 place-items-center bg-white/10 text-xl leading-none">
                     ‹
                   </button>
-                  <button type="button" aria-label="Sonraki görsel" onClick={() => step(1)} className="absolute top-1/2 right-0 grid h-10 w-10 -translate-y-1/2 place-items-center bg-white/10 text-xl leading-none">
+                  <button type="button" aria-label={copy.nextImage} onClick={() => step(1)} className="absolute top-1/2 right-0 grid h-10 w-10 -translate-y-1/2 place-items-center bg-white/10 text-xl leading-none">
                     ›
                   </button>
                 </>
@@ -161,7 +164,7 @@ export function ProductGallery({ images, alt, framed = false }: { images: string
               {shots.map((src, imageIndex) => {
                 const active = imageIndex === currentIndex;
                 return (
-                  <button key={`lightbox-${src}-${imageIndex}`} type="button" aria-label={`Görsel ${imageIndex + 1}`} aria-current={active ? "true" : undefined} onClick={() => setIndex(imageIndex)} className="w-16 shrink-0">
+                  <button key={`lightbox-${src}-${imageIndex}`} type="button" aria-label={copy.imageN(imageIndex + 1)} aria-current={active ? "true" : undefined} onClick={() => setIndex(imageIndex)} className="w-16 shrink-0">
                     <span className={`block h-12 overflow-hidden border-2 ${active ? "border-white" : "border-transparent opacity-60"}`}>
                       <img src={src} alt="" className="h-full w-full object-cover" />
                     </span>
@@ -194,10 +197,10 @@ export function ProductGallery({ images, alt, framed = false }: { images: string
         />
         {many ? (
           <div className="absolute inset-x-0 bottom-5 z-10 flex justify-between px-4 sm:px-6">
-            <button type="button" aria-label="Önceki görsel" onClick={() => step(-1)} className="grid h-11 w-11 place-items-center rounded-full bg-ink/75 text-lg text-on-brand">
+            <button type="button" aria-label={copy.previousImage} onClick={() => step(-1)} className="grid h-11 w-11 place-items-center rounded-full bg-ink/75 text-lg text-on-brand">
               ‹
             </button>
-            <button type="button" aria-label="Sonraki görsel" onClick={() => step(1)} className="grid h-11 w-11 place-items-center rounded-full bg-ink/75 text-lg text-on-brand">
+            <button type="button" aria-label={copy.nextImage} onClick={() => step(1)} className="grid h-11 w-11 place-items-center rounded-full bg-ink/75 text-lg text-on-brand">
               ›
             </button>
           </div>
@@ -209,7 +212,7 @@ export function ProductGallery({ images, alt, framed = false }: { images: string
             <button
               key={`${src}-${imageIndex}`}
               type="button"
-              aria-label={`${imageIndex + 1}. görsel`}
+              aria-label={copy.imageN(imageIndex + 1)}
               aria-current={imageIndex === currentIndex}
               onClick={() => setIndex(imageIndex)}
               className={`h-16 w-[4.75rem] shrink-0 overflow-hidden border-2 bg-surface ${imageIndex === currentIndex ? "border-brand" : "border-transparent"}`}

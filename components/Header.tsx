@@ -1,9 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { LanguageSwitch } from "@/components/LanguageSwitch";
+import { NoticeTicker } from "@/components/NoticeTicker";
 import { Logo } from "@/components/Logo";
 import { SubmenuPanel } from "@/components/SubmenuPanel";
 import { publicPhones, telHref, type ContactInfo } from "@/lib/contact";
+import type { Locale } from "@/lib/locale";
+import type { Notice } from "@/lib/notice";
+import { phrase, ui } from "@/lib/messages";
 import { visibleChildren, type NavConfig, type NavItem } from "@/lib/nav";
 import { socialIcon, type SocialConfig } from "@/lib/social";
 
@@ -12,7 +17,7 @@ function Social({ social }: { social: SocialConfig }) {
   if (!links.length) return null;
 
   return (
-    <div className="flex items-center gap-3.5">
+    <div className="flex shrink-0 items-center gap-3.5">
       {links.map((item) => {
         const icon = socialIcon(item.id);
         return (
@@ -36,12 +41,23 @@ function Social({ social }: { social: SocialConfig }) {
 
 type MenuPhase = "closed" | "open" | "closing";
 
-export function Header({ contact, social, nav }: { contact: ContactInfo; social: SocialConfig; nav: NavConfig }) {
+function translatedNav(nav: NavConfig, locale: Locale): NavConfig {
+  return {
+    items: nav.items.map((item) => ({
+      ...item,
+      label: phrase(item.label, locale),
+      children: item.children.map((child) => ({ ...child, label: phrase(child.label, locale) })),
+    })),
+  };
+}
+
+export function Header({ contact, social, nav, notice, locale }: { contact: ContactInfo; social: SocialConfig; nav: NavConfig; notice: Notice; locale: Locale }) {
   const [phase, setPhase] = useState<MenuPhase>("closed");
   const [menu, setMenu] = useState<string | null>(null);
   const [mobileMenu, setMobileMenu] = useState<string | null>(null);
   const call = publicPhones(contact)[0];
-  const items = nav.items.filter((item) => item.visible && item.label);
+  const copy = ui(locale);
+  const items = translatedNav(nav, locale).items.filter((item) => item.visible && item.label);
   const menuOpen = phase !== "closed";
 
   useEffect(() => {
@@ -80,16 +96,18 @@ export function Header({ contact, social, nav }: { contact: ContactInfo; social:
   return (
     <header id="anasayfa" data-theme="surface" className={`relative bg-surface ${menuOpen ? "z-50" : "z-30"}`}>
       <div data-theme="brand-bar" className="bg-brand-bar text-on-brand">
-        <div className="mx-auto flex h-9 max-w-[1200px] items-center justify-end px-5 sm:px-8">
+        <div className="mx-auto flex h-9 max-w-[1200px] items-center justify-between gap-4 px-5 sm:px-8">
           <Social social={social} />
+          <NoticeTicker notice={notice} locale={locale} />
+          <LanguageSwitch locale={locale} />
         </div>
       </div>
       <div className="border-b border-line">
         <div className="mx-auto flex h-[4.25rem] max-w-[1200px] items-center justify-between gap-6 px-5 sm:px-8">
           <Logo />
-          <nav className="hidden items-center gap-7 lg:flex" aria-label="Ana menü">
+          <nav className="hidden items-center gap-7 lg:flex" aria-label={copy.mainMenu}>
             {items.map((item) => (
-              <DesktopItem key={item.id} item={item} open={menu === item.id} onOpen={() => setMenu(item.id)} onClose={() => setMenu((current) => (current === item.id ? null : current))} />
+              <DesktopItem key={item.id} item={item} copy={copy} open={menu === item.id} onOpen={() => setMenu(item.id)} onClose={() => setMenu((current) => (current === item.id ? null : current))} />
             ))}
           </nav>
           {call ? (
@@ -103,7 +121,7 @@ export function Header({ contact, social, nav }: { contact: ContactInfo; social:
             className={`inline-flex h-11 w-11 items-center justify-center rounded-full border transition duration-300 lg:hidden ${phase === "open" ? "border-brand" : "border-line"}`}
             aria-expanded={phase === "open"}
             aria-controls="site-menu"
-            aria-label={phase === "open" ? "Menüyü kapat" : "Menüyü aç"}
+            aria-label={phase === "open" ? copy.closeMenu : copy.openMenu}
             onClick={toggleMenu}
           >
             <span className="relative block h-[13px] w-4">
@@ -116,9 +134,9 @@ export function Header({ contact, social, nav }: { contact: ContactInfo; social:
       </div>
       {menuOpen ? (
         <div className={`fixed inset-x-0 bottom-0 top-[105px] lg:hidden ${phase === "closing" ? "menu-closing" : ""}`}>
-          <nav id="site-menu" data-theme="paper" className="menu-panel flex h-full flex-col border-t-2 border-brand bg-paper shadow-[0_28px_70px_rgba(26,26,26,0.16)]" aria-label="Mobil menü">
+          <nav id="site-menu" data-theme="paper" className="menu-panel flex h-full flex-col border-t-2 border-brand bg-paper shadow-[0_28px_70px_rgba(26,26,26,0.16)]" aria-label={copy.mobileMenu}>
             <div className="flex items-center justify-between px-6 pt-6 pb-1 sm:px-10">
-              <p data-theme="soft" className="text-[11px] font-semibold uppercase tracking-[0.24em] text-soft">Menü</p>
+              <p data-theme="soft" className="text-[11px] font-semibold uppercase tracking-[0.24em] text-soft">{copy.menu}</p>
               <p data-theme="brand" className="font-display text-[11px] font-bold tracking-[0.2em] text-brand">REDASY</p>
             </div>
             <div className="min-h-0 flex-1 overflow-y-auto px-6 sm:px-10">
@@ -144,7 +162,7 @@ export function Header({ contact, social, nav }: { contact: ContactInfo; social:
                             type="button"
                             className={`grid h-11 w-11 shrink-0 place-items-center rounded-full border transition ${expanded ? "border-brand text-brand" : "border-line text-header"}`}
                             aria-expanded={expanded}
-                            aria-label={expanded ? `${item.label} alt menüsünü kapat` : `${item.label} alt menüsünü aç`}
+                            aria-label={expanded ? copy.closeSub(item.label) : copy.openSub(item.label)}
                             onClick={() => setMobileMenu(expanded ? null : item.id)}
                           >
                             <Chevron className={expanded ? "rotate-180" : ""} />
@@ -174,7 +192,7 @@ export function Header({ contact, social, nav }: { contact: ContactInfo; social:
               <div className="border-t border-line px-6 py-5 sm:px-10">
                 <a href={telHref(call.number)} data-theme="brand" className="menu-row flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-3.5 text-sm font-semibold text-on-brand" style={{ animationDelay: `${90 + items.length * 60}ms` }}>
                   <PhoneIcon className="text-on-brand" />
-                  Ara · {call.number}
+                  {copy.call} · <span dir="ltr">{call.number}</span>
                 </a>
               </div>
             ) : null}
@@ -185,7 +203,7 @@ export function Header({ contact, social, nav }: { contact: ContactInfo; social:
   );
 }
 
-function DesktopItem({ item, open, onOpen, onClose }: { item: NavItem; open: boolean; onOpen: () => void; onClose: () => void }) {
+function DesktopItem({ item, copy, open, onOpen, onClose }: { item: NavItem; copy: ReturnType<typeof ui>; open: boolean; onOpen: () => void; onClose: () => void }) {
   const children = visibleChildren(item);
   const linkClass = `text-[12.5px] font-semibold uppercase tracking-[0.14em] ${open ? "text-brand" : "text-header hover:text-brand"}`;
 
@@ -214,7 +232,7 @@ function DesktopItem({ item, open, onOpen, onClose }: { item: NavItem; open: boo
             type="button"
             className={`grid h-6 w-6 place-items-center ${open ? "text-brand" : "text-header"}`}
             aria-expanded={open}
-            aria-label={open ? `${item.label} alt menüsünü kapat` : `${item.label} alt menüsünü aç`}
+            aria-label={open ? copy.closeSub(item.label) : copy.openSub(item.label)}
             onClick={() => (open ? onClose() : onOpen())}
             onFocus={onOpen}
           >

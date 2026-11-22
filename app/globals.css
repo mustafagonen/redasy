@@ -74,6 +74,11 @@ body {
   overflow-x: clip;
 }
 
+html[dir="rtl"] body,
+html[dir="rtl"] .font-display {
+  font-family: var(--font-arabic);
+}
+
 .snap-row {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -100,6 +105,42 @@ body {
   display: inline-block;
   animation: nudge-x 1.3s ease-in-out infinite;
 }
+
+.notice-window {
+  container-type: inline-size;
+  mask-image: linear-gradient(90deg, transparent, #000 20px, #000 calc(100% - 48px), transparent);
+}
+
+.notice-track {
+  display: flex;
+  width: max-content;
+  animation: notice-marquee 32s linear infinite;
+}
+
+.notice-track > span {
+  flex: none;
+  padding-inline-end: 100cqi;
+  white-space: nowrap;
+}
+
+.notice-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes notice-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+html[dir="rtl"] .notice-track {
+  animation-name: notice-marquee-rtl;
+}
+
+@keyframes notice-marquee-rtl {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
 
 @keyframes menu-curtain {
   from { clip-path: inset(0 0 100% 0); }

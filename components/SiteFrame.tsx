@@ -7,17 +7,19 @@ import { readNav } from "@/lib/navStore";
 import { readSocial } from "@/lib/socialStore";
 import { themeVars } from "@/lib/theme";
 import { readTheme } from "@/lib/themeStore";
+import { getLocale } from "@/lib/getLocale";
+import { readNotice } from "@/lib/noticeStore";
 import type { CSSProperties } from "react";
 
 export async function SiteFrame({ children }: { children: React.ReactNode }) {
-  const [contact, social, nav, theme] = await Promise.all([readContact(), readSocial(), readNav(), readTheme()]);
+  const [contact, social, nav, theme, notice, locale] = await Promise.all([readContact(), readSocial(), readNav(), readTheme(), readNotice(), getLocale()]);
   return (
     <div data-site style={themeVars(theme) as CSSProperties} className="min-h-screen bg-surface text-ink">
       <ThemeBridge />
-      <Header contact={contact} social={social} nav={nav} />
+      <Header contact={contact} social={social} nav={nav} notice={notice} locale={locale} />
       <main>{children}</main>
-      <Footer contact={contact} social={social} nav={nav} />
-      <WhatsAppChat contact={contact} />
+      <Footer contact={contact} social={social} nav={nav} locale={locale} />
+      <WhatsAppChat contact={contact} locale={locale} />
     </div>
   );
 }

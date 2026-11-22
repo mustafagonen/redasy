@@ -82,7 +82,7 @@ export function SocialEditor({ initial }: { initial: SocialConfig }) {
 
         <div className="mt-6 overflow-hidden rounded-2xl bg-brand px-5 py-4 text-white shadow-[0_10px_30px_rgba(85,5,6,0.16)]">
           <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/55">Üst bant önizleme</p>
-          <div className="mt-3 flex min-h-6 items-center justify-end gap-3.5">
+          <div className="mt-3 flex min-h-6 items-center justify-start gap-3.5">
             {preview.length ? (
               preview.map((link) => {
                 const icon = socialCatalog.find((item) => item.id === link.id);

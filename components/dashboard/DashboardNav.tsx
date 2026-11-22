@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 
 const items = [
   { href: "/dashboard/sosyal", label: "Sosyal medya", icon: "share" },
+  { href: "/dashboard/duyuru", label: "Özel Uyarı", icon: "notice" },
   { href: "/dashboard/menu", label: "Navbar Üst Menü", icon: "menu" },
   { href: "/dashboard/sayfalar", label: "Statik Alt Sayfalar", icon: "pages" },
   { href: "/dashboard/urunler", label: "Kategoriler ve Ürünler", icon: "products" },
@@ -86,6 +87,13 @@ function NavIcon({ name }: { name: (typeof items)[number]["icon"] }) {
         </>
       ) : null}
       {name === "phone" ? <path d="M8 4.4h2.1l1.1 2.8-1.6 1a8.2 8.2 0 0 0 4.4 4.4l1-1.6 2.8 1.1v2.1a1.6 1.6 0 0 1-1.7 1.6A12.2 12.2 0 0 1 6.4 6.1 1.6 1.6 0 0 1 8 4.4Z" /> : null}
+      {name === "notice" ? (
+        <>
+          <path d="M5 10h3.4L14 6.4v11.2L8.4 14H5z" />
+          <path d="M16.2 9.2a3.4 3.4 0 0 1 0 5.6" />
+          <path d="M7.4 14.2v2.4" />
+        </>
+      ) : null}
       {name === "mail" ? (
         <>
           <rect x="4" y="6" width="16" height="12" rx="1.8" />

@@ -1,5 +1,7 @@
 import type { ContactInfo } from "@/lib/contact";
 import type { HeroPanelContent, HeroPanelId } from "@/lib/heroBand";
+import { pick, type Locale } from "@/lib/locale";
+import { phrase, ui } from "@/lib/messages";
 import type { PageSlug, SitePage } from "@/lib/pages";
 
 type ShotId = HeroPanelId | "atolye";
@@ -23,28 +25,23 @@ function focusOf(id: ShotId) {
   return "center center";
 }
 
-function shotOf(panels: HeroPanelContent[], id: ShotId) {
-  if (id === "atolye") return { src: "/images/home/atolye.jpg", alt: "Atölyede kaynak yapan çalışanlar", gray: false, focus: focusOf(id) };
+function shotOf(panels: HeroPanelContent[], id: ShotId, locale: Locale) {
+  if (id === "atolye") return { src: "/images/home/atolye.jpg", alt: phrase("Atölyede kaynak yapan çalışanlar", locale), gray: false, focus: focusOf(id) };
   const panel = panels.find((item) => item.id === id);
-  return { src: panel?.image ?? "", alt: panel?.tr.title ?? "", gray: true, focus: focusOf(id) };
+  return { src: panel?.image ?? "", alt: panel ? pick({ tr: panel.tr.title, en: panel.en.title, ar: panel.ar.title }, locale) : "", gray: true, focus: focusOf(id) };
 }
 
-const figures = [
-  { value: "25+", label: "Yıllık Deneyim" },
-  { value: "150+", label: "Tamamlanan Proje" },
-  { value: "45+", label: "İhracat Yapılan Ülke" },
-  { value: "500+", label: "Uzman Personel" },
-];
-
-export function InstitutionPage({ page, pages, contact, heroPanels }: { page: SitePage; pages: SitePage[]; contact: ContactInfo; heroPanels: HeroPanelContent[] }) {
-  const frame = shotOf(heroPanels, frames[page.slug]);
+export function InstitutionPage({ page, pages, contact, heroPanels, locale = "tr" }: { page: SitePage; pages: SitePage[]; contact: ContactInfo; heroPanels: HeroPanelContent[]; locale?: Locale }) {
+  const copy = ui(locale);
+  const frame = shotOf(heroPanels, frames[page.slug], locale);
+  const figures = copy.stats;
 
   return (
     <article>
       <header data-theme="brand" className="bg-brand text-on-brand">
         <div className="grid lg:min-h-[640px] lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)]">
           <div className="flex flex-col justify-between px-6 py-12 sm:px-10 lg:px-14 lg:py-16">
-            <p data-theme="on-brand" className="text-[12px] font-semibold uppercase tracking-[0.28em] text-on-brand/55">Kurumsal</p>
+            <p data-theme="on-brand" className="text-[12px] font-semibold uppercase tracking-[0.28em] text-on-brand/55">{copy.corporate}</p>
             <div className="mt-10 lg:mt-0">
               <h1 data-theme="on-brand" className="max-w-[16ch] font-display text-[2.15rem] font-extrabold uppercase leading-[0.95] tracking-tight text-on-brand sm:text-[3.1rem] lg:text-[3.7rem]">
                 {page.title}
@@ -77,7 +74,7 @@ export function InstitutionPage({ page, pages, contact, heroPanels }: { page: Si
       </header>
 
       {page.slug === "hakkimizda" ? (
-        <section data-theme="paper" className="bg-paper" aria-label="Rakamlar">
+        <section data-theme="paper" className="bg-paper" aria-label={copy.figures}>
           <div className="mx-auto grid max-w-[1440px] grid-cols-2 lg:grid-cols-4">
             {figures.map((item) => (
               <div key={item.label} className="border-b border-line px-6 py-8 sm:px-10 lg:border-b-0 lg:border-r lg:last:border-r-0">
@@ -93,7 +90,7 @@ export function InstitutionPage({ page, pages, contact, heroPanels }: { page: Si
         <section key={section.id} id={section.id} data-theme={index % 2 ? "surface" : "stage"} className={`scroll-mt-6 border-t border-line ${index % 2 ? "bg-surface" : "bg-stage"}`}>
           <div className="grid lg:grid-cols-2">
             <div className={`relative min-h-[340px] sm:min-h-[460px] ${index % 2 ? "lg:order-2" : ""}`}>
-              <Study kind={(index % 3) as 0 | 1 | 2} shot={shotOf(heroPanels, studies[page.slug][index % 3])} mark={String(index + 1).padStart(2, "0")} />
+              <Study kind={(index % 3) as 0 | 1 | 2} shot={shotOf(heroPanels, studies[page.slug][index % 3], locale)} mark={String(index + 1).padStart(2, "0")} />
             </div>
             <div className="flex flex-col justify-center px-6 py-14 sm:px-12 lg:px-16 lg:py-20">
               <p data-theme="brand" className="font-display text-[4.5rem] font-bold leading-none text-brand/15">{String(index + 1).padStart(2, "0")}</p>
@@ -106,7 +103,7 @@ export function InstitutionPage({ page, pages, contact, heroPanels }: { page: Si
         </section>
       ))}
 
-      <nav data-theme="band" className="bg-band text-on-brand" aria-label="Kurumsal sayfalar">
+      <nav data-theme="band" className="bg-band text-on-brand" aria-label={copy.corporatePages}>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4">
           {pages.map((item, index) => {
             const current = item.slug === page.slug;
