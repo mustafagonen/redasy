@@ -14,9 +14,16 @@ import {
 } from "@/lib/catalog";
 import { pick, type Locale } from "@/lib/locale";
 import { phrase, ui } from "@/lib/messages";
+import { activitySummary } from "@/lib/seo";
 
 function say(copy: Copy, locale: Locale) {
   return pick(copy, locale);
+}
+
+function ActivityIntro({ category, locale }: { category: Category; locale: Locale }) {
+  const text = activitySummary(category.slug, locale, say(category.lead, locale));
+  if (!text) return null;
+  return <p data-theme="muted" className="mt-3 max-w-[68ch] text-[15px] leading-7 text-muted">{text}</p>;
 }
 
 const frames: Record<string, { src: string; alt: string }> = {
@@ -261,6 +268,7 @@ export function CatalogView({
         <section data-theme="surface" className="bg-surface">
           <div className="mx-auto max-w-[1200px] px-5 pb-14 pt-6 sm:px-8 sm:pt-8 lg:pb-16">
             <h1 className="font-display text-[1.7rem] font-extrabold leading-tight tracking-tight text-ink sm:text-[2.05rem]">{say(area.title, locale)}</h1>
+            <ActivityIntro category={category && category.id !== area.id ? category : area} locale={locale} />
             <div className="mt-4"><RootTabs catalog={catalog} roots={groups} activeId={activeGroup.id} locale={locale} /></div>
             <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3 lg:mt-6">
             {listed.length ? (

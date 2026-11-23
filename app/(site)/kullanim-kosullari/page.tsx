@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import { readContact } from "@/lib/contactStore";
 import { getLocale } from "@/lib/getLocale";
 import { ui } from "@/lib/messages";
+import { pageMeta } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
-  return { title: `${ui(locale).terms} | REDASY` };
+  const copy = ui(locale);
+  return pageMeta(locale, { title: copy.terms, description: copy.termsLead, path: "/kullanim-kosullari" });
 }
 
 export default async function TermsPage() {

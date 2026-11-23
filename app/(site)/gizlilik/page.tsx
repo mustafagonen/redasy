@@ -3,10 +3,12 @@ import { readContact } from "@/lib/contactStore";
 import { telHref } from "@/lib/contact";
 import { getLocale } from "@/lib/getLocale";
 import { ui } from "@/lib/messages";
+import { pageMeta } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
-  return { title: `${ui(locale).privacy} | REDASY` };
+  const copy = ui(locale);
+  return pageMeta(locale, { title: copy.privacy, description: copy.privacyLead, path: "/gizlilik" });
 }
 
 export default async function GizlilikPage() {

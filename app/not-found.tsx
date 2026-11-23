@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import { SiteFrame } from "@/components/SiteFrame";
 import { getLocale } from "@/lib/getLocale";
 import { ui } from "@/lib/messages";
+
+export const metadata: Metadata = {
+  title: { absolute: "Sayfa bulunamadı | REDASY" },
+  robots: { index: false, follow: false },
+};
 
 export default async function NotFound() {
   const copy = ui(await getLocale());

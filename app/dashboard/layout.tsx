@@ -3,7 +3,8 @@ import { DashboardNav } from "@/components/dashboard/DashboardNav";
 import { Logo } from "@/components/Logo";
 
 export const metadata: Metadata = {
-  title: "Yönetim | REDASY",
+  title: { absolute: "Yönetim | REDASY" },
+  robots: { index: false, follow: false },
 };
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {

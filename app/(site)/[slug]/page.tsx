@@ -7,6 +7,7 @@ import { pageSlugs, type PageSlug } from "@/lib/pages";
 import { getLocale } from "@/lib/getLocale";
 import { localizedPage } from "@/lib/messages";
 import { readPages } from "@/lib/pagesStore";
+import { pageMeta, pageSummary } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -18,7 +19,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const [pages, locale] = await Promise.all([readPages(), getLocale()]);
   const page = pages.find((item) => item.slug === slug);
-  return { title: page ? `${localizedPage(page, locale).title} | REDASY` : "REDASY" };
+  if (!page) return { title: { absolute: "REDASY" } };
+  const localized = localizedPage(page, locale);
+  return pageMeta(locale, {
+    title: localized.title,
+    description: pageSummary(slug, locale, localized.lead),
+    path: `/${slug}`,
+  });
 }
 
 export default async function ContentPage({ params }: { params: Promise<{ slug: string }> }) {
